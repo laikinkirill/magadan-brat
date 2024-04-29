@@ -1,0 +1,10 @@
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  //   background-color: red;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    // padding: 0 20px;
+  }
+}

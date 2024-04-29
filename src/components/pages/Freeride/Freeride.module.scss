@@ -1,0 +1,82 @@
+.cover {
+  background-image: url(../../../img/freeride/freeride-cover.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: calc(100vh - 101px);
+
+  color: #fff;
+
+  @media screen and (max-width: 767px) {
+    height: calc(100vh - 83px);
+  }
+}
+
+.flexBox {
+  position: relative;
+  z-index: 9999;
+  display: flex;
+  gap: 0 48px;
+
+  height: calc(100vh - 301px);
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    height: calc(100vh - 83px);
+    justify-content: center;
+    gap: 32px 0;
+  }
+}
+
+.item {
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    & > .text {
+      opacity: 1;
+      transition: all 0.2s;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.text {
+  font-size: 24px;
+  line-height: 32px;
+  width: 75%;
+  margin: 8px auto;
+  transition: all 0.2s;
+
+  opacity: 0;
+
+  @media screen and (max-width: 767px) {
+    opacity: 1;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.img {
+  margin-bottom: 32px;
+}
+
+.overlay {
+  position: absolute;
+  top: 101px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  height: calc(100vh - 101px);
+  width: 100%;
+
+  @media screen and (max-width: 767px) {
+    height: calc(100vh - 83px);
+    top: 83px;
+  }
+}

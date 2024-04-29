@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@100..900&display=swap");
+
+body {
+  font-family: "Jost", sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #131313;
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  font-size: 72px;
+  line-height: 96px;
+}
+
+h2 {
+  font-size: 64px;
+  line-height: 80px;
+}
+
+h3 {
+  font-size: 48px;
+  line-height: 64px;
+}
+
+h4 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 500 !important;
+}
+
+/* slider */
+
+.swiper {
+  width: 960px;
+  height: 540px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  background-size: contain;
+}
+
+.swiper-slide:nth-child(1n) {
+  background-image: url(./img//souvenir/01.jpg);
+}
+
+.swiper-slide:nth-child(2n) {
+  background-image: url(./img//souvenir/02.jpg);
+}
+
+.swiper-slide:nth-child(3n) {
+  background-image: url(./img//souvenir/03.jpg);
+}
+
+.swiper-slide:nth-child(4n) {
+  background-image: url(./img//souvenir/04.jpg);
+}
+
+@media screen and (max-width: 767px) {
+  h3,
+  h4 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .swiper {
+    width: 270px;
+    height: 480px;
+  }
+
+  .swiper-slide {
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}

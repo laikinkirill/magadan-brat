@@ -1,0 +1,151 @@
+.main {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  @media screen and (max-width: 767px) {
+    height: 240%;
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
+.video {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+  object-fit: cover;
+
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.videoMobile {
+  display: none;
+
+  @media screen and (max-width: 767px) {
+    display: block;
+
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    object-fit: cover;
+  }
+}
+
+.reactLink {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: all 0.2s;
+  }
+}
+
+.mainTitle {
+  margin-top: 80px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 32px;
+    text-align: center;
+    width: 70%;
+  }
+}
+
+.row {
+  gap: 0 48px;
+  display: flex;
+
+  margin-top: 144px;
+  margin-bottom: 220px;
+
+  @media screen and (max-width: 767px) {
+    margin-top: 64px;
+    margin-bottom: 80px;
+    flex-direction: column;
+    gap: 48px 0;
+  }
+
+  & img {
+    @media screen and (max-width: 767px) {
+      width: 80%;
+    }
+  }
+}
+
+.card {
+  min-width: 368px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.image {
+  min-width: 280px;
+  display: flex;
+  margin-bottom: 24px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.text {
+  max-width: 280px;
+  text-align: center;
+}
+
+.social {
+  display: flex;
+  gap: 0 48px;
+
+  @media screen and (max-width: 767px) {
+    flex-direction: column;
+    gap: 48px 0;
+    padding-bottom: 80px;
+  }
+}
+
+.socialItem {
+  display: flex;
+  align-items: center;
+  width: 264px;
+}
+
+.iconBox {
+  padding: 16px;
+  margin-right: 16px;
+  position: relative;
+
+  &::after {
+    content: "";
+
+    height: 40px;
+    width: 2px;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 20px);
+    background-color: #fff;
+    border-radius: 2px;
+  }
+}
+
+.name {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.link {
+  font-size: 24px;
+  line-height: 32px;
+}

@@ -1,0 +1,18 @@
+.souvenir {
+  overflow: hidden;
+}
+
+.cover {
+  background-color: #fff4ee;
+  height: calc(100vh - 101px);
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    height: calc(100vh - 83px);
+  }
+}
+
+.img {
+  object-fit: contain;
+}
