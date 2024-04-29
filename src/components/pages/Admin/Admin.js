@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Admin.module.scss";
 import axios from "axios";
+import Container from "../../Container/Container";
+import Header from "../../Header/Header";
 
 function Admin() {
   const [isInputValue, setIsInputValue] = useState("");
@@ -43,20 +45,29 @@ function Admin() {
   return (
     <>
       {isAdmin === "admin" ? (
-        <div className={styles.test}>
-          <h1>{fact}</h1>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="Мой текст"
-            value={inputValue}
-            onChange={handleInputChange}
-          />
-          {/* {inputValue} */}
-          <div value="Find fact" className={styles.button} onClick={putFact}>
-            Изменить
-          </div>
-        </div>
+        <>
+          <Header />
+          <Container>
+            <div className={styles.test}>
+              <h1>{fact}</h1>
+              <input
+                className={styles.input}
+                type="text"
+                placeholder="Мой текст"
+                value={inputValue}
+                onChange={handleInputChange}
+              />
+              {/* {inputValue} */}
+              <div
+                value="Find fact"
+                className={styles.button}
+                onClick={putFact}
+              >
+                Изменить
+              </div>
+            </div>
+          </Container>
+        </>
       ) : (
         <div className={styles.login}>
           <input
