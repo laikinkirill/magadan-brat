@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
-import { Accordion, Header } from '../../components'
+import { Header } from '../../components'
+import { Accordion } from '../../UI'
 import classNames from 'classnames'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';

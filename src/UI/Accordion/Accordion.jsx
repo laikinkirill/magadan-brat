@@ -4,6 +4,7 @@ import c from './accordion.module.scss'
 const Accordion = ({ accordion }) => {
    return (
       <ul className={c.accordion} >
+
          {accordion.map((elem, i) => (
             <li key={i} >
                <p>{elem?.title}</p>
@@ -12,6 +13,7 @@ const Accordion = ({ accordion }) => {
                <i></i>
             </li>
          ))}
+
       </ul>
    )
 }

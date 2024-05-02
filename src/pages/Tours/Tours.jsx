@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
-import { Accordion, Header } from "../../components";
-import { Button } from "../../UI/button/Button"
+import { Header } from "../../components";
+import { Button, Accordion } from "../../UI"
 import classNames from "classnames"
 
 import c from './tours.module.scss'
