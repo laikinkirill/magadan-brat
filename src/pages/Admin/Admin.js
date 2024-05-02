@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Admin.module.scss";
 import axios from "axios";
-import Container from "../../Container/Container";
-import Header from "../../Header/Header";
+import { Container, Header } from "../../components";
 
 function Admin() {
   const [isInputValue, setIsInputValue] = useState("");

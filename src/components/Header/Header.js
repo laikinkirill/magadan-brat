@@ -1,16 +1,18 @@
 import React, { useState } from "react";
-import logo from "../../img/logo.svg";
-import styles from "./Header.module.scss";
-import Container from "../Container/Container";
+import logo from "../../assets/img/logo.svg";
+import { Container } from "../";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 // import burgerIcon from "../../img/icons/burger.svg";
 
-function Header() {
+import styles from "./Header.module.scss";
+
+
+function Header({ className }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={styles.header}>
+    <div className={classNames(styles.header, className)}>
       <Container>
         <div className={styles.wrapper}>
           <Link to="/" className={styles.menuItem}>
@@ -83,4 +85,4 @@ function Header() {
   );
 }
 
-export default Header;
+export { Header };

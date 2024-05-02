@@ -1,11 +1,19 @@
-import "./App.css";
+import { Suspense, lazy } from "react"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Tours from "./components/pages/Tours/Tours";
-import Souvenir from "./components/pages/Souvenir/Souvenir";
-import Main from "./components/pages/Main/Main";
-import Error from "./components/pages/Error/Error";
-import Admin from "./components/pages/Admin/Admin";
-import Freeride from "./components/pages/Freeride/Freeride";
+
+import "./App.css";
+
+import Tours from "./pages/Tours/Tours";
+import Souvenir from "./pages/Souvenir/Souvenir";
+import Main from "./pages/Main/Main";
+import Error from "./pages/Error/Error";
+import Freeride from "./pages/Freeride/Freeride";
+
+import { JackLondonLake } from "./pages/JackLondonLake/JackLondonLake";
+
+// Страница не будет загружаться пока на нее не перейти
+// Чтобы пользователи не загружали лишний код
+const AdminPageLazy = lazy(() => import('./pages/Admin/Admin'))
 
 function App() {
   return (
@@ -16,7 +24,12 @@ function App() {
         <Route path="tours" element={<Tours />} />
         <Route path="souvenir" element={<Souvenir />} />
         <Route path="freeride" element={<Freeride />} />
-        <Route path="admin" element={<Admin />} />
+        <Route path="jack-london-lake" element={<JackLondonLake />} />
+        <Route path="admin" element={
+            <Suspense fallback={<span>Загрузка</span>} >
+               <AdminPageLazy />
+            </Suspense>
+         } />
       </Routes>
     </BrowserRouter>
   );

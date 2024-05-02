@@ -1,8 +1,10 @@
 import React from "react";
-import Header from "../../Header/Header";
+import { Container, Header } from "../../components";
+
 import styles from "./Freeride.module.scss";
-import mountIcon from "../../../img/freeride/icon-mount.svg";
-import Container from "../../Container/Container";
+
+import mountIcon from "../../assets/img/freeride/icon-mount.svg";
+
 
 function Freeride() {
   return (

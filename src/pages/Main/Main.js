@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import styles from "./Main.module.scss";
-import icon1 from "../../../img/main/01.svg";
-import icon2 from "../../../img/main/02.svg";
-import icon3 from "../../../img/main/03.svg";
-
-import telegram from "../../../img/icons/telegram.svg";
-import rutube from "../../../img/icons/rutube.svg";
-import youtube from "../../../img/icons/youtube.svg";
-import vk from "../../../img/icons/vk.svg";
-
-import video from "../../../video/main.mp4";
-import videoMobile from "../../../video/main-mobile.mp4";
-
-import poster from "../../../video/poster.jpg";
-import posterMbile from "../../../video/poster-mobile.png";
-
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+import styles from "./Main.module.scss";
+
+import icon1 from "../../assets/img/main/01.svg";
+import icon2 from "../../assets/img/main/02.svg";
+import icon3 from "../../assets/img/main/03.svg";
+
+import telegram from "../../assets/img/icons/telegram.svg";
+import rutube from "../../assets/img/icons/rutube.svg";
+import youtube from "../../assets/img/icons/youtube.svg";
+import vk from "../../assets/img/icons/vk.svg";
+
+import video from "../../assets/video/main.mp4";
+import videoMobile from "../../assets/video/main-mobile.mp4";
+
+import poster from "../../assets/video/poster.jpg";
+import posterMbile from "../../assets/video/poster-mobile.png";
+
 
 function Main() {
   const [fact, setFact] = useState();
