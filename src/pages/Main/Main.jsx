@@ -18,18 +18,12 @@ import videoMobile from "../../assets/video/main-mobile.mp4";
 
 import poster from "../../assets/video/poster.jpg";
 import posterMbile from "../../assets/video/poster-mobile.png";
+import { useMainPageStore } from "../../store/mainPage"
 
 
 function Main() {
-//   const [fact, setFact] = useState();
 
-//   useEffect(() => {
-//     axios
-//       .get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
-//       .then((response) => {
-//         setFact(response.data.text);
-//       });
-//   }, [fact]);
+   const store = useMainPageStore()
 
   return (
     <>
@@ -67,7 +61,7 @@ function Main() {
 
         <div className={styles.social}>
           <Link
-            to="https://t.me/magadanbrat"
+            to={store.telegram?.val.link}
             target="_blank"
             className={styles.reactLink}
           >
@@ -77,13 +71,13 @@ function Main() {
               </div>
               <div className={styles.textBox}>
                 <div className={styles.name}>Telegram</div>
-                <div className={styles.link}>@magadanbrat</div>
+                <div className={styles.link}>{store.telegram?.val.name}</div>
               </div>
             </div>
           </Link>
 
           <Link
-            to="https://rutube.ru/magadanbrat/"
+            to={store.rutube?.val.link}
             target="_blank"
             className={styles.reactLink}
           >
@@ -93,13 +87,13 @@ function Main() {
               </div>
               <div className={styles.textBox}>
                 <div className={styles.name}>RuTube</div>
-                <div className={styles.link}>@magadanbrat</div>
+                <div className={styles.link}>{store.rutube?.val.name}</div>
               </div>
             </div>
           </Link>
 
           <Link
-            to="https://www.youtube.com/magadanbrat"
+            to={store.youtube?.val.link}
             target="_blank"
             className={styles.reactLink}
           >
@@ -109,13 +103,13 @@ function Main() {
               </div>
               <div className={styles.textBox}>
                 <div className={styles.name}>Youtube</div>
-                <div className={styles.link}>@magadanbrat</div>
+                <div className={styles.link}>{store.youtube?.val.name}</div>
               </div>
             </div>
           </Link>
 
           <Link
-            to="https://vk.com/magadanbrat"
+            to={store.vk?.val.link}
             target="_blank"
             className={styles.reactLink}
           >
@@ -125,7 +119,7 @@ function Main() {
               </div>
               <div className={styles.textBox}>
                 <div className={styles.name}>ВКонтакте</div>
-                <div className={styles.link}>@magadanbrat</div>
+                <div className={styles.link}>{store.vk?.val.name}</div>
               </div>
             </div>
           </Link>

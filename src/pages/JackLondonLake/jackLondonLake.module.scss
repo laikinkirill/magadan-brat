@@ -428,27 +428,28 @@
 }
 
 .reviews_block {
-
+   overflow: hidden;
    h2 {
       margin-bottom: 80px;
    }
 }
 .reviews_swiper {
-   height: max-content;
+   height: 100%;
    user-select: none;
+   height: max-content;
    
    @media (min-width: 1300px) {
       width: 100%!important;
    }
    @media (max-width: 1100px) {
       width: 700px!important;
-      transform: translate(-20px, 0);
    }
    @media (max-width: 760px) {
       width: 560px!important;
    }
    @media (max-width: 600px) {
-      width: 350px!important;
+      transform: translate(-20px, 0);
+      width: 110%!important;
    }
 
    :global(.swiper-slide) {
@@ -472,7 +473,7 @@
             width: 550px!important;
          }
          @media (max-width: 600px) {
-            width: 340px!important;
+            width: 90%!important;
          }
       }
    }

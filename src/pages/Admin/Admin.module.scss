@@ -42,9 +42,39 @@
    }
 
    .text_field {
+      position: relative;
+
+      i {
+         padding: 3px 10px 3px 8px;
+         margin-left: 20px;
+         
+         cursor: pointer;
+         color: green;
+         font-size: 14px;
+         line-height: 14px;
+
+         border: 1px solid green;
+         border-radius: 50%;
+
+         &:hover {
+            & + span {
+               opacity: 1;
+            }
+         }
+
+         & + span {
+            position: absolute;
+            top: -10px;
+            left: 250px;
+            opacity: 0;
+   
+            color: green;
+         }
+      }
+
       textarea {
          width: 100%;
-         font-size: 24px;
+         font-size: 18px;
          font-weight: 400;
          color: #fff;
          background-color: transparent;
@@ -56,7 +86,7 @@
 
       span {
          color: #3f51b5;
-         font-size: 16px;
+         font-size: 18px;
       }
 
       & > div {
@@ -67,7 +97,7 @@
 
       textarea {
          width: 100%;
-         font-size: 24px;
+         font-size: 18px;
          font-weight: 400;
          color: #fff;
          background-color: transparent;

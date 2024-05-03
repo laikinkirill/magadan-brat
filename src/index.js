@@ -4,9 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { useMainPageStore } from './store/mainPage'
 import { useTouristDestinationsPageStore } from './store/touristDestinationsPage'
+import { useJackLondonLakeStore } from './store/jackLondonLake'
+
+
+
+useMainPageStore.getState().queryInitialData()
 
 useTouristDestinationsPageStore.getState().queryInitialData()
+
+useJackLondonLakeStore.getState().queryInitialData()
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

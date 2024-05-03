@@ -1,13 +1,12 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
-import axios from "axios";
 import { Header } from "../../components";
-import classNames from "classnames"
-import { db } from "../../firebase"
 import { Button } from "../../UI"
 import { useTouristDestinationsPageStore } from "../../store/touristDestinationsPage"
-// import * as firebase from 'firebase'
+import classNames from "classnames"
+import { useMainPageStore } from "../../store/mainPage"
+import { useJackLondonLakeStore } from "../../store/jackLondonLake"
+
 import c from "./Admin.module.scss";
-import { ref } from "firebase/database"
 
 
 function Admin() {
@@ -26,63 +25,6 @@ function Admin() {
 
 const Panel = () => {
 
-   const [page_1, setPage_1] = useState(null)
-
-   const addTodo = async () => {
-      // try {
-      //     const docRef = await addDoc(collection(db, "todos"), {
-      //       todo: todo,
-      //     });
-      //     console.log("Document written with ID: ", docRef.id);
-      //   } catch (e) {
-      //     console.error("Error adding document: ", e);
-      //   }
-   }
-
-   // useEffect(() => {
-   //    (async () => {
-
-   //       await axios.get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
-   //          .then(res => console.log(res));
-
-   //    })()
-   // }, [])
-
-   // const onClick = async () => {
-   //    await axios.put(`${db}/title.json`, {
-   //       text: Date.now()
-   //    })
-   //       .then(res => console.log(res));
-   // }
-
-   // const [fact, setFact] = useState([]);
-   // const [value, setValue] = useState([]);
-
-   // useEffect(() => {
-   //   axios
-   //     .get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
-   //     .then((response) => {
-   //       setFact(response.data?.text);
-   //       console.log(response.data?.text);
-   //     });
-   // }, [fact]);
- 
-   // const putFact = () => {
-   //   axios.put(`https://magadan-3137c-default-rtdb.firebaseio.com/title.json`, {
-   //     text: value,
-   //   });
- 
-   //   setTimeout(() => {
-   //     axios
-   //       .get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
-   //       .then((response) => {
-   //         setFact(response.data);
- 
-   //         console.log(response.data);
-   //       });
-   //   }, 1000);
-   // };
-
    const [tab, setTab] = useState('tab_1')
 
    return (
@@ -92,51 +34,93 @@ const Panel = () => {
          <div className={classNames(c.page_body, '_container')} >
 
             <div className={c.buttons} >
-               <Button onClick={() => setTab('tab_1')} >Страница Туристические направления</Button>
-               <Button onClick={() => setTab('tab_2')} >Озеро Джека Лондона</Button>
+               <Button onClick={() => setTab('tab_1')} >Гавная Страница</Button>
+               <Button onClick={() => setTab('tab_2')} >Страница Туристические направления</Button>
+               <Button onClick={() => setTab('tab_3')} >Страница Озеро Джека Лондона</Button>
             </div>
 
-            {tab === 'tab_1' && <TouristDestinationsPage />}
+            {tab === 'tab_1' && <MainPage />}
+
+            {tab === 'tab_2' && <TouristDestinationsPage />}
+
+            {tab === 'tab_3' && <JackLondonLakePage />}
 
          </div>
       </>
    )
 }
 
-const TouristDestinationsPage = () => {
+
+const MainPage = () => {
+
+   const s = useMainPageStore
+
    return (
       <div className={c.page} >
 
-         <h3>Страница Туристические направления</h3>
+         <h3>Гавная</h3>
 
-         <Text name='Заголовок' path='first_block/title' />
+         <TextsSet name='Telegram' path='telegram' keys={[
+            { key: 'name', name: 'Название' },
+            { key: 'link', name: 'Ссылка' },
+         ]} store={s} />
 
-         <Text name='Текст кнопки' path='first_block/button' />
+         <TextsSet name='Rutube' path='rutube' keys={[
+            { key: 'name', name: 'Название' },
+            { key: 'link', name: 'Ссылка' },
+         ]} store={s} />
+
+         <TextsSet name='Youtube' path='youtube' keys={[
+            { key: 'name', name: 'Название' },
+            { key: 'link', name: 'Ссылка' },
+         ]} store={s} />
+
+         <TextsSet name='ВКонтакте' path='vk' keys={[
+            { key: 'name', name: 'Название' },
+            { key: 'link', name: 'Ссылка' },
+         ]} store={s} />
+
+      </div>
+   )
+}
+
+const TouristDestinationsPage = () => {
+
+   const s = useTouristDestinationsPageStore
+
+   return (
+      <div className={c.page} >
+
+         <h3>Туристические направления</h3>
+
+         <Text name='Заголовок' path='first_block/title' store={s} hint='<br/> добавляет абзац' />
+
+         <Text name='Текст кнопки' path='first_block/button' store={s} />
 
          <hr />
 
-         <Image name='Заставка видео' path='video_block/poster' />
+         <Image name='Заставка видео' path='video_block/poster' store={s} />
 
-         <Video name='Видео' path='video_block/video' />
+         <Video name='Видео' path='video_block/video' store={s} />
 
-         <Text name='Текст' path='video_block/text' />
+         <Text name='Текст' path='video_block/text' store={s} hint='<br/> добавляет абзац' />
 
          {[ 1, 2, 3, 4 ].map(id => (
             <TextsSet key={id} name={`Особенность ${id}`} path={`video_block/features/${id}`} keys={[
                { key: 'title', name: 'заголовок' },
                { key: 'text', name: 'текст' },
-            ]} />
+            ]} store={s} />
          ))}
 
-         <Text name='Подзаголовок' path='peninsula_routes_block/title' />
+         <Text name='Подзаголовок' path='peninsula_routes_block/title' store={s} />
 
-         <Text name='Текст подзаголовка' path='peninsula_routes_block/sub_title' />
+         <Text name='Текст подзаголовка' path='peninsula_routes_block/sub_title' store={s} />
 
          <hr />
 
          {[ 1, 2, 3, 4, 5, 6, 7, 8 ].map(id => (
             <Fragment key={id} >
-               <Image name='Картинка' path={`map_points/${id}/img`} />
+               <Image name='Картинка' path={`map_points/${id}/img`} store={s} />
 
                <TextsSet name={`Точка ${id}`} path={`map_points/${id}`} keys={[
                   { key: 'id', name: 'id' },
@@ -148,19 +132,19 @@ const TouristDestinationsPage = () => {
                   { key: 'steps', name: 'шагов' },
                   { key: 'calories', name: 'калории'},
                   { key: 'cost', name: 'стоимость'}
-               ]} />
+               ]} store={s} />
 
                <hr />
             </Fragment>
          ))}
 
-         <Text name='Подзаголовок' path='routes_outside_the_city_block/title' />
+         <Text name='Подзаголовок' path='routes_outside_the_city_block/title' store={s} />
 
          <hr />
 
          {[ 1, 2, 3, 4 ].map(id => (
             <Fragment key={id} >
-               <Image name='Картинка' path={`outside_city_points/${id}/img`} />
+               <Image name='Картинка' path={`outside_city_points/${id}/img`} store={s} />
 
                <TextsSet name={`Точка ${id}`} path={`outside_city_points/${id}`} keys={[
                   { key: 'id', name: 'id' },
@@ -172,21 +156,21 @@ const TouristDestinationsPage = () => {
                   { key: 'steps', name: 'шагов' },
                   { key: 'calories', name: 'калории'},
                   { key: 'cost', name: 'стоимость'}
-               ]} />
+               ]} store={s} />
 
                <hr />
             </Fragment>
          ))}
 
-         <Text name='Подзаголовок' path='sea_routes_block/title' />
+         <Text name='Подзаголовок' path='sea_routes_block/title' store={s} />
 
-         <Text name='Текст подзаголовка' path='sea_routes_block/sub_title' />
+         <Text name='Текст подзаголовка' path='sea_routes_block/sub_title' store={s} />
 
          <hr />
 
          {[ 1, 2, 3, 4, 5, 6, 7 ].map(id => (
             <Fragment key={id} >
-               <Image name='Картинка' path={`sea_points/${id}/map_img`} />
+               <Image name='Картинка' path={`sea_points/${id}/map_img`} store={s} />
 
                <TextsSet name={`Точка ${id}`} path={`sea_points/${id}`} keys={[
                   { key: 'id', name: 'id' },
@@ -197,27 +181,27 @@ const TouristDestinationsPage = () => {
                   { key: 'steps', name: 'шагов' },
                   { key: 'calories', name: 'калории'},
                   { key: 'cost', name: 'стоимость'}
-               ]} />
+               ]} store={s} />
 
                <hr />
             </Fragment>
          ))}
 
-         <Text name='Подзаголовок' path='individual_tour_block/title' />
+         <Text name='Подзаголовок' path='individual_tour_block/title' store={s} />
 
-         <Image name='Картинка' path='individual_tour_block/img' />
+         <Image name='Картинка' path='individual_tour_block/img' store={s} />
 
-         <Text name='Текст' path='individual_tour_block/text' />
+         <Text name='Текст' path='individual_tour_block/text' store={s} />
 
-         <Text name='Текст кнопки' path='individual_tour_block/button' />
+         <Text name='Текст кнопки' path='individual_tour_block/button' store={s} />
 
          <hr />
 
-         <Text name='Подзаголовок' path='jack_london_lake_block/title' />
+         <Text name='Подзаголовок' path='jack_london_lake_block/title' store={s} />
 
-         <Text name='Текст' path='jack_london_lake_block/text' />
+         <Text name='Текст' path='jack_london_lake_block/text' store={s} />
 
-         <Text name='Текст кнопки' path='jack_london_lake_block/button' />
+         <Text name='Текст кнопки' path='jack_london_lake_block/button' store={s} />
 
          <hr />
 
@@ -225,16 +209,89 @@ const TouristDestinationsPage = () => {
             <TextsSet key={id} name={`Вкладка ${id}`} path={`accordion/${id}`} keys={[
                { key: 'title', name: 'заголовок' },
                { key: 'text', name: 'текст' },
-            ]} />
+            ]} store={s} />
          ))}
 
       </div>
    )
 }
 
-const Text = ({ name, path }) => {
+const JackLondonLakePage = () => {
 
-   const data = useTouristDestinationsPageStore(state => {
+   const s = useJackLondonLakeStore
+
+   return (
+      <div className={c.page} >
+
+         <h3>Озеро Джека Лондона</h3>
+
+         <Text name='Заголовок' path='first_block/title' store={s} />
+
+         <Text name='Подзаголовок' path='first_block/sub_title' store={s} />
+
+         <Image name='Картинка' path='first_block/img' store={s} />
+
+         <Text name='Дата 1' path='first_block/dates/1' store={s} />
+         <Text name='Дата 2' path='first_block/dates/2' store={s} />
+         <Text name='Дата 3' path='first_block/dates/3' store={s} />
+         <Text name='Дата 4' path='first_block/dates/4' store={s} />
+
+         <hr />
+
+         <Text name='Подзаголовок' path='description_block/title' store={s} />
+
+         <Text name='Текст' path='description_block/text' store={s} hint='<br/> добавляет абзац' />
+
+         <hr />
+
+         <Text name='Подзаголовок' path='photos_block/title' store={s} />
+
+         {[ 1, 2, 3, 4 ].map(num => (
+            <Image key={num} name={`Картинка ${num}`} path={`photos_block/images/${num}`} store={s} />
+         ))}
+
+         <hr />
+
+         <Text name='Подзаголовок' path='routes_block/title' store={s} />
+
+         <div style={{ color: 'green' }} >Аккордеон со страницы Туристические направления</div>
+         
+         <hr />
+
+         <Text name='Подзаголовок' path='important_to_know_block/title' store={s} />
+
+         {[ 1, 2, 3, 4, 5, 6, 7, 8 ].map(id => (
+            <TextsSet key={id} name={`Вкладка ${id}`} path={`important_to_know_block/accordion/${id}`} keys={[
+               { key: 'title', name: 'заголовок' },
+               { key: 'text', name: 'текст' },
+            ]} store={s} />
+         ))}
+
+         <hr />
+
+         <Text name='Подзаголовок' path='reviews_block/title' store={s} />
+
+         {[ 1, 2 ].map(id => (
+            <Fragment key={id} >
+               <Image name='Фото' path={`reviews_block/reviews/${id}/img`} store={s} />
+               <TextsSet name={`Вкладка ${id}`} path={`reviews_block/reviews/${id}`} keys={[
+                  { key: 'name', name: 'Имя' },
+                  { key: 'text', name: 'текст' },
+                  { key: 'stars', name: 'оценка' },
+                  { key: 'date', name: 'дата' },
+               ]} store={s} />
+               <hr />
+            </Fragment>
+         ))}
+
+      </div>
+   )
+}
+
+
+const Text = ({ name, path, store, hint }) => {
+
+   const data = store(state => {
       const a = path.split('/')
       a.push('val')
       return a.reduce((acc, key) => {
@@ -250,12 +307,18 @@ const Text = ({ name, path }) => {
    }, [data])
 
    const confirmHandler = () => {
-      useTouristDestinationsPageStore.getState().changeText(path, value)
+      store.getState().changeText(path, value)
    }
 
    return (
       <div className={classNames(c.field, c.text_field)} >
-         <p>{name}</p>
+         <p>
+            {name}
+            {hint && <>
+               <i>!</i>
+               <span>{hint}</span>
+            </>}
+         </p>
          <textarea
             type="text"
             rows={1}
@@ -267,9 +330,9 @@ const Text = ({ name, path }) => {
    )
 }
 
-const TextsSet = ({ name, path, keys }) => {
+const TextsSet = ({ name, path, keys, store }) => {
 
-   const data = useTouristDestinationsPageStore(state => state[path.split('/')[0]])
+   const data = store(state => state[path.split('/')[0]])
 
    const [values, setValues] = useState(data)
 
@@ -288,12 +351,10 @@ const TextsSet = ({ name, path, keys }) => {
    }, [data])
 
    const confirmHandler = () => {
-      console.log(values);
-      useTouristDestinationsPageStore.getState()
+      store.getState()
          .changeText(path, values)
    }
 
-   console.log(data);
    return (
       <div className={classNames(c.field, c.texts_set_field)} >
          <p>{name}</p>
@@ -318,9 +379,9 @@ const TextsSet = ({ name, path, keys }) => {
    )
 }
 
-const Image = ({ name, path }) => {
+const Image = ({ name, path, store }) => {
 
-   const data = useTouristDestinationsPageStore(state => {
+   const data = store(state => {
       const a = path.split('/')
       a.push('val')
       return a.reduce((acc, key) => {
@@ -345,7 +406,7 @@ const Image = ({ name, path }) => {
    }
 
    const confirmHandler = async () => {
-      useTouristDestinationsPageStore.getState().changeFile(path, loadedFile)
+      store.getState().changeFile(path, loadedFile)
    }
 
    const cancelUpload = () => {
@@ -363,15 +424,15 @@ const Image = ({ name, path }) => {
             accept='.png,.jpeg,.webp,.svg' type="file" name="file"
             onChange={loadImg}
          />
-         <button onClick={confirmHandler} >Сохранить</button>
+         <button onClick={confirmHandler} disabled={!loadedImg} >Сохранить</button>
          {loadedImg && <button onClick={cancelUpload} >Отмена</button>}
       </div>
    )
 }
 
-const Video = ({ name, path }) => {
+const Video = ({ name, path, store }) => {
 
-   const data = useTouristDestinationsPageStore(state => {
+   const data = store(state => {
       const a = path.split('/')
       a.push('val')
       return a.reduce((acc, key) => {
@@ -400,7 +461,7 @@ const Video = ({ name, path }) => {
    }
 
    const confirmHandler = async () => {
-      useTouristDestinationsPageStore.getState().changeFile(path, loadedFile)
+      store.getState().changeFile(path, loadedFile)
    }
 
    const cancelUpload = () => {
