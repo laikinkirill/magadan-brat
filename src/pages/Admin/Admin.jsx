@@ -5,13 +5,14 @@ import { useTouristDestinationsPageStore } from "../../store/touristDestinations
 import classNames from "classnames"
 import { useMainPageStore } from "../../store/mainPage"
 import { useJackLondonLakeStore } from "../../store/jackLondonLake"
+import {sha256} from 'crypto-hash';
 
 import c from "./Admin.module.scss";
 
 
 function Admin() {
 
-   const [isAdmin, setIsAdmin] = useState(true);
+   const [isAdmin, setIsAdmin] = useState(false);
 
    return (
       <>
@@ -484,13 +485,23 @@ const Video = ({ name, path, store }) => {
    )
 }
 
+
+const PASSWORD_HASH = '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918'
+
 const Auth = ({ setIsAdmin }) => {
 
-   const [isInputValue, setIsInputValue] = useState("admin");
+   const [isInputValue, setIsInputValue] = useState('');
 
-   const buttonHandler = () => {
-      if ( isInputValue === 'admin' ) {
+   const buttonHandler = async () => {
+      const hash = await sha256(isInputValue)
+
+      console.log(hash);
+
+      if ( hash === PASSWORD_HASH ) {
          setIsAdmin(true)
+      }
+      else {
+         console.log('Permission denied');
       }
    }
 
