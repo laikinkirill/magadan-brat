@@ -5,11 +5,11 @@ const Accordion = ({ accordion }) => {
    return (
       <ul className={c.accordion} >
 
-         {accordion.map((elem, i) => (
+         {Object.values(accordion).map((elem, i) => (
             <li key={i} >
-               <p>{elem?.title}</p>
+               <p>{elem?.val?.title}</p>
                <input type="radio" name="elem" />
-               <span>{elem?.text}</span>
+               <span>{elem?.val?.text}</span>
                <i></i>
             </li>
          ))}

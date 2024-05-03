@@ -21,20 +21,20 @@ import posterMbile from "../../assets/video/poster-mobile.png";
 
 
 function Main() {
-  const [fact, setFact] = useState();
+//   const [fact, setFact] = useState();
 
-  useEffect(() => {
-    axios
-      .get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
-      .then((response) => {
-        setFact(response.data.text);
-      });
-  }, [fact]);
+//   useEffect(() => {
+//     axios
+//       .get("https://magadan-3137c-default-rtdb.firebaseio.com/title.json")
+//       .then((response) => {
+//         setFact(response.data.text);
+//       });
+//   }, [fact]);
 
   return (
     <>
       <div className={styles.main}>
-        <h3 className={styles.mainTitle}>{fact}</h3>
+        <h3 className={styles.mainTitle}></h3>
 
         <div className={styles.row}>
           <Link to="/tours" className={styles.reactLink}>

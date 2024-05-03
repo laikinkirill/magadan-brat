@@ -1,6 +1,7 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { Header } from '../../components'
 import { Accordion } from '../../UI'
+import { arrayFromTo, getDate } from '../../utils'
 import classNames from 'classnames'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -312,30 +313,6 @@ const ReviewsBlock = () => {
 
       </div>
    )
-}
-
-const arrayFromTo = ( from, to ) => {
-   if ( from < 0 || to <= 0 ) {
-      return []
-   }
-   if ( from === 0 ) {
-      return Array.from(Array(to+1).keys())
-   }
-	return Array.from({length: to}, (_, i) => i + 1).slice(from-1)
-}
-
-const getDate = ( number ) => {
-   const dateObj = new Date(number)
-
-   const day = addZero(dateObj.getDate())
-   const month = addZero(dateObj.getMonth() + 1)
-   const year = dateObj.getFullYear()
-
-   function addZero(num) {
-      return num < 10 ? '0'+num : num
-   }
-            
-   return `${day}.${month}.${year}`
 }
 
 export { JackLondonLake }
