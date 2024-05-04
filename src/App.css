@@ -18,23 +18,23 @@ h4 {
 }
 
 h1 {
-  font-size: 72px;
-  line-height: 96px;
-}
-
-h2 {
   font-size: 64px;
   line-height: 80px;
 }
 
-h3 {
+h2 {
   font-size: 48px;
   line-height: 64px;
 }
 
-h4 {
+h3 {
   font-size: 32px;
   line-height: 40px;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 32px;
   font-weight: 500 !important;
 }
 
