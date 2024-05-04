@@ -11,10 +11,6 @@ import routesMap from "../../assets/img/tours/routes_map.svg";
 import seaMap from "../../assets/img/tours/sea_map.svg";
 
 
-import individualTour from "../../assets/img/tours/individual_tour.png";
-
-const ACCORDION = Object.values({})
-
 
 function Tours() {
   return (
@@ -208,9 +204,14 @@ const VideoBlock = () => {
             className={classNames(c.video_wrapper, c['_paused'])}
             onClick={playHandler}
          >
-            <video loop muted paused="true" src={store.video_block?.video.val} >
-               <source src={store.video_block?.poster.val} type="video/jpg" />
-            </video>
+            <video
+               loop
+               muted
+               paused="true"
+               src={store.video_block?.video.val}
+               poster={store.video_block?.poster.val}
+               height={324}
+            ></video>
          </div>
 
          <div className={c.text} >
@@ -241,12 +242,9 @@ const PeninsulaRoutesBlock = () => {
    return (
       <div className={classNames(c.peninsula_routes_block, '_container')} >
 
-         <h2>Маршруты по полуострову Старицкого</h2>
+         <h2>{store.peninsula_routes_block?.title?.val}</h2>
 
-         <p className={c.sub_title} >
-            Туры под ключ, включено: трансфер от дома до начала маршрута и обратно, питание 
-            (перекус и вода), фотограф, спутниковый телефон, аптечка. Минимум 10 человек.
-         </p>
+         <p className={c.sub_title} >{store.peninsula_routes_block?.sub_title?.val}</p>
 
          <div className={c.map} >
 
@@ -279,10 +277,10 @@ const RoutesOutsideTheCityBlock = () => {
    return (
       <div className={classNames(c.routes_outside_theCity_block, '_container')} >
 
-         <h2>маршруты за городом</h2>
+         <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
 
          <div>
-            <p className={c.title} >Район Карамкена</p>
+            <p className={c.title} >{store.routes_outside_the_city_block?.districts?.[1]?.val}</p>
             <div className={c.road} >
                <span className={c.dotted_wrapper} ><hr className={c.dotted_line} /></span>
                <MapPoint
@@ -299,7 +297,7 @@ const RoutesOutsideTheCityBlock = () => {
          </div>
 
          <div>
-            <p className={c.title} >Район Армань</p>
+            <p className={c.title} >{store.routes_outside_the_city_block?.districts?.[2]?.val}</p>
             <div className={c.road} >
             <span className={c.dotted_wrapper} ><hr className={c.dotted_line} /></span>
                <MapPoint
@@ -311,7 +309,7 @@ const RoutesOutsideTheCityBlock = () => {
          </div>
 
          <div>
-            <p className={c.title} >Район Тенькинский</p>
+            <p className={c.title} >{store.routes_outside_the_city_block?.districts?.[3]?.val}</p>
             <div className={c.road} >
             <span className={c.dotted_wrapper} ><hr className={c.dotted_line} /></span>
                <MapPoint
@@ -425,13 +423,13 @@ const JackLondonLakeBlock = () => {
    return (
       <div className={classNames(c.jack_londonLake_block, '_container')} >
 
-         <p className={c.sub_title} >{store.individual_tour_block?.text?.val}</p>
+         <p className={c.sub_title} >{store.jack_london_lake_block?.text?.val}</p>
 
-         <h2>{store.individual_tour_block?.title?.val}</h2>
+         <h2>{store.jack_london_lake_block?.title?.val}</h2>
 
          <Accordion accordion={store?.accordion} />
 
-         <Button to='/jack-london-lake' >{store.individual_tour_block?.button?.val}</Button>
+         <Button to='/jack-london-lake' >{store.jack_london_lake_block?.button?.val}</Button>
 
       </div>
    )

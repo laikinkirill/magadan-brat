@@ -15,79 +15,8 @@ import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
 
 import c from './jackLondonLake.module.scss'
 
-import firstBlock from '../../assets/img/jackLondonLake/first_block.png'
-import reviewImg from '../../assets/img/jackLondonLake/review_img.png'
 import { useJackLondonLakeStore } from '../../store/jackLondonLake'
 import { useTouristDestinationsPageStore } from '../../store/touristDestinationsPage'
-
-
-const DESCRIPTION = [
-   'Поход по Колыме к озеру Джека Лондона — это одно из интереснейших направлений для активных туров, которое только набирает свою популярность. Путешествие проходит по таким местам, что порой ощущаешь себя истинными первопроходцем! Да и названия здесь будто сорвались со страниц рассказов знаменитого писателя — пики Челленджер и Абориген, озера Невидимка, Мечта, Серой Чайки, Танцующих Хариусов, ручей Неведомый и тд. Мы совершим полноценный пеший поход от озера Джека Лондона к одной из высших точек региона пик Абориген (2286м), устроим потрясающую рыбалку на хариуса, познакомимся с историей Колымы. Ночуем в палатках, готовим на костре, любуемся самыми яркими рассветами и закатами.',
-   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quos, sint aperiam? Libero eius aspernatur iure architecto aliquid fugiat. Laudantium eaque sit nesciunt cum corrupti dicta eveniet quia eligendi eius sunt?',
-   'Lorem ipsum dolor sit amet consectetur, adipisicing elit. iunt cum corrupti dicta eveniet quia eligendi eius sunt?'
-]
-
-const SLIDER_IMAGES = [
-   "https://swiperjs.com/demos/images/nature-1.jpg",
-   "https://swiperjs.com/demos/images/nature-2.jpg",
-   "https://swiperjs.com/demos/images/nature-3.jpg",
-   "https://swiperjs.com/demos/images/nature-4.jpg",
-]
-
-const ACCORDION = [
-   {
-      title: '1-ый день',
-      text: 'Наш путь начнётся в городе Магадане с далёкого переезда по трассе «Колыма» до посёлка Ягодное. 10–11 часов езды по грунтовой дороге сильно выбьют из сил, поэтому ночевать мы будем в хостеле в посёлке или у разрушенного моста в палатках (начало дороги на озеро ДЛ).'
-   },
-   {
-      title: '2-ый день',
-      text: 'Наш путь начнётся в городе Магадане с далёкого переезда по трассе «Колыма» до посёлка Ягодное. 10–11 часов езды по грунтовой дороге сильно выбьют из сил, поэтому ночевать мы будем в хостеле в посёлке или у разрушенного моста в палатках (начало дороги на озеро ДЛ).'
-   },
-   {
-      title: '3-ый день',
-      text: 'Наш путь начнётся в городе Магадане с далёкого переезда по трассе «Колыма» до посёлка Ягодное. 10–11 часов езды по грунтовой дороге сильно выбьют из сил, поэтому ночевать мы будем в хостеле в посёлке или у разрушенного моста в палатках (начало дороги на озеро ДЛ).'
-   },
-   {
-      title: '4-ый день',
-      text: 'Наш путь начнётся в городе Магадане с далёкого переезда по трассе «Колыма» до посёлка Ягодное. 10–11 часов езды по грунтовой дороге сильно выбьют из сил, поэтому ночевать мы будем в хостеле в посёлке или у разрушенного моста в палатках (начало дороги на озеро ДЛ).'
-   },
-]
-
-const REVIEWS = [
-   {
-      img: reviewImg,
-      name: 'Иван Иванов',
-      text: [
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-      ],
-      stars: 5,
-      date: Date.now()
-   },
-   {
-      img: reviewImg,
-      name: 'Степан Иванов',
-      text: [
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-      ],
-      stars: 4,
-      date: Date.now()
-   },
-   {
-      img: reviewImg,
-      name: 'Александр Иванов',
-      text: [
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-         'Lorem ipsum dolor sit amet consectetur. Cras pulvinar malesuada molestie vulputate est mauris enim convallis augue. Vel placerat ullamcorper eu eget rutrum dignissim ac. Sit turpis sit tristique ante at neque ornare vitae euismod. Urna sed fusce et duis enim faucibus.',
-      ],
-      stars: 5,
-      date: Date.now()
-   },
-]
 
 
 function JackLondonLake() {

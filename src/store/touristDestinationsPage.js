@@ -29,6 +29,11 @@ const initialState = {
 
    map_points: {},
 
+   routes_outside_the_city_block: {
+      title: { val: '' },
+      districts: {}
+   },
+
    outside_city_points: {},
 
    sea_routes_block: {
