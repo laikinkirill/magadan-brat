@@ -179,6 +179,8 @@ const ImportantToKnowBlock = () => {
 
    const store = useJackLondonLakeStore()
 
+   const [checked, setChecked] = useState(null)
+
    return (
       <div className={c.important_to_know_block} >
          <div className={'_container'} >
@@ -189,7 +191,18 @@ const ImportantToKnowBlock = () => {
 
                {Object.values(store.important_to_know_block?.accordion).map((elem, i) => (
                   <li key={i} >
-                     <input type="radio" name="elem" />
+                     <input
+                        type="radio"
+                        name="elem"
+                        checked={checked === i}
+                        onChange={()=>{}}
+                        onClick={() => setChecked(prev => {
+                           if ( prev === i ) {
+                              return null
+                           }
+                           return i
+                        })}
+                     />
                      <span>{elem?.val?.text}</span>
                      <i></i>
                      <p>{elem?.val?.title}</p>

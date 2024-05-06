@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import styles from "./Main.module.scss";
 
@@ -28,7 +27,7 @@ function Main() {
   return (
     <>
       <div className={styles.main}>
-        <h3 className={styles.mainTitle}></h3>
+        <h3 className={styles.mainTitle}>{store.title?.val}</h3>
 
         <div className={styles.row}>
           <Link to="/tours" className={styles.reactLink}>

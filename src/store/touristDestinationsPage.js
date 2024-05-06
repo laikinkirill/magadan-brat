@@ -7,7 +7,10 @@ const initialState = {
 
    firs_block: {
       title: { val: '' },
-      button: { val: '' },
+      button: { val: {
+         text: '',
+         link: ''
+      } },
    },
 
    video_block: {
@@ -138,7 +141,8 @@ export const MAP_POINTS = [
       position: {
          top: '80%',
          right: '14%'
-      }
+      },
+      popupPosition: '_left'
    },
    {
       id: 6,
@@ -146,7 +150,8 @@ export const MAP_POINTS = [
       position: {
          top: '82%',
          left: '66%'
-      }
+      },
+      popupPosition: '_left'
    },
    {
       id: 7,
@@ -156,14 +161,14 @@ export const MAP_POINTS = [
          left: '46%',
       }
    },
-   // {
-   //    id: 8,
-   //    textOrientation: 'bottom',
-   //    position: {
-   //       top: '10%',
-   //       left: '20%'
-   //    }
-   // }
+   {
+      id: 8,
+      textOrientation: 'bottom',
+      position: {
+         top: '23%',
+         left: '9%'
+      }
+   }
 ]
 
 export const SEA_POINTS = [
@@ -209,18 +214,18 @@ export const SEA_POINTS = [
    },
    {
       id: 6,
-      textOrientation: 'left',
+      textOrientation: 'bottom',
       position: {
-         top: '0%',
-         left: '10%'
+         top: '23%',
+         left: '45%'
       },
    },
    {
       id: 7,
-      textOrientation: 'left',
+      textOrientation: 'bottom',
       position: {
-         top: '10%',
-         left: '10%'
+         top: '25%',
+         left: '63%'
       }
    },
 ]

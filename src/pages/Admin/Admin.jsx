@@ -50,6 +50,12 @@ const MainPage = () => {
     <div className={c.page}>
       <h3>Гавная</h3>
 
+      <Text
+        name="Заголовок"
+        path="title"
+        store={s}
+      />
+
       <TextsSet
         name="Telegram"
         path="telegram"
@@ -107,7 +113,15 @@ const TouristDestinationsPage = () => {
         hint="<br/> добавляет абзац"
       />
 
-      <Text name="Текст кнопки" path="first_block/button" store={s} />
+      <TextsSet
+         name='Кнопка'
+         path='first_block/button'
+         keys={[
+         { key: "text", name: "Текст" },
+         { key: "link", name: "Ссылка" },
+         ]}
+         store={s}
+      />
 
       <hr />
 
@@ -224,7 +238,7 @@ const TouristDestinationsPage = () => {
 
       <Text name='Район 3' path='routes_outside_the_city_block/districts/3' store={s} />
 
-      {[ 3 ].map(id => (
+      {[ 4 ].map(id => (
          <Fragment key={id} >
             <Image name='Картинка' path={`outside_city_points/${id}/img`} store={s} />
 
@@ -283,8 +297,6 @@ const TouristDestinationsPage = () => {
       <Image name="Картинка" path="individual_tour_block/img" store={s} />
 
       <Text name="Текст" path="individual_tour_block/text" store={s} />
-
-      <Text name="Текст кнопки" path="individual_tour_block/button" store={s} />
 
       <hr />
 
@@ -554,7 +566,7 @@ const Image = ({ name, path, store }) => {
       />
       <input
         ref={inputRef}
-        accept=".png,.jpeg,.webp,.svg"
+        accept="image/*"
         type="file"
         name="file"
         onChange={loadImg}

@@ -5,6 +5,8 @@ import { getData, setData } from "../firebase"
 
 const initialState = {
 
+   title: { val: '' },
+
    telegram: {
       val: {
          name: '',
