@@ -77,14 +77,14 @@
     align-items: center;
     justify-content: center;
 
-   @media (any-hover: hover) {
+    @media (any-hover: hover) {
       &:hover {
-         &::before {
-           filter: brightness(1.2);
-           transform: scale(1.1);
-         }
+        &::before {
+          filter: brightness(1.2);
+          transform: scale(1.1);
+        }
       }
-   }
+    }
 
     &._paused {
       &::before {
@@ -220,7 +220,6 @@
   }
 
   .map_popup {
-
     .popup_body {
       max-width: 360px;
 
@@ -363,41 +362,49 @@
       text-align: left !important;
 
       &._left {
-         left: calc(-1 * var(--gap)) !important;
+        left: calc(-1 * var(--gap)) !important;
         transform: translate(-100%, 0) !important;
         text-align: right !important;
       }
     }
 
-   //  &:nth-of-type(2n + 1) {
-   //    span {
-   //      right: calc(-1 * var(--gap)) !important;
-   //      transform: translate(100%, 0) !important;
-   //      text-align: left !important;
-   //    }
-   //  }
-   //  &:nth-of-type(2n) {
-   //    span {
-   //      left: calc(-1 * var(--gap)) !important;
-   //      transform: translate(-100%, 0) !important;
-   //      text-align: right !important;
-   //    }
-   //  }
+    //  &:nth-of-type(2n + 1) {
+    //    span {
+    //      right: calc(-1 * var(--gap)) !important;
+    //      transform: translate(100%, 0) !important;
+    //      text-align: left !important;
+    //    }
+    //  }
+    //  &:nth-of-type(2n) {
+    //    span {
+    //      left: calc(-1 * var(--gap)) !important;
+    //      transform: translate(-100%, 0) !important;
+    //      text-align: right !important;
+    //    }
+    //  }
   }
 
   @media (any-hover: hover) {
-      &:hover {
-         &::before,
-         &::after {
-            transform: scale(1.1);
-         }
-   
-         & + .map_popup {
-            opacity: 1;
-            visibility: visible;
-         }
+    &:hover {
+      &::before,
+      &::after {
+        transform: scale(1.1);
       }
-   }
+
+      &::before {
+        background-color: #7291ff;
+      }
+
+      &::after {
+        border-color: #7291ff;
+      }
+
+      & + .map_popup {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 
   &._active {
     &::before,
@@ -478,43 +485,43 @@
   }
 }
 .map_popup {
-   position: absolute;
-    top: 50%;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 20;
+  cursor: pointer;
+  pointer-events: none;
+
+  transform: translate(0, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: right;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.3s ease;
+
+  height: max-content;
+
+  @media (max-width: 760px) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  &._left {
+    right: auto;
     left: 0;
-    z-index: 20;
-    cursor: pointer;
-    pointer-events: none;
+  }
 
-    transform: translate(0, -50%);
-
-    display: flex;
-    align-items: center;
-    justify-content: right;
-
-   opacity: 0;
-   visibility: hidden;
-
-   transition: all .3s ease;
-
-   height: max-content;
-
-   @media (max-width: 760px) {
-      width: 100%;
-      justify-content: center;
-   }
-
-   &._left {
-      right: auto;
-      left: 0;
-   }
-
-   &._active {
-      opacity: 1;
-      visibility: visible;
-      pointer-events: all;
-   }
+  &._active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
 }
 .map_body {
 }
@@ -550,8 +557,8 @@
           top: 25% !important;
         }
         &:nth-of-type(3) {
-         top: 60% !important;
-       }
+          top: 60% !important;
+        }
       }
     }
   }
@@ -632,7 +639,7 @@
 
       span {
         top: auto !important;
-        right: -20px!important;
+        right: -20px !important;
         text-align: left;
         width: 100px !important;
       }
@@ -641,6 +648,7 @@
     span {
       width: 170px;
     }
+
     &::before,
     &::after {
       z-index: 1;
@@ -658,7 +666,6 @@
   }
 
   .map_popup {
-   
     display: flex;
     align-items: center;
     justify-content: end;
@@ -813,7 +820,7 @@
       justify-items: center;
 
       & > span {
-         display: none;
+        display: none;
       }
     }
 
@@ -854,20 +861,20 @@
   }
 
   .map_point {
-      @media (any-hover: hover) {
-         &:hover {
-            & + .map_popup + hr + img {
-               opacity: 1;
-            }
-         }
+    @media (any-hover: hover) {
+      &:hover {
+        & + .map_popup + hr + img {
+          opacity: 1;
+        }
       }
+    }
   }
   .map_popup {
-   width: 100%;
-   top: auto;
-   right: auto;
-   bottom: 0;
-   left: 0;
+    width: 100%;
+    top: auto;
+    right: auto;
+    bottom: 0;
+    left: 0;
     display: flex;
     align-items: end;
     justify-content: center;
