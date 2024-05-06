@@ -176,8 +176,8 @@ export const SEA_POINTS = [
       id: 1,
       textOrientation: 'left',
       position: {
-         top: '2%',
-         left: '42%'
+         top: '0%',
+         left: '49%'
       },
    },
    {
@@ -193,38 +193,38 @@ export const SEA_POINTS = [
       textOrientation: 'right',
       position: {
          top: '40%',
-         left: '13%'
+         left: '7%'
       },
    },
    {
       id: 4,
       textOrientation: 'left',
       position: {
-         top: '65%',
-         left: '45%'
+         top: '72%',
+         left: '54%'
       },
    },
    {
       id: 5,
       textOrientation: 'left',
       position: {
-         top: '85%',
-         left: '70%'
+         top: '82%',
+         left: '75%'
       }
    },
    {
       id: 6,
-      textOrientation: 'bottom',
+      textOrientation: 'left',
       position: {
-         top: '23%',
-         left: '45%'
+         top: '83%',
+         left: '35%'
       },
    },
    {
       id: 7,
       textOrientation: 'bottom',
       position: {
-         top: '25%',
+         top: '11%',
          left: '63%'
       }
    },

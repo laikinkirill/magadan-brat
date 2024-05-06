@@ -10,7 +10,7 @@ import { sha256 } from "crypto-hash";
 import c from "./Admin.module.scss";
 
 function Admin() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   return <>{isAdmin ? <Panel /> : <Auth setIsAdmin={setIsAdmin} />}</>;
 }
