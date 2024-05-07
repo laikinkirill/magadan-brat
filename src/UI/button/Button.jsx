@@ -11,7 +11,7 @@ const Button = ({ children, to, onClick, className }) => {
             <Link
                to={to}
                className={classNames(c.button, className)}
-               onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+               onClick={() => setTimeout(() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" }), 100)}
             >
                {children}
             </Link>
