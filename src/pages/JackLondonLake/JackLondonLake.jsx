@@ -170,7 +170,7 @@ const PhotosBlock = () => {
       >
         {Object.values(store.photos_block?.images).map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img.val} />
+            <img src={img.val} alt="" />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -186,7 +186,7 @@ const PhotosBlock = () => {
       >
         {Object.values(store.photos_block?.images).map((img, index) => (
           <SwiperSlide key={index}>
-            <img src={img.val} />
+            <img src={img.val} alt="" />
           </SwiperSlide>
         ))}
       </Swiper>
