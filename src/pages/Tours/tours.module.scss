@@ -6,6 +6,9 @@
   @media (max-width: 1000px) {
     gap: 80px;
   }
+  @media (max-width: 440px) {
+   overflow: hidden;
+  }
 
   h1 {
     @media (max-width: 1600px) {
@@ -220,6 +223,11 @@
   }
 
   .map_popup {
+
+   @media (max-width: 760px) {
+      height: 100%;
+   }
+
     .popup_body {
       max-width: 360px;
 
@@ -523,8 +531,6 @@
     pointer-events: all;
   }
 }
-.map_body {
-}
 
 .dotted_line {
   height: 4px;
@@ -628,7 +634,6 @@
   }
 
   .map_point {
-    // pointer-events: none;
 
     @media (max-width: 760px) {
       position: absolute;
@@ -673,7 +678,8 @@
 
     @media (max-width: 760px) {
       justify-content: center;
-    }
+      height: 1000px;
+   }
 
     .popup_body {
       max-width: 360px;
@@ -813,7 +819,7 @@
     display: grid;
 
     @media (max-width: 760px) {
-      pointer-events: none;
+      // pointer-events: none;
       display: grid;
       gap: 30px;
       align-items: center;
@@ -881,6 +887,9 @@
 
     @media (max-width: 760px) {
       justify-content: center;
+      align-items: center;
+      height: 1000px;
+      top: 50%;
     }
   }
   .popup_body {
@@ -893,6 +902,12 @@
     background-color: rgba(0, 0, 0, 0.4);
     border-radius: 16px;
     padding: 20px;
+
+    @media (max-width: 760px) {
+      background-color: rgba(0, 0, 0, 0.9);
+      transform: translate(0, 0%);
+      bottom: auto;
+    }
 
     .img_wrapper {
       .title {
@@ -916,6 +931,9 @@
 
         @media (max-width: 1000px) {
           grid-template-columns: repeat(3, 1fr);
+        }
+        @media (max-width: 760px) {
+         grid-template-columns: repeat(2, 1fr);
         }
 
         & > div {
