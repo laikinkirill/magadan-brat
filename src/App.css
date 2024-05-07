@@ -55,11 +55,11 @@ h4 {
   background-size: contain;
 }
 
-.swiper-slide:nth-child(1n) {
+/* .swiper-slide:nth-child(1n) {
   background-image: url(./assets/img/souvenir/01.jpg);
-}
+} */
 
-.swiper-slide:nth-child(2n) {
+/* .swiper-slide:nth-child(2n) {
   background-image: url(./assets/img/souvenir/02.jpg);
 }
 
@@ -69,7 +69,7 @@ h4 {
 
 .swiper-slide:nth-child(4n) {
   background-image: url(./assets/img/souvenir/04.jpg);
-}
+} */
 
 @media screen and (max-width: 767px) {
   h3,
@@ -79,8 +79,8 @@ h4 {
   }
 
   .swiper {
-    width: 270px;
-    height: 480px;
+    width: calc(100% - 40px);
+    height: 170px;
   }
 
   .swiper-slide {
