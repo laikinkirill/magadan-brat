@@ -85,6 +85,7 @@ export const useTouristDestinationsPageStore = create((set, get) => ({
     pathArr.reduce((acc, key) => {
       if (acc.val) {
         obj.val = res.val;
+        // eslint-disable-next-line array-callback-return
         return;
       }
       if (acc[key]) return acc[key];
