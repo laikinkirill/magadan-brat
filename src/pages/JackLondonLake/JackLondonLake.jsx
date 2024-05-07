@@ -53,7 +53,7 @@ const FirstBlock = () => {
         <img src={store.first_block?.img?.val} alt="" height={650} />
 
         <div className={c.features}>
-          <div>
+          <a href="https://wa.me/79965590730" target="_blank" rel="noreferrer">
             <svg
               width="18"
               height="20"
@@ -67,8 +67,8 @@ const FirstBlock = () => {
               />
             </svg>
             {store.first_block?.dates?.[1]?.val}
-          </div>
-          <div>
+          </a>
+          <a href="https://wa.me/79965590730" target="_blank" rel="noreferrer">
             <svg
               width="18"
               height="20"
@@ -82,8 +82,8 @@ const FirstBlock = () => {
               />
             </svg>
             {store.first_block?.dates?.[2]?.val}
-          </div>
-          <div>
+          </a>
+          <a href="https://wa.me/79965590730" target="_blank" rel="noreferrer">
             <svg
               width="18"
               height="20"
@@ -97,8 +97,8 @@ const FirstBlock = () => {
               />
             </svg>
             {store.first_block?.dates?.[3]?.val}
-          </div>
-          <div>
+          </a>
+          <a href="https://wa.me/79965590730" target="_blank" rel="noreferrer">
             <svg
               width="18"
               height="20"
@@ -112,7 +112,7 @@ const FirstBlock = () => {
               />
             </svg>
             {store.first_block?.dates?.[4]?.val}
-          </div>
+          </a>
         </div>
       </div>
     </div>
