@@ -3,10 +3,8 @@ import logo from "../../assets/img/logo.svg";
 import { Container } from "../";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-// import burgerIcon from "../../img/icons/burger.svg";
 
 import styles from "./Header.module.scss";
-
 
 function Header({ className }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -40,12 +38,6 @@ function Header({ className }) {
           </div>
 
           <div className={styles.menuMobile}>
-            {/* <img
-              src={burgerIcon}
-              alt="burger"
-              onClick={() => setIsOpen(!isOpen)}
-              
-            /> */}
             <div
               className={classNames({
                 [styles.burger]: true,

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Header } from "../../components";
 import { Button } from "../../UI";
@@ -50,11 +51,7 @@ const MainPage = () => {
     <div className={c.page}>
       <h3>Гавная</h3>
 
-      <Text
-        name="Заголовок"
-        path="title"
-        store={s}
-      />
+      <Text name="Заголовок" path="title" store={s} />
 
       <TextsSet
         name="Telegram"
@@ -114,13 +111,13 @@ const TouristDestinationsPage = () => {
       />
 
       <TextsSet
-         name='Кнопка'
-         path='first_block/button'
-         keys={[
-         { key: "text", name: "Текст" },
-         { key: "link", name: "Ссылка" },
-         ]}
-         store={s}
+        name="Кнопка"
+        path="first_block/button"
+        keys={[
+          { key: "text", name: "Текст" },
+          { key: "link", name: "Ссылка" },
+        ]}
+        store={s}
       />
 
       <hr />
@@ -192,70 +189,109 @@ const TouristDestinationsPage = () => {
 
       <hr />
 
-      <Text name='Район 1' path='routes_outside_the_city_block/districts/1' store={s} />
+      <Text
+        name="Район 1"
+        path="routes_outside_the_city_block/districts/1"
+        store={s}
+      />
 
-      {[ 1, 2 ].map(id => (
-         <Fragment key={id} >
-            <Image name='Картинка' path={`outside_city_points/${id}/img`} store={s} />
+      {[1, 2].map((id) => (
+        <Fragment key={id}>
+          <Image
+            name="Картинка"
+            path={`outside_city_points/${id}/img`}
+            store={s}
+          />
 
-            <TextsSet name={`Точка ${id}`} path={`outside_city_points/${id}`} keys={[
-               { key: 'id', name: 'id' },
-               { key: 'text', name: 'текст' },
-               { key: 'map', name: 'ссылка на карту' },
-               { key: 'time', name: 'время похода' },
-               { key: 'duration', name: 'протяжённость' },
-               { key: 'complexity', name: 'сложность' },
-               { key: 'steps', name: 'шагов' },
-               { key: 'calories', name: 'калории'},
-               { key: 'cost', name: 'стоимость'}
-            ]} store={s} />
+          <TextsSet
+            name={`Точка ${id}`}
+            path={`outside_city_points/${id}`}
+            keys={[
+              { key: "id", name: "id" },
+              { key: "text", name: "текст" },
+              { key: "map", name: "ссылка на карту" },
+              { key: "time", name: "время похода" },
+              { key: "duration", name: "протяжённость" },
+              { key: "complexity", name: "сложность" },
+              { key: "steps", name: "шагов" },
+              { key: "calories", name: "калории" },
+              { key: "cost", name: "стоимость" },
+            ]}
+            store={s}
+          />
 
-            <hr />
-         </Fragment>
+          <hr />
+        </Fragment>
       ))}
 
-      <Text name='Район 2' path='routes_outside_the_city_block/districts/2' store={s} />
+      <Text
+        name="Район 2"
+        path="routes_outside_the_city_block/districts/2"
+        store={s}
+      />
 
-      {[ 3 ].map(id => (
-         <Fragment key={id} >
-            <Image name='Картинка' path={`outside_city_points/${id}/img`} store={s} />
+      {[3].map((id) => (
+        <Fragment key={id}>
+          <Image
+            name="Картинка"
+            path={`outside_city_points/${id}/img`}
+            store={s}
+          />
 
-            <TextsSet name={`Точка ${id}`} path={`outside_city_points/${id}`} keys={[
-               { key: 'id', name: 'id' },
-               { key: 'text', name: 'текст' },
-               { key: 'map', name: 'ссылка на карту' },
-               { key: 'time', name: 'время похода' },
-               { key: 'duration', name: 'протяжённость' },
-               { key: 'complexity', name: 'сложность' },
-               { key: 'steps', name: 'шагов' },
-               { key: 'calories', name: 'калории'},
-               { key: 'cost', name: 'стоимость'}
-            ]} store={s} />
+          <TextsSet
+            name={`Точка ${id}`}
+            path={`outside_city_points/${id}`}
+            keys={[
+              { key: "id", name: "id" },
+              { key: "text", name: "текст" },
+              { key: "map", name: "ссылка на карту" },
+              { key: "time", name: "время похода" },
+              { key: "duration", name: "протяжённость" },
+              { key: "complexity", name: "сложность" },
+              { key: "steps", name: "шагов" },
+              { key: "calories", name: "калории" },
+              { key: "cost", name: "стоимость" },
+            ]}
+            store={s}
+          />
 
-            <hr />
-         </Fragment>
+          <hr />
+        </Fragment>
       ))}
 
-      <Text name='Район 3' path='routes_outside_the_city_block/districts/3' store={s} />
+      <Text
+        name="Район 3"
+        path="routes_outside_the_city_block/districts/3"
+        store={s}
+      />
 
-      {[ 4 ].map(id => (
-         <Fragment key={id} >
-            <Image name='Картинка' path={`outside_city_points/${id}/img`} store={s} />
+      {[4].map((id) => (
+        <Fragment key={id}>
+          <Image
+            name="Картинка"
+            path={`outside_city_points/${id}/img`}
+            store={s}
+          />
 
-            <TextsSet name={`Точка ${id}`} path={`outside_city_points/${id}`} keys={[
-               { key: 'id', name: 'id' },
-               { key: 'text', name: 'текст' },
-               { key: 'map', name: 'ссылка на карту' },
-               { key: 'time', name: 'время похода' },
-               { key: 'duration', name: 'протяжённость' },
-               { key: 'complexity', name: 'сложность' },
-               { key: 'steps', name: 'шагов' },
-               { key: 'calories', name: 'калории'},
-               { key: 'cost', name: 'стоимость'}
-            ]} store={s} />
+          <TextsSet
+            name={`Точка ${id}`}
+            path={`outside_city_points/${id}`}
+            keys={[
+              { key: "id", name: "id" },
+              { key: "text", name: "текст" },
+              { key: "map", name: "ссылка на карту" },
+              { key: "time", name: "время похода" },
+              { key: "duration", name: "протяжённость" },
+              { key: "complexity", name: "сложность" },
+              { key: "steps", name: "шагов" },
+              { key: "calories", name: "калории" },
+              { key: "cost", name: "стоимость" },
+            ]}
+            store={s}
+          />
 
-            <hr />
-         </Fragment>
+          <hr />
+        </Fragment>
       ))}
 
       <Text name="Подзаголовок" path="sea_routes_block/title" store={s} />
