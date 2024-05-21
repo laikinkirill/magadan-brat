@@ -25,101 +25,108 @@ function Main() {
   return (
     <>
       <div className={styles.main}>
-        <h3 className={styles.mainTitle}>{store.title?.val}</h3>
+        <div className={styles.mainTitleWrapper}>
+          <h3 className={styles.mainTitle}>{store.title?.val}</h3>
+        </div>
 
-        <div className={styles.row}>
-          <Link to="/tours" className={styles.reactLink}>
-            <div className={styles.card}>
+        <div className={styles.rowContainer}>
+          <div className={styles.row}>
+            <Link to="/tours" className={styles.reactLink}>
               <div className={styles.image}>
                 <img src={icon1} alt="bear" />
               </div>
-              <h4 className={styles.text}>Туристические направления</h4>
-            </div>
-          </Link>
+              <h4 className={styles.text}>
+                Туристические <br />
+                направления
+              </h4>
+            </Link>
 
-          <Link to="/souvenir" className={styles.reactLink}>
-            <div className={styles.card}>
+            <Link to="/souvenir" className={styles.reactLink}>
               <div className={styles.image}>
                 <img src={icon2} alt="bear" />
               </div>
-              <h4 className={styles.text}>сувенирная продукция</h4>
-            </div>
-          </Link>
+              <h4 className={styles.text}>
+                сувенирная <br /> продукция
+              </h4>
+            </Link>
 
-          <Link to="/freeride" className={styles.reactLink}>
-            <div className={styles.card}>
+            <Link to="/freeride" className={styles.reactLink}>
               <div className={styles.image}>
                 <img src={icon3} alt="bear" />
               </div>
-              <h4 className={styles.text}>фрирайд в&nbsp;магадане</h4>
-            </div>
-          </Link>
+              <h4 className={styles.text}>
+                фрирайд <br /> в&nbsp;магадане
+              </h4>
+            </Link>
+          </div>
         </div>
 
-        <div className={styles.social}>
-          <Link
-            to={store.telegram?.val.link}
-            target="_blank"
-            className={styles.reactLink}
-          >
-            <div className={styles.socialItem}>
-              <div className={styles.iconBox}>
-                <img src={telegram} alt="telegram" />
+        <div className={styles.socialWrapper}>
+          <div className={styles.social}>
+            <Link
+              to={store.telegram?.val.link}
+              target="_blank"
+              className={styles.socialtLink}
+            >
+              <div className={styles.socialItem}>
+                <div className={styles.iconBox}>
+                  <img src={telegram} alt="telegram" />
+                </div>
+                <div className={styles.textBox}>
+                  <div className={styles.name}>Telegram</div>
+                  <div className={styles.link}>{store.telegram?.val.name}</div>
+                </div>
               </div>
-              <div className={styles.textBox}>
-                <div className={styles.name}>Telegram</div>
-                <div className={styles.link}>{store.telegram?.val.name}</div>
-              </div>
-            </div>
-          </Link>
+            </Link>
 
-          <Link
-            to={store.rutube?.val.link}
-            target="_blank"
-            className={styles.reactLink}
-          >
-            <div className={styles.socialItem}>
-              <div className={styles.iconBox}>
-                <img src={rutube} alt="rutube" />
+            <Link
+              to={store.rutube?.val.link}
+              target="_blank"
+              className={styles.socialtLink}
+            >
+              <div className={styles.socialItem}>
+                <div className={styles.iconBox}>
+                  <img src={rutube} alt="rutube" />
+                </div>
+                <div className={styles.textBox}>
+                  <div className={styles.name}>RuTube</div>
+                  <div className={styles.link}>{store.rutube?.val.name}</div>
+                </div>
               </div>
-              <div className={styles.textBox}>
-                <div className={styles.name}>RuTube</div>
-                <div className={styles.link}>{store.rutube?.val.name}</div>
-              </div>
-            </div>
-          </Link>
+            </Link>
 
-          <Link
-            to={store.youtube?.val.link}
-            target="_blank"
-            className={styles.reactLink}
-          >
-            <div className={styles.socialItem}>
-              <div className={styles.iconBox}>
-                <img src={youtube} alt="youtube" />
+            <Link
+              to={store.youtube?.val.link}
+              target="_blank"
+              className={styles.socialtLink}
+            >
+              <div className={styles.socialItem}>
+                <div className={styles.iconBox}>
+                  <img src={youtube} alt="youtube" />
+                </div>
+                <div className={styles.textBox}>
+                  <div className={styles.name}>Youtube</div>
+                  <div className={styles.link}>{store.youtube?.val.name}</div>
+                </div>
               </div>
-              <div className={styles.textBox}>
-                <div className={styles.name}>Youtube</div>
-                <div className={styles.link}>{store.youtube?.val.name}</div>
-              </div>
-            </div>
-          </Link>
+            </Link>
 
-          <Link
-            to={store.vk?.val.link}
-            target="_blank"
-            className={styles.reactLink}
-          >
-            <div className={styles.socialItem}>
-              <div className={styles.iconBox}>
-                <img src={vk} alt="vk" />
+            <Link
+              to={store.vk?.val.link}
+              target="_blank"
+              className={styles.socialtLink}
+            >
+              <div className={styles.socialItem}>
+                <div className={styles.iconBox}>
+                  <img src={vk} alt="vk" />
+                </div>
+                <div className={styles.textBox}>
+                  <div className={styles.name}>ВКонтакте</div>
+                  <div className={styles.link}>{store.vk?.val.name}</div>
+                </div>
               </div>
-              <div className={styles.textBox}>
-                <div className={styles.name}>ВКонтакте</div>
-                <div className={styles.link}>{store.vk?.val.name}</div>
-              </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
 
         <video autoPlay loop muted poster={poster} className={styles.video}>
