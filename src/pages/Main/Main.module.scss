@@ -189,6 +189,7 @@
 }
 
 .socialtLink {
+  transform: scale(0.95);
   text-decoration: none;
   color: #fff;
   transition: all 0.2s;
@@ -198,6 +199,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  &:hover {
+    transform: scale(1);
+    transition: all 0.2s;
   }
 }
 
