@@ -18,7 +18,7 @@
   z-index: 9999;
   display: flex;
   gap: 0 48px;
-
+  justify-content: center;
   height: calc(100vh - 301px);
   align-items: center;
 
@@ -65,7 +65,8 @@
 }
 
 .img {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
+  width: 40%;
 }
 
 .overlay {
