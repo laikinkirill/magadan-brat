@@ -182,7 +182,7 @@
 .peninsula_routes_block {
   .sub_title {
     color: #bbbbbb;
-    font-size: 24px;
+    font-size: 20px;
 
     @media (max-width: 1200px) {
       font-size: 20px;
@@ -863,7 +863,7 @@
 
   .sub_title {
     color: #bbbbbb;
-    font-size: 24px;
+    font-size: 20px;
     margin: 20px 64px 0 64px !important;
 
     @media (max-width: 1200px) {
@@ -1173,14 +1173,14 @@
   }
 
   img {
-    width: 100%;
+    width: 90%;
     border-radius: 16px;
     height: 100%;
     object-fit: cover;
   }
 
   .text {
-    font-size: 24px;
+    font-size: 20px;
     display: grid;
   }
 
