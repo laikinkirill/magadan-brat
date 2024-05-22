@@ -1,8 +1,6 @@
-export { getDate } from "./getDate";
 
-export { arrayFromTo } from "./arrayFromTo";
+export { getDate } from "./getDate"
 
-export {
-  updateTextAndSetInnerHTML,
-  updateTextAndReturnArr,
-} from "./updateTextAndSetInnerHTML";
+export { arrayFromTo } from "./arrayFromTo"
+
+export { updateTextAndSetInnerHTML, updateTextAndReturnArr } from "./updateTextAndSetInnerHTML"

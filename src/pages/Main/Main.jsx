@@ -17,10 +17,12 @@ import videoMobile from "../../assets/video/main-mobile.mp4";
 
 import poster from "../../assets/video/poster.jpg";
 import posterMbile from "../../assets/video/poster-mobile.png";
-import { useMainPageStore } from "../../store/mainPage";
+import { useMainPageStore } from "../../store/mainPage"
+
 
 function Main() {
-  const store = useMainPageStore();
+
+   const store = useMainPageStore()
 
   return (
     <>

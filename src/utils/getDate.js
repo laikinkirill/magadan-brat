@@ -1,13 +1,15 @@
-export const getDate = (number) => {
-  const dateObj = new Date(number);
 
-  const day = addZero(dateObj.getDate());
-  const month = addZero(dateObj.getMonth() + 1);
-  const year = dateObj.getFullYear();
+export const getDate = ( number ) => {
 
-  function addZero(num) {
-    return num < 10 ? "0" + num : num;
-  }
+   const dateObj = new Date(number)
 
-  return `${day}.${month}.${year}`;
-};
+   const day = addZero(dateObj.getDate())
+   const month = addZero(dateObj.getMonth() + 1)
+   const year = dateObj.getFullYear()
+
+   function addZero(num) {
+      return num < 10 ? '0'+num : num
+   }
+
+   return `${day}.${month}.${year}`
+}
