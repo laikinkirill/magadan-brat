@@ -579,9 +579,9 @@
     }
   }
 
-  h2 {
-    margin-left: 64px;
-  }
+  // h2 {
+  //   margin-left: 64px;
+  // }
 
   .road {
     min-height: 150px;
@@ -782,6 +782,43 @@
   }
 }
 
+.titleAndButton {
+  display: flex !important;
+  align-items: center;
+  gap: 8px !important;
+
+  & h2 {
+    width: 60%;
+  }
+
+  & a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 82px;
+  }
+}
+
+.titleAndButtonStaritsky {
+  align-items: flex-end;
+  & a {
+    margin-bottom: 14px;
+  }
+}
+
+.titleAndButtonSea {
+  margin: 0 64px;
+
+  & h2 {
+    display: contents;
+  }
+
+  & a {
+    margin-left: 24px;
+  }
+}
+
 .sea_routes {
   position: relative;
   background-color: rgba(53, 153, 245, 0.15);
@@ -794,9 +831,9 @@
     padding: 0;
   }
 
-  h2 {
-    margin-left: 64px;
-  }
+  // h2 {
+  //   margin-left: 64px;
+  // }
 
   .sub_title {
     color: #bbbbbb;

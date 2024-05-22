@@ -396,7 +396,12 @@ const PeninsulaRoutesBlock = () => {
 
   return (
     <div className={classNames(c.peninsula_routes_block, "_container")}>
-      <h2>{store.peninsula_routes_block?.title?.val}</h2>
+      <div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
+        <h2>{store.peninsula_routes_block?.title?.val}</h2>
+        <Button to="https://wa.me/79965590730" small={true} defaultLink={true}>
+          Заказать тур
+        </Button>
+      </div>
 
       <p className={c.sub_title}>
         {store.peninsula_routes_block?.sub_title?.val}
@@ -429,7 +434,12 @@ const RoutesOutsideTheCityBlock = () => {
 
   return (
     <div className={classNames(c.routes_outside_theCity_block, "_container")}>
-      <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
+      <div className={c.titleAndButton}>
+        <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
+        <Button to="https://wa.me/79965590730" small={true} defaultLink>
+          Заказать тур
+        </Button>
+      </div>
 
       <div>
         <p className={c.title}>
@@ -508,7 +518,12 @@ const SeaRoutesBlock = () => {
   return (
     <div className="_container">
       <div className={c.sea_routes}>
-        <h2>{store.sea_routes_block?.title.val}</h2>
+        <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
+          <h2>{store.sea_routes_block?.title.val}</h2>
+          <Button to="https://wa.me/79965590730" small={true} defaultLink>
+            Заказать тур
+          </Button>
+        </div>
 
         <p className={c.sub_title}>{store.sea_routes_block?.sub_title.val}</p>
 
