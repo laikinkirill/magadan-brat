@@ -7,7 +7,7 @@
     gap: 80px;
   }
   @media (max-width: 440px) {
-   overflow: hidden;
+    overflow: hidden;
   }
 
   h1 {
@@ -223,10 +223,9 @@
   }
 
   .map_popup {
-
-   @media (max-width: 760px) {
+    @media (max-width: 760px) {
       height: 100%;
-   }
+    }
 
     .popup_body {
       max-width: 360px;
@@ -346,7 +345,7 @@
   user-select: none;
 
   span {
-   width: 100px;
+    width: 100px;
   }
 
   @media (max-width: 760px) {
@@ -634,7 +633,6 @@
   }
 
   .map_point {
-
     @media (max-width: 760px) {
       position: absolute;
 
@@ -679,7 +677,7 @@
     @media (max-width: 760px) {
       justify-content: center;
       height: 1000px;
-   }
+    }
 
     .popup_body {
       max-width: 360px;
@@ -933,7 +931,7 @@
           grid-template-columns: repeat(3, 1fr);
         }
         @media (max-width: 760px) {
-         grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
 
         & > div {

@@ -1,4 +1,3 @@
+export { Accordion } from "./Accordion/Accordion";
 
-export { Accordion } from "./Accordion/Accordion"
-
-export { Button } from "./button/Button"
+export { Button } from "./button/Button";

@@ -1,171 +1,168 @@
-
 .page_body {
-   display: grid;
-   gap: 80px;
-   padding: 80px 0;
+  display: grid;
+  gap: 80px;
+  padding: 80px 0;
 
-   .buttons {
+  .buttons {
+    display: grid;
+    gap: 30px;
+  }
+
+  hr {
+    width: 100%;
+    background-color: #fff;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 40px;
+
+    p {
+      width: 200px;
+      white-space: nowrap;
+      font-size: 18px;
+    }
+
+    button {
+      height: max-content;
+      background-color: var(--color-button);
+      color: #fff;
+      cursor: pointer;
+      padding: 20px;
+      border-radius: 10px;
+      border: none;
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+
+  .text_field {
+    position: relative;
+
+    i {
+      padding: 3px 10px 3px 8px;
+      margin-left: 20px;
+
+      cursor: pointer;
+      color: green;
+      font-size: 14px;
+      line-height: 14px;
+
+      border: 1px solid green;
+      border-radius: 50%;
+
+      &:hover {
+        & + span {
+          opacity: 1;
+        }
+      }
+
+      & + span {
+        position: absolute;
+        top: -10px;
+        left: 250px;
+        opacity: 0;
+
+        color: green;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+    }
+  }
+
+  .texts_set_field {
+    span {
+      color: #3f51b5;
+      font-size: 18px;
+    }
+
+    & > div {
       display: grid;
       gap: 30px;
-   }
+      grid-template-columns: 1fr 1fr;
+    }
 
-   hr {
+    textarea {
       width: 100%;
-      background-color: #fff;
-   }
+      font-size: 18px;
+      font-weight: 400;
+      color: #fff;
+      background-color: transparent;
+      border: none;
+    }
+  }
 
-   .field {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 40px;
-      
-      p {
-         width: 200px;
-         white-space: nowrap;
-         font-size: 18px;
+  .image_field {
+    grid-template-columns: auto 1fr auto auto;
+
+    img {
+      min-height: 50px;
+      cursor: pointer;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    input {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      width: 1px;
+      font-size: 0;
+    }
+
+    button {
+      grid-row: 1/2;
+
+      &:nth-of-type(1) {
+        grid-column: 4/5;
       }
-
-      button {
-         height: max-content;
-         background-color: var(--color-button);
-         color: #fff;
-         cursor: pointer;
-         padding: 20px;
-         border-radius: 10px;
-         border: none;
-
-         &:active {
-            transform: scale(.95);
-         }
+      &:nth-of-type(2) {
+        grid-column: 3/4;
       }
-   }
+    }
+  }
 
-   .text_field {
-      position: relative;
+  .video_field {
+    grid-template-columns: auto 1fr auto auto;
 
-      i {
-         padding: 3px 10px 3px 8px;
-         margin-left: 20px;
-         
-         cursor: pointer;
-         color: green;
-         font-size: 14px;
-         line-height: 14px;
+    video {
+      cursor: pointer;
+    }
 
-         border: 1px solid green;
-         border-radius: 50%;
+    input {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      width: 1px;
+      font-size: 0;
+    }
 
-         &:hover {
-            & + span {
-               opacity: 1;
-            }
-         }
+    button {
+      grid-row: 1/2;
 
-         & + span {
-            position: absolute;
-            top: -10px;
-            left: 250px;
-            opacity: 0;
-   
-            color: green;
-         }
+      &:nth-of-type(1) {
+        grid-column: 4/5;
       }
-
-      textarea {
-         width: 100%;
-         font-size: 18px;
-         font-weight: 400;
-         color: #fff;
-         background-color: transparent;
-         border: none;
+      &:nth-of-type(2) {
+        grid-column: 3/4;
       }
-   }
-
-   .texts_set_field {
-
-      span {
-         color: #3f51b5;
-         font-size: 18px;
-      }
-
-      & > div {
-         display: grid;
-         gap: 30px;
-         grid-template-columns: 1fr 1fr;
-      }
-
-      textarea {
-         width: 100%;
-         font-size: 18px;
-         font-weight: 400;
-         color: #fff;
-         background-color: transparent;
-         border: none;
-      }
-
-   }
-
-   .image_field {
-      grid-template-columns: auto 1fr auto auto;
-
-      img {
-         min-height: 50px;
-         cursor: pointer;
-         background-color: rgba(255, 255, 255, .1);
-      }
-
-      input {
-         position: absolute;
-         opacity: 0;
-         visibility: hidden;
-         width: 1px;
-         font-size: 0;
-      }
-
-      button {
-         grid-row: 1/2;
-
-         &:nth-of-type(1) {
-            grid-column: 4/5;
-         }
-         &:nth-of-type(2) {
-            grid-column: 3/4;
-         }
-      }
-   }
-
-   .video_field {
-      grid-template-columns: auto 1fr auto auto;
-
-      video {
-         cursor: pointer;
-      }
-
-      input {
-         position: absolute;
-         opacity: 0;
-         visibility: hidden;
-         width: 1px;
-         font-size: 0;
-      }
-
-      button {
-         grid-row: 1/2;
-
-         &:nth-of-type(1) {
-            grid-column: 4/5;
-         }
-         &:nth-of-type(2) {
-            grid-column: 3/4;
-         }
-      }
-   }
+    }
+  }
 }
 
 .page {
-   display: grid;
-   gap: 30px;
+  display: grid;
+  gap: 30px;
 }
 
 .login {

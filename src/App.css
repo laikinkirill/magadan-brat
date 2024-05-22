@@ -55,22 +55,6 @@ h4 {
   background-size: contain;
 }
 
-/* .swiper-slide:nth-child(1n) {
-  background-image: url(./assets/img/souvenir/01.jpg);
-} */
-
-/* .swiper-slide:nth-child(2n) {
-  background-image: url(./assets/img/souvenir/02.jpg);
-}
-
-.swiper-slide:nth-child(3n) {
-  background-image: url(./assets/img/souvenir/03.jpg);
-}
-
-.swiper-slide:nth-child(4n) {
-  background-image: url(./assets/img/souvenir/04.jpg);
-} */
-
 @media screen and (max-width: 767px) {
   h3,
   h4 {

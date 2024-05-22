@@ -61,30 +61,6 @@ function Souvenir() {
               <img src={zoom4} alt="" />
             </div>
           </SwiperSlide>
-
-          {/* <SwiperSlide>
-            <div className="swiper-zoom-container"></div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="swiper-zoom-container"></div>
-          </SwiperSlide>
-
-          <SwiperSlide>
-            <div className="swiper-zoom-container"></div>
-          </SwiperSlide> */}
-
-          {/* <div className="swiper-zoom-container">
-            <SwiperSlide></SwiperSlide>
-          </div>
-
-          <div className="swiper-zoom-container">
-            <SwiperSlide></SwiperSlide>
-          </div>
-
-          <div className="swiper-zoom-container">
-            <SwiperSlide></SwiperSlide>
-          </div> */}
         </Swiper>
       </div>
     </div>

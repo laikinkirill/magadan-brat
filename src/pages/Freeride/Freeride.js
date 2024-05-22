@@ -5,7 +5,6 @@ import styles from "./Freeride.module.scss";
 
 import mountIcon from "../../assets/img/freeride/icon-mount.svg";
 
-
 function Freeride() {
   return (
     <>
