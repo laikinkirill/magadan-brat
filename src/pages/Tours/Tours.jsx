@@ -381,6 +381,12 @@ const PeninsulaRoutesBlock = () => {
 
   return (
     <div className={classNames(c.peninsula_routes_block, "_container")}>
+      <div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
+        <h2>{store.peninsula_routes_block?.title?.val}</h2>
+        <Button to="https://wa.me/79965590730" small={true} defaultLink={true}>
+          Заказать тур
+        </Button>
+      </div>
 
       <h2><Text text={store.peninsula_routes_block?.title?.val} /></h2>
 
@@ -415,7 +421,12 @@ const RoutesOutsideTheCityBlock = () => {
 
   return (
     <div className={classNames(c.routes_outside_theCity_block, "_container")}>
-      <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
+      <div className={c.titleAndButton}>
+        <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
+        <Button to="https://wa.me/79965590730" small={true} defaultLink>
+          Заказать тур
+        </Button>
+      </div>
 
       <div>
         <p className={c.title}>
@@ -494,6 +505,12 @@ const SeaRoutesBlock = () => {
   return (
     <div className="_container">
       <div className={c.sea_routes}>
+        <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
+          <h2>{store.sea_routes_block?.title.val}</h2>
+          <Button to="https://wa.me/79965590730" small={true} defaultLink>
+            Заказать тур
+          </Button>
+        </div>
 
         <h2><Text text={store.sea_routes_block?.title.val} /></h2>
 
@@ -542,6 +559,19 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
+              top: "5%",
+              left: "63.2%",
+              fontSize: 10,
+              color: "#ACACAC",
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+          >
+            Магадан
+          </span>
+
+          <span
+            style={{
               top: "30%",
               left: "4%",
               fontSize: 12,
@@ -577,6 +607,19 @@ const SeaRoutesBlock = () => {
             }}
           >
             мыс Таран
+          </span>
+
+          <span
+            style={{
+              top: "60%",
+              left: "45%",
+              fontSize: 12,
+              color: "#ACACAC",
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+          >
+            остров Завьялова
           </span>
 
           <span

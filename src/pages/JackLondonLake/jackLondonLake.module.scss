@@ -304,7 +304,7 @@
       bottom: 0;
       width: 100%;
       height: 15px;
-      background: linear-gradient(90deg, #fbf107, #ee7116, #f31e10, #f19811);
+      background: linear-gradient(90deg, #43a047, #fbc02d, #fb8c00, #f4511e);
 
       @media (max-width: 768px) {
         height: 5px;
@@ -324,13 +324,12 @@
         display: grid;
         gap: 20px;
         grid-template-columns: auto 1fr 1fr auto;
-        // justify-items: center;
         justify-content: center;
         bottom: 20px;
       }
 
       & > a {
-        padding: 8px 24px;
+        padding: 8px 15px;
         border-width: 2px;
         border-style: solid;
         border-radius: 8px;
@@ -340,16 +339,15 @@
         justify-content: center;
         gap: 10px;
         text-decoration: none;
+        font-size: 14px;
 
         @media (max-width: 1000px) {
-          font-size: 14px;
-          padding: 8px 15px;
           white-space: nowrap;
         }
 
         &:nth-of-type(1) {
-          color: #f0c220;
-          border-color: #f0c220;
+          color: #43a047;
+          border-color: #43a047;
           transition: all 0.2s;
 
           & path {
@@ -357,7 +355,7 @@
           }
 
           &:hover {
-            background-color: #f0c220;
+            background-color: #43a047;
             color: #fff;
             transition: all 0.2s;
 
@@ -372,11 +370,11 @@
           }
         }
         &:nth-of-type(2) {
-          color: #ee7116;
-          border-color: #ee7116;
+          color: #fbc02d;
+          border-color: #fbc02d;
 
           &:hover {
-            background-color: #ee7116;
+            background-color: #fbc02d;
             color: #fff;
             transition: all 0.2s;
 
@@ -391,11 +389,11 @@
           }
         }
         &:nth-of-type(3) {
-          color: #f31e10;
-          border-color: #f31e10;
+          color: #fb8c00;
+          border-color: #fb8c00;
 
           &:hover {
-            background-color: #f31e10;
+            background-color: #fb8c00;
             color: #fff;
             transition: all 0.2s;
 
@@ -411,11 +409,11 @@
           }
         }
         &:nth-of-type(4) {
-          color: #f19811;
-          border-color: #f19811;
+          color: #f4511e;
+          border-color: #f4511e;
 
           &:hover {
-            background-color: #f19811;
+            background-color: #f4511e;
             color: #fff;
             transition: all 0.2s;
 
