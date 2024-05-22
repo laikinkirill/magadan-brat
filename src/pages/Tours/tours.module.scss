@@ -338,7 +338,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2em;
+  width: 1.5em;
   height: auto;
   aspect-ratio: 1/1;
   cursor: pointer;
@@ -393,17 +393,14 @@
 
   @media (any-hover: hover) {
     &:hover {
-      &::before,
-      &::after {
-        transform: scale(1.1);
-      }
-
       &::before {
         background-color: #7291ff;
+        transform: scale(1.1) translate(-50%);
       }
 
       &::after {
         border-color: #7291ff;
+        transform: scale(1.1);
       }
 
       & + .map_popup {
@@ -414,20 +411,21 @@
   }
 
   &._active {
-    &::before,
-    &::after {
-      transform: scale(1.1);
-    }
     &::before {
+      transform: scale(1.1) translate(-50%);
       background-color: yellow;
     }
     &::after {
       border: 1px solid yellow;
+      transform: scale(1.1);
     }
   }
 
   &:active {
-    &::before,
+    &::before {
+      transform: scale(0.95) translate(-50%);
+    }
+
     &::after {
       transform: scale(0.95);
     }
@@ -443,9 +441,11 @@
   }
 
   &::before {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
     background-color: #fff;
+    left: 50%;
+    transform: translate(-50%) scale(1);
   }
   &::after {
     width: 100%;

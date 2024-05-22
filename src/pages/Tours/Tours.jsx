@@ -554,6 +554,19 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
+              top: "5%",
+              left: "63.2%",
+              fontSize: 10,
+              color: "#ACACAC",
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+          >
+            Магадан
+          </span>
+
+          <span
+            style={{
               top: "30%",
               left: "4%",
               fontSize: 12,
@@ -589,6 +602,19 @@ const SeaRoutesBlock = () => {
             }}
           >
             мыс Таран
+          </span>
+
+          <span
+            style={{
+              top: "60%",
+              left: "45%",
+              fontSize: 12,
+              color: "#ACACAC",
+              position: "absolute",
+              pointerEvents: "none",
+            }}
+          >
+            остров Завьялова
           </span>
 
           <span

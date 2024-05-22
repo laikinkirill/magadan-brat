@@ -191,7 +191,7 @@ export const SEA_POINTS = [
     textOrientation: "right",
     position: {
       top: "72%",
-      left: "54%",
+      left: "50%",
     },
   },
   {
@@ -215,7 +215,7 @@ export const SEA_POINTS = [
     textOrientation: "left",
     position: {
       top: "82%",
-      left: "75%",
+      left: "73%",
     },
   },
   {
@@ -230,7 +230,7 @@ export const SEA_POINTS = [
     id: 7,
     textOrientation: "bottom",
     position: {
-      top: "11%",
+      top: "26%",
       left: "63%",
     },
   },
