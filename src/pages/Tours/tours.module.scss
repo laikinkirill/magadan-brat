@@ -802,33 +802,33 @@
   gap: 8px !important;
 
   & h2 {
-    width: 60%;
+    width: 65%;
   }
 
   & a {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 16px;
-    width: 82px;
+   //  height: 16px;
+   //  width: 82px;
   }
 }
 
 .titleAndButtonStaritsky {
   align-items: flex-end;
-  & a {
-    margin-bottom: 14px;
+  a {
+    margin-bottom: 10px;
   }
 }
 
 .titleAndButtonSea {
   margin: 0 64px;
 
-  & h2 {
+  h2 {
     display: contents;
   }
 
-  & a {
+  a {
     margin-left: 24px;
   }
 }
