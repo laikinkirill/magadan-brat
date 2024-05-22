@@ -388,8 +388,6 @@ const PeninsulaRoutesBlock = () => {
         </Button>
       </div>
 
-      <h2><Text text={store.peninsula_routes_block?.title?.val} /></h2>
-
       <div className={c.sub_title}>
         <Text text={store.peninsula_routes_block?.sub_title?.val} />
       </div>
@@ -511,8 +509,6 @@ const SeaRoutesBlock = () => {
             Заказать тур
           </Button>
         </div>
-
-        <h2><Text text={store.sea_routes_block?.title.val} /></h2>
 
         <div className={c.sub_title}><Text text={store.sea_routes_block?.sub_title.val} /></div>
 

@@ -726,7 +726,7 @@
       align-items: center;
       gap: 15px;
 
-      p {
+      & > p {
         grid-column: 2/3;
         font-size: 24px;
 

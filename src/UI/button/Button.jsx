@@ -6,7 +6,7 @@ import c from "./button.module.scss";
 const Button = ({ children, to, onClick, className, small, defaultLink }) => {
   return (
     <>
-      {to && defaultLink === false ? (
+      {to && !defaultLink ? (
         <Link
           to={to}
           className={classNames({

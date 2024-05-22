@@ -33,7 +33,9 @@
 }
 
 .small {
+   display: inline-block;
   font-size: 15px;
   padding: 12px 32px;
   border-radius: 6px;
+  white-space: nowrap;
 }
