@@ -24,14 +24,19 @@
       }
     }
 
-    span {
+    .text {
       max-width: 90%;
-      display: block;
+      display: grid;
+      align-content: start;
       max-height: 0px;
       height: 100%;
       font-size: 0;
 
       transition: max-height 0.3s ease, margin-top 0.3s ease;
+
+      p {
+         font-size: inherit;
+      }
     }
 
     i {

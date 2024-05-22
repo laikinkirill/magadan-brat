@@ -1,15 +1,14 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Header } from "../../components";
-import { Button, Accordion } from "../../UI";
+import { Button, Accordion, Text } from "../../UI";
 import classNames from "classnames";
 import {
   MAP_POINTS,
   SEA_POINTS,
   useTouristDestinationsPageStore,
 } from "../../store/touristDestinationsPage";
-import { updateTextAndReturnArr, updateTextAndSetInnerHTML } from "../../utils";
 
 import c from "./tours.module.scss";
 
@@ -22,6 +21,7 @@ function Tours() {
       <Header className={c.header} />
 
       <div className={c.page_body}>
+
         <FirstBlock />
 
         <VideoBlock />
@@ -35,6 +35,7 @@ function Tours() {
         <IndividualTourBlock />
 
         <JackLondonLakeBlock />
+
       </div>
     </>
   );
@@ -312,17 +313,10 @@ const MapPoint = ({
 const FirstBlock = () => {
   const store = useTouristDestinationsPageStore();
 
-  const titleRef = useRef();
-
-  useEffect(() => {
-    const title = store?.first_block?.title.val;
-    updateTextAndSetInnerHTML(titleRef.current, title);
-  }, [store]);
-
   return (
     <div className={c.first_block}>
       <div className="_container">
-        <h1 ref={titleRef}></h1>
+        <h1><Text text={store?.first_block?.title.val} /></h1>
 
         <Button to={store?.first_block?.button?.val?.link}>
           {store?.first_block?.button?.val?.text}
@@ -334,13 +328,6 @@ const FirstBlock = () => {
 
 const VideoBlock = () => {
   const store = useTouristDestinationsPageStore();
-
-  const [text, setText] = useState([]);
-
-  useEffect(() => {
-    const title = store?.video_block?.text.val;
-    setText(updateTextAndReturnArr(title));
-  }, [store]);
 
   const playHandler = (e) => {
     const video = e.currentTarget.querySelector("video");
@@ -374,17 +361,15 @@ const VideoBlock = () => {
       </div>
 
       <div className={c.text}>
-        {text?.map((line, i) => (
-          <p key={i}>{line}</p>
-        ))}
+         <Text text={store?.video_block?.text.val} />
       </div>
 
       <div className={c.features}>
         {Object.values(store.video_block?.features)?.map((feature, i) => (
-          <p key={i}>
+          <div key={i}>
             <span>{feature?.val.title}</span>
-            {feature?.val.text}
-          </p>
+            <Text text={feature?.val.text} />
+          </div>
         ))}
       </div>
     </div>
@@ -396,11 +381,12 @@ const PeninsulaRoutesBlock = () => {
 
   return (
     <div className={classNames(c.peninsula_routes_block, "_container")}>
-      <h2>{store.peninsula_routes_block?.title?.val}</h2>
 
-      <p className={c.sub_title}>
-        {store.peninsula_routes_block?.sub_title?.val}
-      </p>
+      <h2><Text text={store.peninsula_routes_block?.title?.val} /></h2>
+
+      <div className={c.sub_title}>
+        <Text text={store.peninsula_routes_block?.sub_title?.val} />
+      </div>
 
       <div className={c.map}>
         <img src={routesMap} alt="" />
@@ -508,9 +494,10 @@ const SeaRoutesBlock = () => {
   return (
     <div className="_container">
       <div className={c.sea_routes}>
-        <h2>{store.sea_routes_block?.title.val}</h2>
 
-        <p className={c.sub_title}>{store.sea_routes_block?.sub_title.val}</p>
+        <h2><Text text={store.sea_routes_block?.title.val} /></h2>
+
+        <div className={c.sub_title}><Text text={store.sea_routes_block?.sub_title.val} /></div>
 
         <div className={c.map}>
           <img src={seaMap} alt="" />
@@ -521,6 +508,7 @@ const SeaRoutesBlock = () => {
                 id={point?.id}
                 textOrientation={point?.textOrientation}
                 position={point?.position}
+                popupPosition={point?.popupPosition || ""}
                 data={store.sea_points[point?.id]}
                 onClick={() => onClick(point?.id)}
                 onClose={() => onClick(point?.id)}
@@ -617,9 +605,9 @@ const IndividualTourBlock = () => {
       <img src={store.individual_tour_block?.img?.val} alt="" />
 
       <div>
-        <h2>{store.individual_tour_block?.title?.val}</h2>
+        <h2><Text text={store.individual_tour_block?.title?.val} /></h2>
 
-        <p>{store.individual_tour_block?.text?.val}</p>
+        <div className={c.text} ><Text text={store.individual_tour_block?.text?.val} /></div>
 
         <Button to={store.first_block?.button?.val?.link}>
           {store.first_block?.button?.val?.text}
@@ -634,9 +622,10 @@ const JackLondonLakeBlock = () => {
 
   return (
     <div className={classNames(c.jack_londonLake_block, "_container")}>
-      <p className={c.sub_title}>{store.jack_london_lake_block?.text?.val}</p>
 
-      <h2>{store.jack_london_lake_block?.title?.val}</h2>
+      <div className={c.sub_title}><Text text={store.jack_london_lake_block?.text?.val} /></div>
+
+      <h2><Text text={store.jack_london_lake_block?.title?.val} /></h2>
 
       <Accordion accordion={store?.accordion} />
 

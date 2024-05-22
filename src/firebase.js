@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { get, getDatabase, ref, child, update } from "firebase/database";
+import { get, getDatabase, ref, child, update, remove } from "firebase/database";
 import {
   getDownloadURL,
   getStorage,
@@ -25,17 +25,22 @@ const storage = getStorage(app);
 
 const db = getDatabase(app);
 
-async function setData(collection, path, value) {
+async function setData(collection, path, obj ) {
   try {
-    console.log(path, value);
-    await update(ref(db, `/${SECRET}/${collection}/${path}`), {
-      val: value,
-    });
+    await update(ref(db, `/${SECRET}/${collection}/${path}`), obj);
     return await getData(collection + "/" + path);
   } catch (error) {
     console.log(error);
   }
 }
+
+async function deleteData( collection, path ) {
+   try {
+     await remove(ref(db, `/${SECRET}/${collection}/${path}`));
+   } catch (error) {
+     console.log(error);
+   }
+ }
 
 async function getData(collection) {
   try {
@@ -63,4 +68,4 @@ async function setFile(collection, path, file) {
   }
 }
 
-export { setData, getData, setFile };
+export { setData, getData, deleteData, setFile };

@@ -10,10 +10,19 @@ import { sha256 } from "crypto-hash";
 
 import c from "./Admin.module.scss";
 
-function Admin() {
-  const [isAdmin, setIsAdmin] = useState(true);
+import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
 
-  return <>{isAdmin ? <Panel /> : <Auth setIsAdmin={setIsAdmin} />}</>;
+
+function Admin() {
+  const [isAdmin, setIsAdmin] = useState(false);
+
+   // dev ////////////////////////////////////////
+   // useEffect(() => {
+   //    useJackLondonLakeStore.getState().queryAdminData()
+   // }, [])
+   // dev ////////////////////////////////////////
+
+   return <>{isAdmin ? <Panel /> : <Auth setIsAdmin={setIsAdmin} />}</>;
 }
 
 const Panel = () => {
@@ -32,6 +41,9 @@ const Panel = () => {
           <Button onClick={() => setTab("tab_3")}>
             Страница Озеро Джека Лондона
           </Button>
+          <Button onClick={() => setTab("tab_4")}>
+            Отзывы
+          </Button>
         </div>
 
         {tab === "tab_1" && <MainPage />}
@@ -39,6 +51,9 @@ const Panel = () => {
         {tab === "tab_2" && <TouristDestinationsPage />}
 
         {tab === "tab_3" && <JackLondonLakePage />}
+
+        {tab === "tab_4" && <Reviews />}
+
       </div>
     </>
   );
@@ -103,6 +118,7 @@ const TouristDestinationsPage = () => {
     <div className={c.page}>
       <h3>Туристические направления</h3>
 
+{/* FirstBlock */}
       <Text
         name="Заголовок"
         path="first_block/title"
@@ -119,9 +135,11 @@ const TouristDestinationsPage = () => {
         ]}
         store={s}
       />
+{/* FirstBlock */}
 
       <hr />
 
+{/* VideoBlock */}
       <Image name="Заставка видео" path="video_block/poster" store={s} />
 
       <Video name="Видео" path="video_block/video" store={s} />
@@ -145,7 +163,9 @@ const TouristDestinationsPage = () => {
           store={s}
         />
       ))}
+{/* VideoBlock */}
 
+{/* PeninsulaRoutesBlock */}
       <Text name="Подзаголовок" path="peninsula_routes_block/title" store={s} />
 
       <Text
@@ -180,7 +200,9 @@ const TouristDestinationsPage = () => {
           <hr />
         </Fragment>
       ))}
+{/* PeninsulaRoutesBlock */}
 
+{/* RoutesOutsideTheCityBlock */}
       <Text
         name="Подзаголовок"
         path="routes_outside_the_city_block/title"
@@ -293,7 +315,9 @@ const TouristDestinationsPage = () => {
           <hr />
         </Fragment>
       ))}
+{/* RoutesOutsideTheCityBlock */}
 
+{/* SeaRoutesBlock */}
       <Text name="Подзаголовок" path="sea_routes_block/title" store={s} />
 
       <Text
@@ -306,7 +330,8 @@ const TouristDestinationsPage = () => {
 
       {[1, 2, 3, 4, 5, 6, 7].map((id) => (
         <Fragment key={id}>
-          <Image name="Картинка" path={`sea_points/${id}/map_img`} store={s} />
+          <Image name="Маршрут" path={`sea_points/${id}/map_img`} store={s} />
+          <Image name="Картинка" path={`sea_points/${id}/img`} store={s} />
 
           <TextsSet
             name={`Точка ${id}`}
@@ -314,6 +339,7 @@ const TouristDestinationsPage = () => {
             keys={[
               { key: "id", name: "id" },
               { key: "text", name: "текст" },
+              { key: "map", name: "ссылка на карту" },
               { key: "time", name: "время похода" },
               { key: "duration", name: "протяжённость" },
               { key: "complexity", name: "сложность" },
@@ -327,15 +353,19 @@ const TouristDestinationsPage = () => {
           <hr />
         </Fragment>
       ))}
+{/* SeaRoutesBlock */}
 
+{/* IndividualTourBlock */}
       <Text name="Подзаголовок" path="individual_tour_block/title" store={s} />
 
       <Image name="Картинка" path="individual_tour_block/img" store={s} />
 
       <Text name="Текст" path="individual_tour_block/text" store={s} />
+{/* IndividualTourBlock */}
 
       <hr />
 
+{/* JackLondonLakeBlock */}
       <Text name="Подзаголовок" path="jack_london_lake_block/title" store={s} />
 
       <Text name="Текст" path="jack_london_lake_block/text" store={s} />
@@ -360,6 +390,8 @@ const TouristDestinationsPage = () => {
           store={s}
         />
       ))}
+{/* JackLondonLakeBlock */}
+
     </div>
   );
 };
@@ -371,6 +403,7 @@ const JackLondonLakePage = () => {
     <div className={c.page}>
       <h3>Озеро Джека Лондона</h3>
 
+{/* FirstBlock */}
       <Text name="Заголовок" path="first_block/title" store={s} />
 
       <Text name="Подзаголовок" path="first_block/sub_title" store={s} />
@@ -381,9 +414,11 @@ const JackLondonLakePage = () => {
       <Text name="Дата 2" path="first_block/dates/2" store={s} />
       <Text name="Дата 3" path="first_block/dates/3" store={s} />
       <Text name="Дата 4" path="first_block/dates/4" store={s} />
+{/* FirstBlock */}
 
       <hr />
 
+{/* DescriptionBlock */}
       <Text name="Подзаголовок" path="description_block/title" store={s} />
 
       <Text
@@ -392,9 +427,33 @@ const JackLondonLakePage = () => {
         store={s}
         hint="<br/> добавляет абзац"
       />
+{/* DescriptionBlock */}
 
       <hr />
 
+{/* HikingRoutesMapBlock */}
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((id) => (
+         <Fragment key={id}>
+            <Image name="Картинка" path={`map_points/${id}/img`} store={s} />
+
+            <TextsSet
+               name={`Точка ${id}`}
+               path={`map_points/${id}`}
+               keys={[
+                  { key: "id", name: "id" },
+                  { key: "text", name: "текст" },
+               ]}
+               store={s}
+            />
+
+            <hr />
+         </Fragment>
+      ))}
+{/* HikingRoutesMapBlock */}
+
+      <hr />
+
+{/* PhotosBlock */}
       <Text name="Подзаголовок" path="photos_block/title" store={s} />
 
       {[1, 2, 3, 4].map((num) => (
@@ -405,17 +464,21 @@ const JackLondonLakePage = () => {
           store={s}
         />
       ))}
+{/* PhotosBlock */}
 
       <hr />
 
+{/* RoutesBlock */}
       <Text name="Подзаголовок" path="routes_block/title" store={s} />
 
       <div style={{ color: "green" }}>
         Аккордеон со страницы Туристические направления
       </div>
+{/* RoutesBlock */}
 
       <hr />
 
+{/* ImportantToKnowBlock */}
       <Text
         name="Подзаголовок"
         path="important_to_know_block/title"
@@ -434,35 +497,90 @@ const JackLondonLakePage = () => {
           store={s}
         />
       ))}
+{/* ImportantToKnowBlock */}
 
-      <hr />
-
-      <Text name="Подзаголовок" path="reviews_block/title" store={s} />
-
-      {[1, 2].map((id) => (
-        <Fragment key={id}>
-          <Image
-            name="Фото"
-            path={`reviews_block/reviews/${id}/img`}
-            store={s}
-          />
-          <TextsSet
-            name={`Вкладка ${id}`}
-            path={`reviews_block/reviews/${id}`}
-            keys={[
-              { key: "name", name: "Имя" },
-              { key: "text", name: "текст" },
-              { key: "stars", name: "оценка" },
-              { key: "date", name: "дата" },
-            ]}
-            store={s}
-          />
-          <hr />
-        </Fragment>
-      ))}
     </div>
   );
 };
+
+const Reviews = () => {
+   const s = useJackLondonLakeStore;
+
+   const reviews = useJackLondonLakeStore(state => state.reviews)
+
+   return (
+      <div className={c.page}>
+         <h3>Отзывы</h3>
+
+         <div className={c.reviews_wrapper} >
+            <div>
+               <p>На рассмотрении</p>
+
+               {Object.values(reviews || {}).map(review => {
+                  if ( review?.show ) return
+                  return (
+                     <Review key={review?.id} s={s} review={review} />
+                  )
+               })}
+            </div>
+
+            <div>
+               <p>Показывать</p>
+
+               {Object.values(reviews || {}).map(review => {
+                  if ( !review?.show ) return
+                  return (
+                     <Review key={review?.id} s={s} review={review} />
+                  )
+               })}
+            </div>
+         </div>
+
+      </div>
+   )
+}
+
+const Review = ({ s, review }) => {
+
+   const [confirm, setConfirm] = useState(false)
+
+   const showReview = ( id ) => {
+      s.getState().showHideReview(id, true)
+   }
+
+   const hideReview = ( id ) => {
+      s.getState().showHideReview(id, false)
+   }
+
+   const confirmHandler = ( id ) => {
+      s.getState().deleteReview(id)
+   }
+
+   return (
+      <div className={classNames(c.review)} >
+         <img src={review?.img?.val} onError={(e) => {e.target.src = reviewDefault}} />
+         <span>{review?.name}</span>
+         <span>{review?.tel}</span>
+         <div className={c.text} >
+            {review?.text.map(str => (
+               <p key={str} >{str}</p>
+            ))}
+         </div>
+         <div className={c.btns} >
+            {review?.show
+               ? <button onClick={() => hideReview(review?.id)} >Скрыть</button>
+               : <button onClick={() => showReview(review?.id)} >Показать</button>
+            }
+            {!review?.show &&
+               (confirm
+                  ? <button onClick={() => confirmHandler(review?.id)} >Подтвердить</button>
+                  : <button onClick={() => setConfirm(prev => !prev)} >Удалить</button>
+               )
+            }
+         </div>
+      </div>
+   )
+}
 
 const Text = ({ name, path, store, hint }) => {
   const data = store((state) => {
@@ -574,6 +692,8 @@ const Image = ({ name, path, store }) => {
     if (!e.target.files) return;
 
     const file = e.target.files[0];
+
+    if ( !file ) return
 
     setLoadedImg(URL.createObjectURL(file));
     setLoadedFile(file);
@@ -693,6 +813,7 @@ const Auth = ({ setIsAdmin }) => {
 
     if (hash === PASSWORD_HASH) {
       setIsAdmin(true);
+      useJackLondonLakeStore.getState().queryAdminData()
     } else {
       console.log("Permission denied");
     }

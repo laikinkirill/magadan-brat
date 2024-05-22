@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Text } from "../text/Text"
 import c from "./accordion.module.scss";
 
 const Accordion = ({ accordion }) => {
@@ -23,7 +24,7 @@ const Accordion = ({ accordion }) => {
               })
             }
           />
-          <span>{elem?.val?.text}</span>
+          <span className={c.text} ><Text text={elem?.val?.text} /></span>
           <i></i>
         </li>
       ))}

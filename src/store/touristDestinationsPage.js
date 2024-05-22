@@ -77,7 +77,7 @@ export const useTouristDestinationsPageStore = create((set, get) => ({
     const res = await setData(
       TOURIST_DESTINATION_PAGE_COLLECTION_NAME,
       path,
-      value
+      { val: value}
     );
     if (!res) return;
     const pathArr = path.split("/");
@@ -217,6 +217,7 @@ export const SEA_POINTS = [
       top: "82%",
       left: "75%",
     },
+    popupPosition: "_left",
   },
   {
     id: 6,
@@ -233,5 +234,6 @@ export const SEA_POINTS = [
       top: "11%",
       left: "63%",
     },
+    popupPosition: "_left",
   },
 ];

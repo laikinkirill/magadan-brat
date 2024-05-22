@@ -47,7 +47,7 @@ export const useMainPageStore = create((set, get) => ({
 
   changeText: async (path, value) => {
     console.log(path, value);
-    const res = await setData(MAIN_PAGE_COLLECTION_NAME, path, value);
+    const res = await setData(MAIN_PAGE_COLLECTION_NAME, path, { val: value });
     if (!res) return;
     const pathArr = path.split("/");
     const obj = get()[pathArr[0]];
