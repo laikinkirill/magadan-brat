@@ -72,7 +72,7 @@
       bottom: 0;
       width: 100%;
       height: 15px;
-      background: linear-gradient(90deg, #43a047, #fdd835, #fb8c00, #f4511e);
+      background: linear-gradient(90deg, #43a047, #fbc02d, #fb8c00, #f4511e);
 
       @media (max-width: 768px) {
         height: 5px;
@@ -138,11 +138,11 @@
           }
         }
         &:nth-of-type(2) {
-          color: #fdd835;
-          border-color: #fdd835;
+          color: #fbc02d;
+          border-color: #fbc02d;
 
           &:hover {
-            background-color: #fdd835;
+            background-color: #fbc02d;
             color: #fff;
             transition: all 0.2s;
 
