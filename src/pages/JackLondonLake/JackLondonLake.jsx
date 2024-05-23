@@ -54,6 +54,7 @@ const MapPoint = ({
   position,
   data,
   popupPosition,
+  pointTextHide,
   onClick,
   onClose,
 }) => {
@@ -82,7 +83,7 @@ const MapPoint = ({
         style={{ ...position }}
         onClick={onClickHandler}
       >
-        <span className={id % 2 === 0 ? c._left : ""}>{data?.val?.text}</span>
+        {<span className={classNames(id % 2 === 0 ? c._left : "", pointTextHide ? c._hidden : '')}>{data?.val?.text}</span>}
         {children}
       </div>
 
@@ -247,6 +248,7 @@ const HikingRoutesMapBlock = () => {
               position={point.position}
               popupPosition={point?.popupPosition || ""}
               data={store.map_points[point.id]}
+              pointTextHide
             />
             <hr className={c.dotted_line} />
           </Fragment>
