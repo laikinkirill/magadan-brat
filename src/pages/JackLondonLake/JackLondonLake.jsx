@@ -574,7 +574,11 @@ const ReviewForm = ({ store, closeModal, successModal }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <Photo />
+      
+      <div className={c.photo_wrapper} >
+         <Photo />
+         <span>добавить фото</span>
+      </div>
 
       <Input
         type="text"
