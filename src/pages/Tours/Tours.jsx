@@ -21,7 +21,6 @@ function Tours() {
       <Header className={c.header} />
 
       <div className={c.page_body}>
-
         <FirstBlock />
 
         <VideoBlock />
@@ -35,7 +34,6 @@ function Tours() {
         <IndividualTourBlock />
 
         <JackLondonLakeBlock />
-
       </div>
     </>
   );
@@ -316,7 +314,9 @@ const FirstBlock = () => {
   return (
     <div className={c.first_block}>
       <div className="_container">
-        <h1><Text text={store?.first_block?.title.val} /></h1>
+        <h1>
+          <Text text={store?.first_block?.title.val} />
+        </h1>
 
         <Button to={store?.first_block?.button?.val?.link}>
           {store?.first_block?.button?.val?.text}
@@ -361,7 +361,7 @@ const VideoBlock = () => {
       </div>
 
       <div className={c.text}>
-         <Text text={store?.video_block?.text.val} />
+        <Text text={store?.video_block?.text.val} />
       </div>
 
       <div className={c.features}>
@@ -383,7 +383,7 @@ const PeninsulaRoutesBlock = () => {
     <div className={classNames(c.peninsula_routes_block, "_container")}>
       <div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
         <h2>{store.peninsula_routes_block?.title?.val}</h2>
-        <Button to="https://wa.me/79965590730" small={true} defaultLink={true}>
+        <Button to="mailto:prmagadan@mail.ru" small={true} defaultLink={true}>
           Заказать тур
         </Button>
       </div>
@@ -421,7 +421,7 @@ const RoutesOutsideTheCityBlock = () => {
     <div className={classNames(c.routes_outside_theCity_block, "_container")}>
       <div className={c.titleAndButton}>
         <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
-        <Button to="https://wa.me/79965590730" small={true} defaultLink>
+        <Button to="mailto:prmagadan@mail.ru" small={true} defaultLink>
           Заказать тур
         </Button>
       </div>
@@ -505,12 +505,19 @@ const SeaRoutesBlock = () => {
       <div className={c.sea_routes}>
         <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
           <h2>{store.sea_routes_block?.title.val}</h2>
-          <Button to="https://wa.me/79965590730" small={true} defaultLink>
+          <Button
+            to="mailto:prmagadan@mail.ru"
+            small={true}
+            defaultLink
+            className={c.buttonBlue}
+          >
             Заказать тур
           </Button>
         </div>
 
-        <div className={c.sub_title}><Text text={store.sea_routes_block?.sub_title.val} /></div>
+        <div className={c.sub_title}>
+          <Text text={store.sea_routes_block?.sub_title.val} />
+        </div>
 
         <div className={c.map}>
           <img src={seaMap} alt="" />
@@ -644,9 +651,13 @@ const IndividualTourBlock = () => {
       <img src={store.individual_tour_block?.img?.val} alt="" />
 
       <div>
-        <h2><Text text={store.individual_tour_block?.title?.val} /></h2>
+        <h2>
+          <Text text={store.individual_tour_block?.title?.val} />
+        </h2>
 
-        <div className={c.text} ><Text text={store.individual_tour_block?.text?.val} /></div>
+        <div className={c.text}>
+          <Text text={store.individual_tour_block?.text?.val} />
+        </div>
 
         <Button to={store.first_block?.button?.val?.link}>
           {store.first_block?.button?.val?.text}
@@ -661,10 +672,13 @@ const JackLondonLakeBlock = () => {
 
   return (
     <div className={classNames(c.jack_londonLake_block, "_container")}>
+      <div className={c.sub_title}>
+        <Text text={store.jack_london_lake_block?.text?.val} />
+      </div>
 
-      <div className={c.sub_title}><Text text={store.jack_london_lake_block?.text?.val} /></div>
-
-      <h2><Text text={store.jack_london_lake_block?.title?.val} /></h2>
+      <h2>
+        <Text text={store.jack_london_lake_block?.title?.val} />
+      </h2>
 
       <Accordion accordion={store?.accordion} />
 

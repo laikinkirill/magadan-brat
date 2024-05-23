@@ -26,7 +26,7 @@ const Button = ({ children, to, onClick, className, small, defaultLink }) => {
       ) : defaultLink ? (
         <a
           href={to}
-          target="_blank"
+          // target="_blank"
           rel="noreferrer"
           className={classNames({
             [c.button]: true,
