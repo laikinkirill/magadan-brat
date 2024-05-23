@@ -659,13 +659,14 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "58%",
-              left: "49%",
+              top: "59%",
+              left: "49.2%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
               lineHeight: 14 + "px",
+              width: 50 + "px",
             }}
           >
             остров Завьялова
