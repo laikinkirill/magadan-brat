@@ -20,7 +20,7 @@ import { Autoplay, FreeMode, Navigation, Thumbs } from "swiper/modules";
 
 import c from "./jackLondonLake.module.scss";
 
-import routesMap from "../../assets/img/jackLondonLake/routes_map.webp";
+import routesMap from "../../assets/img/jackLondonLake/routes_map.jpg";
 import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
 
 function JackLondonLake() {
@@ -83,7 +83,16 @@ const MapPoint = ({
         style={{ ...position }}
         onClick={onClickHandler}
       >
-        {<span className={classNames(id % 2 === 0 ? c._left : "", pointTextHide ? c._hidden : '')}>{data?.val?.text}</span>}
+        {
+          <span
+            className={classNames(
+              id % 2 === 0 ? c._left : "",
+              pointTextHide ? c._hidden : ""
+            )}
+          >
+            {data?.val?.text}
+          </span>
+        }
         {children}
       </div>
 
@@ -576,7 +585,6 @@ const ReviewForm = ({ store, closeModal, successModal }) => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      
       <Photo />
 
       <Input
@@ -653,28 +661,28 @@ const Photo = () => {
 
   return (
     <div className={c.form_image}>
-
-      {loadedImg
-         ?
-         <img
-            width={100}
-            src={loadedImg}
-            alt="#"
-            onClick={() => {
-               inputRef.current?.click();
-            }}
-         />
-         :
-         <span
-            width={100}
-            className={c.text}
-            onClick={() => {
-               inputRef.current?.click();
-            }}
-         >
-            Добавить<br/>фото
-         </span>
-      }
+      {loadedImg ? (
+        <img
+          width={100}
+          src={loadedImg}
+          alt="#"
+          onClick={() => {
+            inputRef.current?.click();
+          }}
+        />
+      ) : (
+        <span
+          width={100}
+          className={c.text}
+          onClick={() => {
+            inputRef.current?.click();
+          }}
+        >
+          Добавить
+          <br />
+          фото
+        </span>
+      )}
 
       <input
         ref={inputRef}
@@ -683,7 +691,6 @@ const Photo = () => {
         name="photo"
         onChange={loadImg}
       />
-
     </div>
   );
 };
