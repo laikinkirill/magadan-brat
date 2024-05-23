@@ -383,7 +383,7 @@ const PeninsulaRoutesBlock = () => {
     <div className={classNames(c.peninsula_routes_block, "_container")}>
       <div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
         <h2>{store.peninsula_routes_block?.title?.val}</h2>
-        <Button to="mailto:prmagadan@mail.ru" small={true} defaultLink={true}>
+        <Button to="mailto:magadanbrat@bk.ru" small={true} defaultLink={true}>
           Заказать тур
         </Button>
       </div>
@@ -421,7 +421,7 @@ const RoutesOutsideTheCityBlock = () => {
     <div className={classNames(c.routes_outside_theCity_block, "_container")}>
       <div className={c.titleAndButton}>
         <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
-        <Button to="mailto:prmagadan@mail.ru" small={true} defaultLink>
+        <Button to="mailto:magadanbrat@bk.ru" small={true} defaultLink>
           Заказать тур
         </Button>
       </div>
@@ -506,7 +506,7 @@ const SeaRoutesBlock = () => {
         <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
           <h2>{store.sea_routes_block?.title.val}</h2>
           <Button
-            to="mailto:prmagadan@mail.ru"
+            to="mailto:magadanbrat@bk.ru"
             small={true}
             defaultLink
             className={c.buttonBlue}
