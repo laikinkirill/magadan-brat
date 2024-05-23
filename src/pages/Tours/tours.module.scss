@@ -503,6 +503,13 @@
     }
   }
 }
+
+.map_point {
+  & span {
+    line-height: 20px;
+  }
+}
+
 .map_popup {
   position: absolute;
   top: 50%;

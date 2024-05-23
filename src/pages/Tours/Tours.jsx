@@ -549,12 +549,15 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "14%",
-              left: "45%",
+              top: "11%",
+              left: "47%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
+              textAlign: "right",
               pointerEvents: "none",
+              width: 65 + "px",
+              lineHeight: 14 + "px",
             }}
           >
             мыс Чирикова
@@ -563,11 +566,12 @@ const SeaRoutesBlock = () => {
           <span
             style={{
               top: "5%",
-              left: "63.2%",
-              fontSize: 10,
+              left: "63.3%",
+              fontSize: 8,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
             }}
           >
             Магадан
@@ -575,12 +579,13 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "30%",
+              top: "33%",
               left: "4%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
             }}
           >
             остров Талан
@@ -588,12 +593,14 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "46%",
-              left: "4%",
+              top: "58%",
+              left: "6%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
+              width: 50 + "px",
             }}
           >
             остров Спафарьева
@@ -601,12 +608,13 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "62%",
+              top: "61%",
               left: "68%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
             }}
           >
             мыс Таран
@@ -614,12 +622,13 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              top: "60%",
-              left: "45%",
+              top: "58%",
+              left: "49%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
             }}
           >
             остров Завьялова
@@ -627,12 +636,13 @@ const SeaRoutesBlock = () => {
 
           <span
             style={{
-              bottom: "0",
-              left: "72%",
+              bottom: "-15px",
+              left: "76%",
               fontSize: 12,
               color: "#ACACAC",
               position: "absolute",
               pointerEvents: "none",
+              lineHeight: 14 + "px",
             }}
           >
             мыс Алевина

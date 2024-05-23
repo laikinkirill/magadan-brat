@@ -74,11 +74,9 @@ export const useTouristDestinationsPageStore = create((set, get) => ({
 
   changeText: async (path, value) => {
     console.log(path, value);
-    const res = await setData(
-      TOURIST_DESTINATION_PAGE_COLLECTION_NAME,
-      path,
-      { val: value}
-    );
+    const res = await setData(TOURIST_DESTINATION_PAGE_COLLECTION_NAME, path, {
+      val: value,
+    });
     if (!res) return;
     const pathArr = path.split("/");
     const obj = get()[pathArr[0]];
@@ -229,7 +227,7 @@ export const SEA_POINTS = [
   },
   {
     id: 7,
-    textOrientation: "bottom",
+    textOrientation: "right",
     position: {
       top: "26%",
       left: "63%",
