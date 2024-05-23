@@ -229,14 +229,14 @@ const HikingRoutesMapBlock = () => {
         </p>
         <p
           className={c.map_text}
-          style={{ top: "43%", left: "38%", textAlign: "right" }}
+          style={{ top: "42.5%", left: "38%", textAlign: "right" }}
         >
           ОЗЕРО <br /> НЕВЕДИМКА
         </p>
         <p className={c.map_text} style={{ top: "43%", left: "53%" }}>
           ОЗЕРО <br /> СОСЕДНЕЕ
         </p>
-        <p className={c.map_text} style={{ top: "60%", left: "28%" }}>
+        <p className={c.map_text} style={{ top: "58.5%", left: "28%" }}>
           Р. НЕВЕДОМЫЙ
         </p>
 
