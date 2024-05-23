@@ -1221,3 +1221,19 @@
     display: none;
   }
 }
+
+.buttonD {
+  display: block;
+
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.buttonM {
+  display: none !important;
+
+  @media (max-width: 767px) {
+    display: block !important;
+  }
+}

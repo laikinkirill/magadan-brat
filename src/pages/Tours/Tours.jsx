@@ -383,7 +383,21 @@ const PeninsulaRoutesBlock = () => {
     <div className={classNames(c.peninsula_routes_block, "_container")}>
       <div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
         <h2>{store.peninsula_routes_block?.title?.val}</h2>
-        <Button to="mailto:magadanbrat@bk.ru" small={true} defaultLink={true}>
+        <Button
+          to="mailto:magadanbrat@bk.ru"
+          small={true}
+          defaultLink={true}
+          className={classNames(c.buttonD)}
+        >
+          Заказать тур
+        </Button>
+
+        <Button
+          to="https://wa.me/79965590730"
+          className={classNames(c.buttonM)}
+          small={true}
+          defaultLink
+        >
           Заказать тур
         </Button>
       </div>
@@ -421,7 +435,21 @@ const RoutesOutsideTheCityBlock = () => {
     <div className={classNames(c.routes_outside_theCity_block, "_container")}>
       <div className={c.titleAndButton}>
         <h2>{store.routes_outside_the_city_block?.title?.val}</h2>
-        <Button to="mailto:magadanbrat@bk.ru" small={true} defaultLink>
+        <Button
+          to="mailto:magadanbrat@bk.ru"
+          className={classNames(c.buttonD)}
+          small={true}
+          defaultLink
+        >
+          Заказать тур
+        </Button>
+
+        <Button
+          to="https://wa.me/79965590730"
+          className={classNames(c.buttonM)}
+          small={true}
+          defaultLink
+        >
           Заказать тур
         </Button>
       </div>
@@ -509,7 +537,16 @@ const SeaRoutesBlock = () => {
             to="mailto:magadanbrat@bk.ru"
             small={true}
             defaultLink
-            className={c.buttonBlue}
+            className={classNames(c.buttonD, c.buttonBlue)}
+          >
+            Заказать тур
+          </Button>
+
+          <Button
+            to="https://wa.me/79965590730"
+            className={classNames(c.buttonM, c.buttonBlue)}
+            small={true}
+            defaultLink
           >
             Заказать тур
           </Button>
