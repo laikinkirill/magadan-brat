@@ -577,10 +577,7 @@ const ReviewForm = ({ store, closeModal, successModal }) => {
   return (
     <form onSubmit={handleFormSubmit}>
       
-      <div className={c.photo_wrapper} >
-         <Photo />
-         <span>добавить фото</span>
-      </div>
+      <Photo />
 
       <Input
         type="text"
@@ -656,14 +653,29 @@ const Photo = () => {
 
   return (
     <div className={c.form_image}>
-      <img
-        width={100}
-        src={loadedImg || reviewDefault}
-        alt="#"
-        onClick={() => {
-          inputRef.current?.click();
-        }}
-      />
+
+      {loadedImg
+         ?
+         <img
+            width={100}
+            src={loadedImg}
+            alt="#"
+            onClick={() => {
+               inputRef.current?.click();
+            }}
+         />
+         :
+         <span
+            width={100}
+            className={c.text}
+            onClick={() => {
+               inputRef.current?.click();
+            }}
+         >
+            Добавить<br/>фото
+         </span>
+      }
+
       <input
         ref={inputRef}
         accept="image/*"
@@ -671,6 +683,7 @@ const Photo = () => {
         name="photo"
         onChange={loadImg}
       />
+
     </div>
   );
 };
