@@ -8,7 +8,7 @@ const Video = ({ src, poster, ...props }) => {
       // paused
          autoPlay
          src={src}
-         poster={src}
+         poster={poster}
          height={324}
          playsInline
          {...props}
