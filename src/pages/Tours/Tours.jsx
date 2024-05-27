@@ -351,12 +351,13 @@ const VideoBlock = () => {
         onClick={playHandler}
       >
         <video
-          loop
-          muted
-          paused="true"
-          src={store.video_block?.video.val}
-          poster={store.video_block?.poster.val}
-          height={324}
+            loop
+            muted
+            paused="true"
+            src={store.video_block?.video.val}
+            poster={store.video_block?.poster.val}
+            height={324}
+            playsinline
         ></video>
       </div>
 
