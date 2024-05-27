@@ -367,8 +367,6 @@ const TouristDestinationsPage = () => {
 {/* JackLondonLakeBlock */}
       <Text name="Подзаголовок" path="jack_london_lake_block/title" store={s} />
 
-      {/* <Text name="Текст" path="jack_london_lake_block/text" store={s} /> */}
-
       <Text
         name="Текст кнопки"
         path="jack_london_lake_block/button"
@@ -379,6 +377,31 @@ const TouristDestinationsPage = () => {
 
       <Video name="Видео" path="jack_london_lake_block/video" store={s} />
 {/* JackLondonLakeBlock */}
+
+      <hr />
+
+{/* TeamBlock */}
+      <Text name="Подзаголовок" path="team_block/title" store={s} />
+
+      {[1, 2, 3].map((id) => (
+        <Fragment key={id}>
+          <Image name="Фото" path={`team_block/team/${id}/img`} store={s} />
+
+          <TextsSet
+            name={`Сотрудник ${id}`}
+            path={`team_block/team/${id}`}
+            keys={[
+              { key: "id", name: "id" },
+              { key: "fio", name: "ФИО" },
+              { key: "post", name: "должность" },
+            ]}
+            store={s}
+          />
+
+          <hr />
+        </Fragment>
+      ))}
+{/* TeamBlock */}
 
     </div>
   );

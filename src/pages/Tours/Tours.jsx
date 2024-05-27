@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Fragment, useState } from "react";
-import { Header } from "../../components";
+import { Header, ReviewsBlock } from "../../components";
 
 import telegram from "../../assets/img/icons/telegram.svg";
 import rutube from "../../assets/img/icons/rutube.svg";
@@ -50,6 +50,8 @@ function Tours() {
         <TeamBlock />
 
         <ContactsBlock />
+
+        <ReviewsBlock />
       </div>
       <Footer />
     </>
@@ -1052,45 +1054,28 @@ const JackLondonLakeBlock = () => {
 };
 
 const TeamBlock = () => {
-  // const store = useTouristDestinationsPageStore();
+  const store = useTouristDestinationsPageStore();
 
   return (
     <div className={classNames("_container")}>
       <h2>
-        <Text text="Наша команда" />
+        <Text text={store.team_block?.title?.val} />
       </h2>
 
       <div className={c.box}>
-        <div className={c.teamWrapper}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
-            className={c.teamImage}
-            alt=""
-          />
-          <div className={c.teamName}>Иван Иванов</div>
-          <div className={c.job}>Генеральный директор</div>
-        </div>
-
-        <div className={c.teamWrapper}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
-            className={c.teamImage}
-            alt=""
-          />
-          <div className={c.teamName}>Иван Иванов</div>
-          <div className={c.job}>Генеральный директор</div>
-        </div>
-
-        <div className={c.teamWrapper}>
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
-            className={c.teamImage}
-            alt=""
-          />
-          <div className={c.teamName}>Иван Иванов</div>
-          <div className={c.job}>Генеральный директор</div>
-        </div>
+         {Object.values(store.team_block?.team).map(person => (
+            <div key={person.val.id} className={c.teamWrapper}>
+               <img
+                  src={person.img?.val}
+                  className={c.teamImage}
+                  alt="#"
+               />
+               <div className={c.teamName}>{person.val.fio}</div>
+               <div className={c.job}>{person.val.post}</div>
+            </div>
+         ))}
       </div>
+
     </div>
   );
 };

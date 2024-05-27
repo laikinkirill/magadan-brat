@@ -60,6 +60,12 @@ const initialState = {
   },
 
   accordion: {},
+
+  team_block: {
+      title: { val: "" },
+      team: {}
+  },
+
 };
 
 export const useTouristDestinationsPageStore = create((set, get) => ({
