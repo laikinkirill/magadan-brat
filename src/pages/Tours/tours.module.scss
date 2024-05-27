@@ -120,10 +120,36 @@
     border-radius: 5px;
   }
 
-  .text {
+  .textWrapper {
     display: grid;
     align-content: start;
-    //  gap: 20px;
+  }
+
+  .text {
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      height: 20px;
+      width: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(33, 33, 33, 0),
+        rgba(33, 33, 33, 1)
+      );
+
+      position: absolute;
+      bottom: -3px;
+    }
+  }
+
+  ._show {
+    color: red;
+    height: auto;
   }
 
   p {
@@ -1172,6 +1198,20 @@
   //   }
 }
 
+.wrapper {
+  // background-color: red;
+  // display: grid;
+  // gap: 40px;
+  max-width: 1200px;
+  width: calc(100% - 80px);
+  padding: 0 40px;
+  margin: 0 auto;
+
+  & > h2 {
+    margin-bottom: 64px;
+  }
+}
+
 .individual_tour_block {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1245,4 +1285,13 @@
   @media (max-width: 767px) {
     display: block !important;
   }
+}
+
+.wrapperColor {
+  background-color: #212121;
+  padding: 64px 0;
+}
+
+.buttonJack {
+  margin-top: 32px;
 }
