@@ -5,8 +5,7 @@ const Video = ({ src, poster, ...props }) => {
          preload="auto"
          loop
          muted
-      // paused
-         autoPlay
+         paused
          src={src}
          poster={poster}
          height={324}
