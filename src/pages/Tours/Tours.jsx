@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Fragment, useState } from "react";
-import { Header, ReviewsBlock } from "../../components";
+import { Header, ReviewsBlock, Video } from "../../components";
 
 import telegram from "../../assets/img/icons/telegram.svg";
 import rutube from "../../assets/img/icons/rutube.svg";
@@ -581,15 +581,10 @@ const VideoBlock = () => {
         className={classNames(c.video_wrapper, c["_paused"])}
         onClick={playHandler}
       >
-        <video
-          loop
-          muted
-          paused="true"
-          src={store.video_block?.video.val}
-          poster={store.video_block?.poster.val}
-          height={324}
-          playsInline
-        ></video>
+         <Video
+            src={store.video_block?.video.val}
+            poster={store.video_block?.poster.val}
+         />
       </div>
 
       <div className={c.text}>
@@ -1004,15 +999,10 @@ const JackLondonLakeBlock = () => {
             className={classNames(c.video_wrapper, c["_paused"])}
             onClick={playHandler}
           >
-            <video
-              loop
-              muted
-              paused="true"
+            <Video
               src={store.video_block?.video.val}
               poster={store.video_block?.poster.val}
-              height={324}
-              playsInline
-            ></video>
+            />
           </div>
 
           <div className={c.textWrapper}>
