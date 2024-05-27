@@ -32,7 +32,8 @@ function Freeride() {
         </Container>
       </div>
 
-      <div className={styles.overlay}></div>
+      <div className={styles.overlayBlack}></div>
+      <div className={styles.overlayImage}></div>
     </>
   );
 }

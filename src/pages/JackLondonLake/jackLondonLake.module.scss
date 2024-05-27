@@ -53,7 +53,7 @@
 
   span {
     width: 100px;
-    color: #000000;
+    color: #131313;
 
     @media (max-width: 1000px) {
       font-size: 14px;
@@ -65,7 +65,7 @@
 
     &._hidden {
       @media (min-width: 760px) {
-         display: none;
+        display: none;
       }
     }
   }
@@ -167,7 +167,7 @@
   &::before {
     width: 5px;
     height: 5px;
-    background-color: #000000;
+    background-color: #131313;
 
     @media (max-width: 760px) {
       background-color: #ffffff;
@@ -176,7 +176,7 @@
   &::after {
     width: 100%;
     height: 100%;
-    border: 2px solid #000000;
+    border: 2px solid #131313;
 
     @media (max-width: 760px) {
       border: 2px solid #ffffff;
@@ -554,7 +554,7 @@
 
     .map_text {
       position: absolute;
-      color: #000000;
+      color: #131313;
       font-size: 14px;
       font-weight: 500;
       line-height: 1.5ch;
@@ -666,10 +666,6 @@
       @media (max-width: 480px) {
         &::after {
           font-size: 22px;
-          // background-color: #FFFFFF;
-          // color: #000;
-          // border-radius: 50%;
-          // padding: 5px 10px;
         }
       }
     }
@@ -1084,26 +1080,26 @@
 }
 
 .form_image {
-   @media (min-width: 760px) {
-      grid-column: 1/2;
-      grid-row: 1/3;
-    }
+  @media (min-width: 760px) {
+    grid-column: 1/2;
+    grid-row: 1/3;
+  }
 
-   display: grid;
-   align-items: center;
-   justify-items: center;
+  display: grid;
+  align-items: center;
+  justify-items: center;
 
   img {
-      grid-column: 1/2;
-      grid-row: 1/2;
-      height: 120px;
-      width: auto;
-      aspect-ratio: 1/1;
-      cursor: pointer;
-      background-color: rgba(255, 255, 255, 1);
-      border: 1px solid #ffffff;
-      border-radius: 50%;
-      object-fit: cover;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    height: 120px;
+    width: auto;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   input {
@@ -1114,22 +1110,22 @@
     font-size: 0;
   }
 
-   .text {
-      grid-column: 1/2;
-      grid-row: 1/2;
+  .text {
+    grid-column: 1/2;
+    grid-row: 1/2;
 
-      height: 120px;
-      width: auto;
-      aspect-ratio: 1/1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+    height: 120px;
+    width: auto;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
-      cursor: pointer;
-      border: 1px solid #ffffff;
-      border-radius: 50%;
-   }
+    cursor: pointer;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+  }
 }
 
 .success_modal {

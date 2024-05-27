@@ -1,6 +1,6 @@
 .header {
   height: var(--header-height);
-  background-color: #131313;
+  background-color: #212121;
   color: #fff;
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@
 }
 
 .menuItem {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 20px;
   color: #fff;
   text-decoration: none;
@@ -135,7 +135,7 @@
 
 .burgerClose {
   & span {
-    background-color: #000;
+    background-color: #212121;
     transition: all 0.2s;
 
     &::before {
@@ -154,7 +154,7 @@
 
 .modal {
   position: absolute;
-  background-color: black;
+  background-color: #212121;
   left: 0;
   top: 0;
   width: 100%;

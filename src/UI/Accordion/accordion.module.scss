@@ -35,7 +35,7 @@
       transition: max-height 0.3s ease, margin-top 0.3s ease;
 
       p {
-         font-size: inherit;
+        font-size: inherit;
       }
     }
 
@@ -61,7 +61,7 @@
       &::after {
         content: "";
         position: absolute;
-        background-color: #000;
+        background-color: #131313;
         width: 12px;
         height: 2px;
       }
