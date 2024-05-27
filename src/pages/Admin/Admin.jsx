@@ -14,12 +14,12 @@ import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
 
 
 function Admin() {
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
    // dev ////////////////////////////////////////
-   // useEffect(() => {
-   //    useJackLondonLakeStore.getState().queryAdminData()
-   // }, [])
+   useEffect(() => {
+      useJackLondonLakeStore.getState().queryAdminData()
+   }, [])
    // dev ////////////////////////////////////////
 
    return <>{isAdmin ? <Panel /> : <Auth setIsAdmin={setIsAdmin} />}</>;
@@ -340,11 +340,10 @@ const TouristDestinationsPage = () => {
               { key: "id", name: "id" },
               { key: "text", name: "текст" },
               { key: "map", name: "ссылка на карту" },
-              { key: "time", name: "время похода" },
+              { key: "time", name: "время в пути" },
               { key: "duration", name: "протяжённость" },
-              { key: "complexity", name: "сложность" },
-              { key: "steps", name: "шагов" },
-              { key: "calories", name: "калории" },
+              { key: "complexity", name: "укачивание" },
+              { key: "landings", name: "высадки" },
               { key: "cost", name: "стоимость" },
             ]}
             store={s}
