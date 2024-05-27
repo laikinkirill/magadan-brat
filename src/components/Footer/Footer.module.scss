@@ -1,0 +1,22 @@
+.wrapper {
+  background: #212121;
+  padding: 24px 0;
+}
+
+.container {
+  max-width: 1200px;
+  width: calc(100% - 80px);
+  padding: 0 40px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1200px) {
+    width: calc(100% - 80px);
+    padding: 0 40px;
+  }
+}
+
+.text {
+  font-size: 14px;
+  color: #b4b4b4;
+  text-align: center;
+}

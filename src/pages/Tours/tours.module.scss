@@ -1,5 +1,4 @@
 .page_body {
-  padding-bottom: 120px;
   display: grid;
   gap: 128px;
 
@@ -577,7 +576,6 @@
   }
 }
 
-
 .dotted_line {
   height: 4px;
   width: 80px;
@@ -1051,7 +1049,7 @@
             }
 
             &:last-child {
-               grid-column: 1/3;
+              grid-column: 1/3;
             }
 
             p {
