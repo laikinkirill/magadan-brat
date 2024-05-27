@@ -593,7 +593,7 @@ const VideoBlock = () => {
           src={store.video_block?.video.val}
           poster={store.video_block?.poster.val}
           height={324}
-          playsinline
+          playsInline
         ></video>
       </div>
 
@@ -1016,7 +1016,7 @@ const JackLondonLakeBlock = () => {
               src={store.video_block?.video.val}
               poster={store.video_block?.poster.val}
               height={324}
-               playsinline
+              playsInline
             ></video>
           </div>
 
