@@ -8,7 +8,6 @@ import styles from "./Header.module.scss";
 
 function Header({ className }) {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className={classNames(styles.header, className)}>
       <Container>
@@ -18,22 +17,40 @@ function Header({ className }) {
           </Link>
 
           <div className={styles.menu}>
-            <Link to="/" className={styles.menuItem}>
-              Главная
-              <br />
-              страница
+            <Link
+              to="/tours"
+              className={classNames({
+                [styles.menuItem]: true,
+              })}
+            >
+              Туристические направления
             </Link>
 
-            <Link to="/tours" className={styles.menuItem}>
-              Туристические <br /> направления
+            <Link
+              to="/souvenir"
+              className={classNames({
+                [styles.menuItem]: true,
+              })}
+            >
+              Сувенирная продукция
             </Link>
 
-            <Link to="/souvenir" className={styles.menuItem}>
-              Сувенирная <br /> продукция
+            <Link
+              to="/freeride"
+              className={classNames({
+                [styles.menuItem]: true,
+              })}
+            >
+              Фрирайд в магадане
             </Link>
 
-            <Link to="/freeride" className={styles.menuItem}>
-              Фрирайд <br />в магадане
+            <Link
+              to="/jack-london-lake"
+              className={classNames({
+                [styles.menuItem]: true,
+              })}
+            >
+              Озеро Джека Лондона
             </Link>
           </div>
 
@@ -49,22 +66,20 @@ function Header({ className }) {
             </div>
             {isOpen ? (
               <div className={styles.modal}>
-                <Link to="/" className={styles.modalMenuItem}>
-                  Главная
-                  <br />
-                  страница
-                </Link>
-
                 <Link to="/tours" className={styles.modalMenuItem}>
-                  Туристические <br /> направления
+                  Туристические направления
                 </Link>
 
                 <Link to="/souvenir" className={styles.modalMenuItem}>
-                  Сувенирная <br /> продукция
+                  Сувенирная продукция
                 </Link>
 
                 <Link to="/freeride" className={styles.modalMenuItem}>
-                  Фрирайд <br />в магадане
+                  Фрирайд в магадане
+                </Link>
+
+                <Link to="/jack-london-lake" className={styles.modalMenuItem}>
+                  Озеро Джека Лондона
                 </Link>
               </div>
             ) : (

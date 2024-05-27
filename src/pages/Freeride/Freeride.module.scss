@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
 
-  height: calc(100vh - 115px);
+  height: calc(100vh - var(--header-height));
 
   color: #fff;
 
@@ -71,10 +71,10 @@
 
 .overlay {
   position: absolute;
-  top: 115px;
+  top: var(--header-height);
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 1;
-  height: calc(100vh - 115px);
+  height: calc(100vh - var(--header-height));
   width: 100%;
 
   @media screen and (max-width: 767px) {

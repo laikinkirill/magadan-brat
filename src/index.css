@@ -2,16 +2,16 @@
   --color-button: #3f51b5;
   --color-text: #ffffff;
 
-  --header-height: 115px;
+  --header-height: 80px;
 }
 
 p {
-   padding: 0!important;
-   margin: 0!important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 p:empty {
-   display: block;
-   margin-top: 15px!important;
+  display: block;
+  margin-top: 15px !important;
 }
 
 body {
