@@ -3,14 +3,22 @@
 import React, { Fragment, useState } from "react";
 import { Header } from "../../components";
 
+import telegram from "../../assets/img/icons/telegram.svg";
+import rutube from "../../assets/img/icons/rutube.svg";
+import youtube from "../../assets/img/icons/youtube.svg";
+import vk from "../../assets/img/icons/vk.svg";
+
 import { Footer } from "../../components/Footer/Footer";
 import { Button, Text } from "../../UI";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 import {
   MAP_POINTS,
   SEA_POINTS,
   useTouristDestinationsPageStore,
 } from "../../store/touristDestinationsPage";
+
+import { useMainPageStore } from "../../store/mainPage";
 
 import { useJackLondonLakeStore } from "../../store/jackLondonLake";
 
@@ -40,6 +48,8 @@ function Tours() {
         <JackLondonLakeBlock />
 
         <TeamBlock />
+
+        <ContactsBlock />
       </div>
       <Footer />
     </>
@@ -982,7 +992,7 @@ const JackLondonLakeBlock = () => {
   const store = useTouristDestinationsPageStore();
   const storeJack = useJackLondonLakeStore();
 
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
   const playHandler = (e) => {
     const video = e.currentTarget.querySelector("video");
@@ -1023,7 +1033,7 @@ const JackLondonLakeBlock = () => {
           </div>
 
           <div className={c.textWrapper}>
-            <div className={classNames(c.text, show ? c._show : "")}>
+            <div className={classNames(c.text)}>
               <Text text={storeJack.description_block?.text?.val} />
             </div>
 
@@ -1080,6 +1090,80 @@ const TeamBlock = () => {
           <div className={c.teamName}>Иван Иванов</div>
           <div className={c.job}>Генеральный директор</div>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const ContactsBlock = () => {
+  const store = useMainPageStore();
+
+  return (
+    <div className={classNames("_container")}>
+      <h2>
+        <Text text="Контакты" />
+      </h2>
+
+      <div className={c.social}>
+        <Link
+          to={store.telegram?.val.link}
+          target="_blank"
+          className={c.socialtLink}
+        >
+          <div className={c.socialItem}>
+            <div className={c.iconBox}>
+              <img src={telegram} alt="telegram" />
+            </div>
+            <div className={c.textBox}>
+              <div className={c.name}>Telegram</div>
+              <div className={c.link}>{store.telegram?.val.name}</div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to={store.rutube?.val.link}
+          target="_blank"
+          className={c.socialtLink}
+        >
+          <div className={c.socialItem}>
+            <div className={c.iconBox}>
+              <img src={rutube} alt="rutube" />
+            </div>
+            <div className={c.textBox}>
+              <div className={c.name}>RuTube</div>
+              <div className={c.link}>{store.rutube?.val.name}</div>
+            </div>
+          </div>
+        </Link>
+
+        <Link
+          to={store.youtube?.val.link}
+          target="_blank"
+          className={c.socialtLink}
+        >
+          <div className={c.socialItem}>
+            <div className={c.iconBox}>
+              <img src={youtube} alt="youtube" />
+            </div>
+            <div className={c.textBox}>
+              <div className={c.name}>Youtube</div>
+              <div className={c.link}>{store.youtube?.val.name}</div>
+            </div>
+          </div>
+        </Link>
+
+        <Link to={store.vk?.val.link} target="_blank" className={c.socialtLink}>
+          <div className={c.socialItem}>
+            <div className={c.iconBox}>
+              <img src={vk} alt="vk" />
+            </div>
+            <div className={c.textBox}>
+              <div className={c.name}>ВКонтакте</div>
+              <div className={c.link}>{store.vk?.val.name}</div>
+            </div>
+          </div>
+        </Link>
       </div>
     </div>
   );
