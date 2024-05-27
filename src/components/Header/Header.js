@@ -27,6 +27,15 @@ function Header({ className }) {
             </Link>
 
             <Link
+              to="/jack-london-lake"
+              className={classNames({
+                [styles.menuItem]: true,
+              })}
+            >
+              Озеро Джека Лондона
+            </Link>
+
+            <Link
               to="/souvenir"
               className={classNames({
                 [styles.menuItem]: true,
@@ -42,15 +51,6 @@ function Header({ className }) {
               })}
             >
               Фрирайд в магадане
-            </Link>
-
-            <Link
-              to="/jack-london-lake"
-              className={classNames({
-                [styles.menuItem]: true,
-              })}
-            >
-              Озеро Джека Лондона
             </Link>
           </div>
 
@@ -70,16 +70,16 @@ function Header({ className }) {
                   Туристические направления
                 </Link>
 
+                <Link to="/jack-london-lake" className={styles.modalMenuItem}>
+                  Озеро Джека Лондона
+                </Link>
+
                 <Link to="/souvenir" className={styles.modalMenuItem}>
                   Сувенирная продукция
                 </Link>
 
                 <Link to="/freeride" className={styles.modalMenuItem}>
                   Фрирайд в магадане
-                </Link>
-
-                <Link to="/jack-london-lake" className={styles.modalMenuItem}>
-                  Озеро Джека Лондона
                 </Link>
               </div>
             ) : (
