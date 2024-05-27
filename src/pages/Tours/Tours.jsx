@@ -38,6 +38,8 @@ function Tours() {
         <IndividualTourBlock />
 
         <JackLondonLakeBlock />
+
+        <TeamBlock />
       </div>
       <Footer />
     </>
@@ -1032,6 +1034,50 @@ const JackLondonLakeBlock = () => {
               {store.jack_london_lake_block?.button?.val}
             </Button>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TeamBlock = () => {
+  // const store = useTouristDestinationsPageStore();
+
+  return (
+    <div className={classNames("_container")}>
+      <h2>
+        <Text text="Наша команда" />
+      </h2>
+
+      <div className={c.box}>
+        <div className={c.teamWrapper}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
+            className={c.teamImage}
+            alt=""
+          />
+          <div className={c.teamName}>Иван Иванов</div>
+          <div className={c.job}>Генеральный директор</div>
+        </div>
+
+        <div className={c.teamWrapper}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
+            className={c.teamImage}
+            alt=""
+          />
+          <div className={c.teamName}>Иван Иванов</div>
+          <div className={c.job}>Генеральный директор</div>
+        </div>
+
+        <div className={c.teamWrapper}>
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjuWjlj6CwEyvxhr4pRuh4Eo66cDb_nGW1kLRK6-8Stw&s"
+            className={c.teamImage}
+            alt=""
+          />
+          <div className={c.teamName}>Иван Иванов</div>
+          <div className={c.job}>Генеральный директор</div>
         </div>
       </div>
     </div>
