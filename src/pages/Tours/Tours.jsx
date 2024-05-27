@@ -52,6 +52,7 @@ const MapPoint = ({
   position,
   data,
   popupPosition,
+  className,
   onClick,
   onClose,
 }) => {
@@ -75,6 +76,7 @@ const MapPoint = ({
         className={classNames(
           c.map_point,
           c[textOrientation],
+          className,
           activePoint ? c._active : ""
         )}
         style={{ ...position }}
@@ -702,6 +704,7 @@ const RoutesOutsideTheCityBlock = () => {
             textOrientation="top"
             position={{ left: "20%", top: 0 }}
             data={store.outside_city_points[1]}
+            className={c.road_pair}
           >
             <b></b>
           </MapPoint>
@@ -710,6 +713,7 @@ const RoutesOutsideTheCityBlock = () => {
             textOrientation="top"
             position={{ left: "50%", top: 0 }}
             data={store.outside_city_points[2]}
+            className={c.road_pair}
           >
             <b></b>
           </MapPoint>
