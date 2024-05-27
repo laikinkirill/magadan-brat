@@ -1,5 +1,6 @@
 import { Fragment, useCallback, useRef, useState } from "react";
 import { Header } from "../../components";
+import { Footer } from "../../components/Footer/Footer";
 import { Accordion, Button, Input, Text } from "../../UI";
 import { arrayFromTo, getDate } from "../../utils";
 import classNames from "classnames";
@@ -43,6 +44,8 @@ function JackLondonLake() {
 
         <ReviewsBlock />
       </div>
+
+      <Footer />
     </>
   );
 }

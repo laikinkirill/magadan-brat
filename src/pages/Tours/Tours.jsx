@@ -38,9 +38,8 @@ function Tours() {
         <IndividualTourBlock />
 
         <JackLondonLakeBlock />
-
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
