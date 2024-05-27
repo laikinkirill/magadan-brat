@@ -129,7 +129,7 @@ function Main() {
           </div>
         </div>
 
-        <video autoPlay loop muted poster={poster} className={styles.video}>
+        <video autoPlay loop muted playsInline poster={poster} className={styles.video}>
           <source src={video} type="video/mp4" />
           <source src={poster} type="video/jpg" />
         </video>
@@ -138,6 +138,7 @@ function Main() {
           autoPlay
           loop
           muted
+          playsInline
           poster={poster}
           className={styles.videoMobile}
         >
