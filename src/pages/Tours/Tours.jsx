@@ -990,7 +990,7 @@ const JackLondonLakeBlock = () => {
           <Text text={store.jack_london_lake_block?.title?.val} />
         </h2>
 
-        <div className={classNames(c.video_block, "_container")}>
+        <div className={classNames(c.video_block)}>
           <div
             className={classNames(c.video_wrapper, c["_paused"])}
             onClick={playHandler}
@@ -999,9 +999,10 @@ const JackLondonLakeBlock = () => {
               loop
               muted
               paused="true"
-              src={storeJack.video_block?.video.val}
-              poster={storeJack.video_block?.poster.val}
+              src={store.video_block?.video.val}
+              poster={store.video_block?.poster.val}
               height={324}
+               playsinline
             ></video>
           </div>
 

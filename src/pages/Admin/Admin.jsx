@@ -367,7 +367,7 @@ const TouristDestinationsPage = () => {
 {/* JackLondonLakeBlock */}
       <Text name="Подзаголовок" path="jack_london_lake_block/title" store={s} />
 
-      <Text name="Текст" path="jack_london_lake_block/text" store={s} />
+      {/* <Text name="Текст" path="jack_london_lake_block/text" store={s} /> */}
 
       <Text
         name="Текст кнопки"
@@ -375,20 +375,9 @@ const TouristDestinationsPage = () => {
         store={s}
       />
 
-      <hr />
+      <Image name="Заставка видео" path="jack_london_lake_block/poster" store={s} />
 
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-        <TextsSet
-          key={id}
-          name={`Вкладка ${id}`}
-          path={`accordion/${id}`}
-          keys={[
-            { key: "title", name: "заголовок" },
-            { key: "text", name: "текст" },
-          ]}
-          store={s}
-        />
-      ))}
+      <Video name="Видео" path="jack_london_lake_block/video" store={s} />
 {/* JackLondonLakeBlock */}
 
     </div>
