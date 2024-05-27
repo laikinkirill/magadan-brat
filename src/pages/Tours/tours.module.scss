@@ -130,25 +130,6 @@
     -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
-
-    &::after {
-      content: "";
-      height: 20px;
-      width: 100%;
-      background: linear-gradient(
-        180deg,
-        rgba(33, 33, 33, 0),
-        rgba(33, 33, 33, 1)
-      );
-
-      position: absolute;
-      bottom: -3px;
-    }
-  }
-
-  ._show {
-    color: red;
-    height: auto;
   }
 
   p {
