@@ -10,6 +10,8 @@ import {
   useTouristDestinationsPageStore,
 } from "../../store/touristDestinationsPage";
 
+import { useJackLondonLakeStore } from "../../store/jackLondonLake";
+
 import c from "./tours.module.scss";
 
 import routesMap from "../../assets/img/tours/routes_map.svg";
@@ -715,24 +717,86 @@ const IndividualTourBlock = () => {
   );
 };
 
+// const JackLondonLakeBlock = () => {
+//   const store = useTouristDestinationsPageStore();
+
+//   return (
+//     <div className={classNames(c.jack_londonLake_block, "_container")}>
+//       <div className={c.sub_title}>
+//         <Text text={store.jack_london_lake_block?.text?.val} />
+//       </div>
+
+//       <h2>
+//         <Text text={store.jack_london_lake_block?.title?.val} />
+//       </h2>
+
+//       <Accordion accordion={store?.accordion} />
+
+//       <Button to="/jack-london-lake">
+//         {store.jack_london_lake_block?.button?.val}
+//       </Button>
+//     </div>
+//   );
+// };
+
 const JackLondonLakeBlock = () => {
   const store = useTouristDestinationsPageStore();
+  const storeJack = useJackLondonLakeStore();
+
+  const [show, setShow] = useState(false);
+
+  const playHandler = (e) => {
+    const video = e.currentTarget.querySelector("video");
+
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      e.currentTarget.classList.remove(c["_paused"]);
+      return;
+    }
+
+    video.pause();
+    e.currentTarget.classList.add(c["_paused"]);
+  };
 
   return (
-    <div className={classNames(c.jack_londonLake_block, "_container")}>
-      <div className={c.sub_title}>
-        <Text text={store.jack_london_lake_block?.text?.val} />
+    <div className={c.wrapperColor}>
+      <div className={c.wrapper}>
+        <h2>
+          <Text text={store.jack_london_lake_block?.title?.val} />
+        </h2>
+
+        <div className={classNames(c.video_block, "_container")}>
+          <div
+            className={classNames(c.video_wrapper, c["_paused"])}
+            onClick={playHandler}
+          >
+            <video
+              loop
+              muted
+              paused="true"
+              src={storeJack.video_block?.video.val}
+              poster={storeJack.video_block?.poster.val}
+              height={324}
+            ></video>
+          </div>
+
+          <div className={c.textWrapper}>
+            <div className={classNames(c.text, show ? c._show : "")}>
+              <Text text={storeJack.description_block?.text?.val} />
+            </div>
+
+            <Button
+              to="/jack-london-lake"
+              small={true}
+              className={c.buttonJack}
+            >
+              {store.jack_london_lake_block?.button?.val}
+            </Button>
+          </div>
+        </div>
       </div>
-
-      <h2>
-        <Text text={store.jack_london_lake_block?.title?.val} />
-      </h2>
-
-      <Accordion accordion={store?.accordion} />
-
-      <Button to="/jack-london-lake">
-        {store.jack_london_lake_block?.button?.val}
-      </Button>
     </div>
   );
 };
