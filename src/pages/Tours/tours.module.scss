@@ -551,6 +551,7 @@
   }
 }
 
+
 .dotted_line {
   height: 4px;
   width: 80px;
@@ -1021,6 +1022,10 @@
 
             @media (max-width: 1000px) {
               gap: 6px;
+            }
+
+            &:last-child {
+               grid-column: 1/3;
             }
 
             p {
