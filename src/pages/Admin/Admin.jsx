@@ -11,7 +11,7 @@ import { sha256 } from "crypto-hash";
 import c from "./Admin.module.scss";
 
 import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
-import { arrayFromTo } from "../../utils/arrayFromTo"
+import { arrayFromTo } from "../../utils/arrayFromTo";
 
 function Admin() {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -74,8 +74,6 @@ const MainPage = () => {
     <div className={c.page}>
       <h3>Гавная</h3>
 
-      <Text name="Заголовок" path="title" store={s} />
-
       <TextsSet
         name="Telegram"
         path="telegram"
@@ -122,7 +120,7 @@ const MainPage = () => {
 const TouristDestinationsPage = () => {
   const s = useTouristDestinationsPageStore;
 
-  const [teamNumber, setTeamNumber] = useState(4)
+  const [teamNumber, setTeamNumber] = useState(4);
 
   return (
     <div className={c.page}>
@@ -617,7 +615,7 @@ const Text = ({ name, path, store, onConfirm }) => {
 
   const confirmHandler = () => {
     store.getState().changeText(path, value);
-    onConfirm?.(value)
+    onConfirm?.(value);
   };
 
   return (

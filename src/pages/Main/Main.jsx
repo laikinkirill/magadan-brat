@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useMainPageStore } from "../../store/mainPage";
-import { Text } from "../../UI"
+import { Text } from "../../UI";
 
 import styles from "./Main.module.scss";
 
@@ -27,7 +27,7 @@ function Main() {
     <>
       <div className={styles.main}>
         <div className={styles.mainTitleWrapper}>
-          <h3 className={styles.mainTitle}><Text text={store.title?.val} /></h3>
+          <h3 className={styles.mainTitle}>Добро пожаловать на&nbsp;Колыму</h3>
         </div>
 
         <div className={styles.rowContainer}>
@@ -130,7 +130,14 @@ function Main() {
           </div>
         </div>
 
-        <video autoPlay loop muted playsInline poster={poster} className={styles.video}>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={poster}
+          className={styles.video}
+        >
           <source src={video} type="video/mp4" />
           <source src={poster} type="video/jpg" />
         </video>
