@@ -1186,6 +1186,10 @@
   & > h2 {
     margin-bottom: 48px;
   }
+
+  @media (max-width: 767px) {
+    padding: 0;
+  }
 }
 
 .individual_tour_block {
