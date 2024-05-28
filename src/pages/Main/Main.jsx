@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useMainPageStore } from "../../store/mainPage";
-import { Text } from "../../UI";
 
 import styles from "./Main.module.scss";
 
