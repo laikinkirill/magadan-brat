@@ -48,8 +48,7 @@
 }
 
 .logo {
-  margin-right: 64px;
-  height: 35px;
+  margin-right: 152px;
   transition: all 0.2s;
 
   &:hover {
@@ -74,6 +73,7 @@
 .menuItem {
   font-size: 16px;
   line-height: 20px;
+  text-transform: uppercase;
   color: #fff;
   text-decoration: none;
   transition: all 0.2s;
@@ -173,8 +173,4 @@
   text-align: center;
   font-size: 18px;
   line-height: 18px;
-}
-
-.active {
-  color: red;
 }

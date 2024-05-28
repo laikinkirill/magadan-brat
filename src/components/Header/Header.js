@@ -8,6 +8,7 @@ import styles from "./Header.module.scss";
 
 function Header({ className }) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className={classNames(styles.header, className)}>
       <Container>
@@ -17,13 +18,10 @@ function Header({ className }) {
           </Link>
 
           <div className={styles.menu}>
-            <Link
-              to="/tours"
-              className={classNames({
-                [styles.menuItem]: true,
-              })}
-            >
-              Туристические направления
+            <Link to="/" className={styles.menuItem}>
+              Главная
+              <br />
+              страница
             </Link>
 
             <Link
@@ -43,14 +41,16 @@ function Header({ className }) {
             >
               Сувенирная продукция
             </Link>
+            <Link to="/tours" className={styles.menuItem}>
+              Туристические <br /> направления
+            </Link>
 
-            <Link
-              to="/freeride"
-              className={classNames({
-                [styles.menuItem]: true,
-              })}
-            >
-              Фрирайд в магадане
+            <Link to="/souvenir" className={styles.menuItem}>
+              Сувенирная <br /> продукция
+            </Link>
+
+            <Link to="/freeride" className={styles.menuItem}>
+              Фрирайд <br />в магадане
             </Link>
           </div>
 
@@ -66,8 +66,14 @@ function Header({ className }) {
             </div>
             {isOpen ? (
               <div className={styles.modal}>
+                <Link to="/" className={styles.modalMenuItem}>
+                  Главная
+                  <br />
+                  страница
+                </Link>
+
                 <Link to="/tours" className={styles.modalMenuItem}>
-                  Туристические направления
+                  Туристические <br /> направления
                 </Link>
 
                 <Link to="/jack-london-lake" className={styles.modalMenuItem}>
@@ -75,11 +81,11 @@ function Header({ className }) {
                 </Link>
 
                 <Link to="/souvenir" className={styles.modalMenuItem}>
-                  Сувенирная продукция
+                  Сувенирная <br /> продукция
                 </Link>
 
                 <Link to="/freeride" className={styles.modalMenuItem}>
-                  Фрирайд в магадане
+                  Фрирайд <br />в магадане
                 </Link>
               </div>
             ) : (
