@@ -963,7 +963,7 @@
       .img_wrapper {
         display: grid;
         overflow: hidden;
-        border-radius: 10px;
+        border-radius: 10px 10px 0 0;
 
         img {
           grid-row: 1/2;
