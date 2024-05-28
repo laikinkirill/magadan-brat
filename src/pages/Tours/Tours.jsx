@@ -603,7 +603,9 @@ const VideoBlock = () => {
         {Object.values(store.video_block?.features)?.map((feature, i) => (
           <div key={i}>
             <span><Text text={feature?.val.title} /></span>
-            <Text text={feature?.val.text} />
+            <div>
+               <Text text={feature?.val.text} />
+            </div>
           </div>
         ))}
       </div>
