@@ -1406,3 +1406,125 @@
   font-size: 20px;
   line-height: 32px;
 }
+
+.team_swiper {
+   height: 100%;
+   user-select: none;
+   //   height: max-content;
+   height: inherit;
+ 
+   @media (min-width: 1300px) {
+     width: 100% !important;
+   }
+   @media (max-width: 1100px) {
+     width: 700px !important;
+   }
+   @media (max-width: 760px) {
+     width: 560px !important;
+   }
+   @media (max-width: 600px) {
+     transform: translate(-20px, 0);
+     width: 110% !important;
+   }
+ 
+   :global(.swiper-slide) {
+     min-height: 400px;
+     font-size: 18px;
+     font-family: "jost";
+     font-weight: 400;
+     background: transparent;
+     display: flex;
+     align-items: center;
+ 
+     & > div {
+       height: 100%;
+       display: grid;
+       justify-items: center;
+ 
+       @media (max-width: 1300px) {
+         width: 100% !important;
+       }
+       @media (max-width: 760px) {
+         width: 550px !important;
+       }
+       @media (max-width: 600px) {
+         width: 90% !important;
+       }
+     }
+   }
+ 
+   :global(.swiper-button-prev),
+   :global(.swiper-button-next) {
+      display: none;
+     color: #fff;
+ 
+     &:active {
+       transform: scale(0.95);
+     }
+ 
+     &::after {
+       border: 1px solid #fff;
+       border-radius: 50%;
+       padding: 10px 16px;
+       font-size: 30px;
+     }
+   }
+   :global(.swiper-button-prev) {
+     left: 20px;
+   }
+   :global(.swiper-button-next) {
+     right: 20px;
+   }
+ 
+   .review_wrapper {
+     width: 80%;
+     display: grid;
+     grid-template-columns: auto 1fr;
+     gap: 40px;
+ 
+     padding: 40px;
+     border: 1px solid #727272;
+     border-radius: 10px;
+ 
+     @media (max-width: 1024px) {
+       // width: 100%;
+       grid-template-columns: 1fr;
+       padding: 20px;
+     }
+ 
+     .user {
+       display: grid;
+       justify-items: center;
+       align-content: start;
+       gap: 10px;
+ 
+       img {
+         width: 70px;
+         height: 70px;
+         border-radius: 50%;
+       }
+     }
+ 
+     .review_body {
+       display: grid;
+       align-content: start;
+       gap: 30px;
+     }
+ 
+     .stars {
+       width: 200px;
+       display: grid;
+       gap: 10px;
+ 
+       & > div {
+         display: flex;
+         gap: 5px;
+       }
+ 
+       span {
+         color: #aeaeae;
+         font-size: 14px;
+       }
+     }
+   }
+ }

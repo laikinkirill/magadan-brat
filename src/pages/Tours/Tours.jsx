@@ -2,11 +2,18 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import React, { Fragment, useState } from "react";
 import { Header, ReviewsBlock, Video } from "../../components";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
 
 import telegram from "../../assets/img/icons/telegram.svg";
 import rutube from "../../assets/img/icons/rutube.svg";
 import youtube from "../../assets/img/icons/youtube.svg";
 import vk from "../../assets/img/icons/vk.svg";
+
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 import { Footer } from "../../components/Footer/Footer";
 import { Button, Text } from "../../UI";
@@ -26,6 +33,7 @@ import c from "./tours.module.scss";
 
 import routesMap from "../../assets/img/tours/routes_map.svg";
 import seaMap from "../../assets/img/tours/sea_map.svg";
+
 
 function Tours() {
   return (
@@ -1034,17 +1042,33 @@ const TeamBlock = () => {
       </h2>
 
       <div className={c.box}>
-         {Object.values(store.team_block?.team).map(person => (
-            <div key={person.val.id} className={c.teamWrapper}>
-               <img
-                  src={person.img?.val}
-                  className={c.teamImage}
-                  alt="#"
-               />
-               <div className={c.teamName}>{person.val.fio}</div>
-               <div className={c.job}>{person.val.post}</div>
-            </div>
-         ))}
+         <Swiper
+            navigation={true}
+            modules={[Navigation, Autoplay]}
+            loop={true}
+            speed={1500}
+            slidesPerView={3}
+            spaceBetween={30}
+            autoplay={{
+            delay: 2500,
+            disableOnInteraction: true,
+            }}
+            className={c.team_swiper}
+         >
+            {Object.values(store.team_block?.team || {}).map((person, i) => (
+            <SwiperSlide key={i}>
+               <div key={person.val.id} className={c.teamWrapper}>
+                  <img
+                     src={person.img?.val}
+                     className={c.teamImage}
+                     alt="#"
+                  />
+                  <div className={c.teamName}>{person.val.fio}</div>
+                  <div className={c.job}>{person.val.post}</div>
+               </div>
+            </SwiperSlide>
+            ))}
+         </Swiper>
       </div>
 
     </div>

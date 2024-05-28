@@ -11,6 +11,7 @@ import { sha256 } from "crypto-hash";
 import c from "./Admin.module.scss";
 
 import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
+import { arrayFromTo } from "../../utils/arrayFromTo"
 
 
 function Admin() {
@@ -120,6 +121,8 @@ const MainPage = () => {
 
 const TouristDestinationsPage = () => {
   const s = useTouristDestinationsPageStore;
+
+  const [teamNumber, setTeamNumber] = useState(4)
 
   return (
     <div className={c.page}>
@@ -388,7 +391,14 @@ const TouristDestinationsPage = () => {
 {/* TeamBlock */}
       <Text name="Подзаголовок" path="team_block/title" store={s} />
 
-      {[1, 2, 3].map((id) => (
+      <Text
+        name="Количество человек"
+        path="team_block/team_number"
+        onConfirm={(val) => setTeamNumber(+val)}
+        store={s}
+      />
+
+      {arrayFromTo(1, teamNumber).map((id) => (
         <Fragment key={id}>
           <Image name="Фото" path={`team_block/team/${id}/img`} store={s} />
 
@@ -597,7 +607,7 @@ const Review = ({ s, review }) => {
    )
 }
 
-const Text = ({ name, path, store }) => {
+const Text = ({ name, path, store, onConfirm }) => {
   const data = store((state) => {
     const a = path.split("/");
     a.push("val");
@@ -615,6 +625,7 @@ const Text = ({ name, path, store }) => {
 
   const confirmHandler = () => {
     store.getState().changeText(path, value);
+    onConfirm?.(value)
   };
 
   return (
