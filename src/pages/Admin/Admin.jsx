@@ -121,8 +121,13 @@ const MainPage = () => {
 
 const TouristDestinationsPage = () => {
   const s = useTouristDestinationsPageStore;
+  const teamStore = useTouristDestinationsPageStore(state => state.team_block);
 
-  const [teamNumber, setTeamNumber] = useState(4)
+  const [teamNumber, setTeamNumber] = useState([])
+
+  useEffect(() => {
+      setTeamNumber(arrayFromTo(1, teamStore.team?.length-1 || 0))
+  }, [teamStore])
 
   return (
     <div className={c.page}>
@@ -387,14 +392,14 @@ const TouristDestinationsPage = () => {
       {/* TeamBlock */}
       <Text name="Подзаголовок" path="team_block/title" store={s} />
 
-      <Text
-        name="Количество человек"
-        path="team_block/team_number"
-        onConfirm={(val) => setTeamNumber(+val)}
-        store={s}
-      />
+      <button
+         className={c.persone_button}
+         onClick={()=>s.getState().addTeamPersone()}
+      >
+         Добавить человека
+      </button>
 
-      {arrayFromTo(1, teamNumber).map((id) => (
+      {teamNumber.map((id) => (
         <Fragment key={id}>
           <Image name="Фото" path={`team_block/team/${id}/img`} store={s} />
 
@@ -408,6 +413,13 @@ const TouristDestinationsPage = () => {
             ]}
             store={s}
           />
+
+            <button
+               onClick={() => s.getState().deleteTeamPersone(id)}
+               className={classNames(c.persone_button, c.delete_persone_button)}
+            >
+               Удалить
+            </button>
 
           <hr />
         </Fragment>
@@ -654,7 +666,7 @@ const TextsSet = ({ name, path, keys, store }) => {
   }, [data]);
 
   const confirmHandler = () => {
-    store.getState().changeText(path, values);
+    store.getState().changeText(path, values, 'array');
   };
 
   return (

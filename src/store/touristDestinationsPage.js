@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { TOURIST_DESTINATION_PAGE_COLLECTION_NAME } from "./constants";
-import { getData, setData, setFile } from "../firebase";
+import { deleteData, getData, setData, setFile } from "../firebase";
 
 const initialState = {
   firs_block: {
@@ -78,27 +78,42 @@ export const useTouristDestinationsPageStore = create((set, get) => ({
     set(data);
   },
 
-  changeText: async (path, value) => {
-    console.log(path, value);
-    const res = await setData(TOURIST_DESTINATION_PAGE_COLLECTION_NAME, path, {
-      val: value,
-    });
-    if (!res) return;
-    const pathArr = path.split("/");
-    const obj = get()[pathArr[0]];
-    pathArr.reduce((acc, key) => {
-      if (acc.val) {
-        obj.val = res.val;
-        // eslint-disable-next-line array-callback-return
-        return;
-      }
-      if (acc[key]) return acc[key];
-      return acc;
-    }, get());
-    set({
-      [pathArr[0]]: obj,
-    });
-    console.log(res);
+  changeText: async (path, value, type) => {
+    try {
+      console.log(path, value);
+      await setData(TOURIST_DESTINATION_PAGE_COLLECTION_NAME, path, {
+         val: value,
+      });
+      const pathArr = path.split("/");
+      const obj = get()[pathArr.shift()];
+      pathArr.reduce((acc, key) => {
+         console.log(acc, key);
+         if (acc.val) {
+            obj.val = value;
+            // eslint-disable-next-line array-callback-return
+            return;
+         }
+         if ( type === 'array' ) {
+            const el = acc[+key]
+            if ( el ) {
+               acc[+key].val = value
+            }
+            else {
+               acc[+key] = {
+                  img: { val: '' },
+                  val: value
+               }
+            }
+         }
+         if (acc[key]) return acc[key];
+         return acc;
+      }, obj);
+      set({
+         [pathArr[0]]: obj,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 
   changeFile: async (path, value) => {
@@ -110,6 +125,37 @@ export const useTouristDestinationsPageStore = create((set, get) => ({
     if (!res) return;
     console.log(res);
   },
+
+  addTeamPersone: async () => {
+   try {
+      const team_block = get().team_block;
+      team_block.team.push({
+         img: { val: '' },
+         val: {
+            id: '',
+            fio: '',
+            post: ''
+         }
+      })
+      console.log(structuredClone(team_block));
+      set({ team_block: structuredClone(team_block) });
+    } catch (error) {
+      console.error(error);
+    }
+ },
+
+  deleteTeamPersone: async (id) => {
+   try {
+      console.log(id);
+      await deleteData(TOURIST_DESTINATION_PAGE_COLLECTION_NAME, `team_block/team/${id}`);
+      const team_block = get().team_block;
+      team_block.team = [null, ...team_block.team.filter(el => el.val.id !== ""+id)]
+      console.log(structuredClone(team_block));
+      set({ team_block: structuredClone(team_block) });
+    } catch (error) {
+      console.error(error);
+    }
+ },
 }));
 
 export const MAP_POINTS = [

@@ -1047,26 +1047,37 @@ const TeamBlock = () => {
             modules={[Navigation, Autoplay]}
             loop={true}
             speed={1500}
-            slidesPerView={3}
+            // slidesPerView={3}
             spaceBetween={30}
             autoplay={{
-            delay: 2500,
-            disableOnInteraction: true,
+               delay: 2500,
+               disableOnInteraction: true,
+            }}
+            breakpoints={{
+               1100: {
+                  slidesPerView: 3
+               },
+               760: {
+                  slidesPerView: 2
+               },
+               340: {
+                  slidesPerView: 1
+               }
             }}
             className={c.team_swiper}
          >
             {Object.values(store.team_block?.team || {}).map((person, i) => (
-            <SwiperSlide key={i}>
-               <div key={person.val.id} className={c.teamWrapper}>
-                  <img
-                     src={person.img?.val}
-                     className={c.teamImage}
-                     alt="#"
-                  />
-                  <div className={c.teamName}>{person.val.fio}</div>
-                  <div className={c.job}>{person.val.post}</div>
-               </div>
-            </SwiperSlide>
+               <SwiperSlide key={i}>
+                  <div key={person.val.id} className={c.teamWrapper}>
+                     <img
+                        src={person.img?.val}
+                        className={c.teamImage}
+                        alt="#"
+                     />
+                     <div className={c.teamName}>{person.val.fio}</div>
+                     <div className={c.job}>{person.val.post}</div>
+                  </div>
+               </SwiperSlide>
             ))}
          </Swiper>
       </div>

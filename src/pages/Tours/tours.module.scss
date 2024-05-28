@@ -1293,12 +1293,17 @@
 .box {
   margin-top: 48px;
   display: flex;
+//   justify-content: center;
   gap: 0 5%;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    gap: 32px;
-  }
+//   @media screen and (max-width: 1024px) {
+//     flex-direction: column;
+//     gap: 32px;
+//   }
+
+   @media (max-width: 640px) {
+      width: calc(100vw - 120px);
+   }
 }
 
 .teamWrapper {
@@ -1314,8 +1319,13 @@
 
 .teamImage {
   border-radius: 50%;
-  width: 255px;
-  height: 255px;
+  width: 100%;
+//   height: auto;
+//   aspect-ratio: 1/1;
+
+  @media (max-width: 1100px) {
+      width: 200px;
+  }
 }
 
 .teamName {
@@ -1412,23 +1422,26 @@
    user-select: none;
    //   height: max-content;
    height: inherit;
+   // padding: 0 70px;
+   position: static!important;
+   display: grid!important;
  
    @media (min-width: 1300px) {
-     width: 100% !important;
+     width:85% !important;
    }
    @media (max-width: 1100px) {
      width: 700px !important;
    }
-   @media (max-width: 760px) {
-     width: 560px !important;
+   @media (max-width: 780px) {
+     width: 500px !important;
    }
-   @media (max-width: 600px) {
-     transform: translate(-20px, 0);
-     width: 110% !important;
+   @media (max-width: 640px) {
+      width: inherit!important;
+      margin-left: 20px;
    }
- 
+
    :global(.swiper-slide) {
-     min-height: 400px;
+   //   min-height: 400px;
      font-size: 18px;
      font-family: "jost";
      font-weight: 400;
@@ -1440,6 +1453,7 @@
        height: 100%;
        display: grid;
        justify-items: center;
+       padding: 20px;
  
        @media (max-width: 1300px) {
          width: 100% !important;
@@ -1453,9 +1467,30 @@
      }
    }
  
+   [class^="swiper-button-"]{
+      inset: initial;
+      margin: 0;
+      align-self: center;
+    }
+    :global(.swiper-button-prev) {
+      justify-self: start;
+      margin-left: -50px;
+
+      @media (max-width: 1100px) {
+         margin-left: -40px;
+      }
+    }
+    :global(.swiper-button-next) {
+      justify-self: end;
+      margin-right: -50px;
+
+      @media (max-width: 1100px) {
+         margin-right: -40px;
+      }
+    }
+
    :global(.swiper-button-prev),
    :global(.swiper-button-next) {
-      display: none;
      color: #fff;
  
      &:active {
@@ -1469,62 +1504,10 @@
        font-size: 30px;
      }
    }
-   :global(.swiper-button-prev) {
-     left: 20px;
-   }
-   :global(.swiper-button-next) {
-     right: 20px;
-   }
- 
-   .review_wrapper {
-     width: 80%;
-     display: grid;
-     grid-template-columns: auto 1fr;
-     gap: 40px;
- 
-     padding: 40px;
-     border: 1px solid #727272;
-     border-radius: 10px;
- 
-     @media (max-width: 1024px) {
-       // width: 100%;
-       grid-template-columns: 1fr;
-       padding: 20px;
-     }
- 
-     .user {
-       display: grid;
-       justify-items: center;
-       align-content: start;
-       gap: 10px;
- 
-       img {
-         width: 70px;
-         height: 70px;
-         border-radius: 50%;
-       }
-     }
- 
-     .review_body {
-       display: grid;
-       align-content: start;
-       gap: 30px;
-     }
- 
-     .stars {
-       width: 200px;
-       display: grid;
-       gap: 10px;
- 
-       & > div {
-         display: flex;
-         gap: 5px;
-       }
- 
-       span {
-         color: #aeaeae;
-         font-size: 14px;
-       }
-     }
-   }
+   // :global(.swiper-button-prev) {
+   //   left: 20px;
+   // }
+   // :global(.swiper-button-next) {
+   //   right: 20px;
+   // }
  }
