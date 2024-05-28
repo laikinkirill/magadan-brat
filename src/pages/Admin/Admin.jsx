@@ -46,6 +46,13 @@ const Panel = () => {
           </Button>
         </div>
 
+         <div>
+            <hr />
+            <p>{`"<br/>"`} добавляет перенос строки</p>
+            <p>{`"<br/><br/>"`} создает пробел между строками</p>
+            <hr />
+         </div>
+
         {tab === "tab_1" && <MainPage />}
 
         {tab === "tab_2" && <TouristDestinationsPage />}
@@ -123,7 +130,6 @@ const TouristDestinationsPage = () => {
         name="Заголовок"
         path="first_block/title"
         store={s}
-        hint="<br/> добавляет абзац"
       />
 
       <TextsSet
@@ -148,7 +154,6 @@ const TouristDestinationsPage = () => {
         name="Текст"
         path="video_block/text"
         store={s}
-        hint="<br/> добавляет абзац"
       />
 
       {[1, 2, 3, 4].map((id) => (
@@ -436,7 +441,6 @@ const JackLondonLakePage = () => {
         name="Текст"
         path="description_block/text"
         store={s}
-        hint="<br/> добавляет абзац"
       />
 {/* DescriptionBlock */}
 
@@ -593,7 +597,7 @@ const Review = ({ s, review }) => {
    )
 }
 
-const Text = ({ name, path, store, hint }) => {
+const Text = ({ name, path, store }) => {
   const data = store((state) => {
     const a = path.split("/");
     a.push("val");
@@ -615,15 +619,7 @@ const Text = ({ name, path, store, hint }) => {
 
   return (
     <div className={classNames(c.field, c.text_field)}>
-      <p>
-        {name}
-        {hint && (
-          <>
-            <i>!</i>
-            <span>{hint}</span>
-          </>
-        )}
-      </p>
+      <p> {name} </p>
       <textarea
         type="text"
         rows={1}

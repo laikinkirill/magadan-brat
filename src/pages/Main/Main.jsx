@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useMainPageStore } from "../../store/mainPage";
+import { Text } from "../../UI"
 
 import styles from "./Main.module.scss";
 
@@ -17,7 +19,6 @@ import videoMobile from "../../assets/video/main-mobile.mp4";
 
 import poster from "../../assets/video/poster.jpg";
 import posterMbile from "../../assets/video/poster-mobile.png";
-import { useMainPageStore } from "../../store/mainPage";
 
 function Main() {
   const store = useMainPageStore();
@@ -26,7 +27,7 @@ function Main() {
     <>
       <div className={styles.main}>
         <div className={styles.mainTitleWrapper}>
-          <h3 className={styles.mainTitle}>{store.title?.val}</h3>
+          <h3 className={styles.mainTitle}><Text text={store.title?.val} /></h3>
         </div>
 
         <div className={styles.rowContainer}>

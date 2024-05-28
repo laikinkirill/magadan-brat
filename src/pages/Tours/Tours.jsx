@@ -594,7 +594,7 @@ const VideoBlock = () => {
       <div className={c.features}>
         {Object.values(store.video_block?.features)?.map((feature, i) => (
           <div key={i}>
-            <span>{feature?.val.title}</span>
+            <span><Text text={feature?.val.title} /></span>
             <Text text={feature?.val.text} />
           </div>
         ))}
@@ -683,7 +683,7 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          {store.routes_outside_the_city_block?.districts?.[1]?.val}
+          <Text text={store.routes_outside_the_city_block?.districts?.[1]?.val} />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
@@ -711,7 +711,7 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          {store.routes_outside_the_city_block?.districts?.[2]?.val}
+          <Text text={store.routes_outside_the_city_block?.districts?.[2]?.val} />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
@@ -729,7 +729,7 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          {store.routes_outside_the_city_block?.districts?.[3]?.val}
+          <Text text={store.routes_outside_the_city_block?.districts?.[3]?.val} />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
