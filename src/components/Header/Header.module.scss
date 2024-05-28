@@ -48,7 +48,7 @@
 }
 
 .logo {
-  margin-right: 152px;
+  margin-right: 128px;
   transition: all 0.2s;
 
   &:hover {
@@ -169,6 +169,7 @@
 
 .modalMenuItem {
   text-decoration: none;
+  text-transform: uppercase;
   color: #fff;
   text-align: center;
   font-size: 18px;

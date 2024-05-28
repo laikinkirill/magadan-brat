@@ -18,31 +18,12 @@ function Header({ className }) {
           </Link>
 
           <div className={styles.menu}>
-            <Link to="/" className={styles.menuItem}>
-              Главная
-              <br />
-              страница
-            </Link>
-
-            <Link
-              to="/jack-london-lake"
-              className={classNames({
-                [styles.menuItem]: true,
-              })}
-            >
-              Озеро Джека Лондона
-            </Link>
-
-            <Link
-              to="/souvenir"
-              className={classNames({
-                [styles.menuItem]: true,
-              })}
-            >
-              Сувенирная продукция
-            </Link>
             <Link to="/tours" className={styles.menuItem}>
               Туристические <br /> направления
+            </Link>
+
+            <Link to="/jack-london-lake" className={styles.menuItem}>
+              Озеро Джека <br /> Лондона
             </Link>
 
             <Link to="/souvenir" className={styles.menuItem}>
@@ -66,18 +47,12 @@ function Header({ className }) {
             </div>
             {isOpen ? (
               <div className={styles.modal}>
-                <Link to="/" className={styles.modalMenuItem}>
-                  Главная
-                  <br />
-                  страница
-                </Link>
-
                 <Link to="/tours" className={styles.modalMenuItem}>
                   Туристические <br /> направления
                 </Link>
 
                 <Link to="/jack-london-lake" className={styles.modalMenuItem}>
-                  Озеро Джека Лондона
+                  Озеро Джека <br /> Лондона
                 </Link>
 
                 <Link to="/souvenir" className={styles.modalMenuItem}>
