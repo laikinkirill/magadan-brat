@@ -30,8 +30,6 @@ const Panel = () => {
 
   return (
     <>
-      <Header />
-
       <div className={classNames(c.page_body, "_container")}>
         <div className={c.buttons}>
           <Button onClick={() => setTab("tab_1")}>Гавная Страница</Button>
@@ -119,13 +117,15 @@ const MainPage = () => {
 
 const TouristDestinationsPage = () => {
   const s = useTouristDestinationsPageStore;
-  const teamStore = useTouristDestinationsPageStore(state => state.team_block);
+  const teamStore = useTouristDestinationsPageStore(
+    (state) => state.team_block
+  );
 
-  const [teamNumber, setTeamNumber] = useState([])
+  const [teamNumber, setTeamNumber] = useState([]);
 
   useEffect(() => {
-      setTeamNumber(arrayFromTo(1, teamStore.team?.length-1 || 0))
-  }, [teamStore])
+    setTeamNumber(arrayFromTo(1, teamStore.team?.length - 1 || 0));
+  }, [teamStore]);
 
   return (
     <div className={c.page}>
@@ -391,10 +391,10 @@ const TouristDestinationsPage = () => {
       <Text name="Подзаголовок" path="team_block/title" store={s} />
 
       <button
-         className={c.persone_button}
-         onClick={()=>s.getState().addTeamPersone()}
+        className={c.persone_button}
+        onClick={() => s.getState().addTeamPersone()}
       >
-         Добавить человека
+        Добавить человека
       </button>
 
       {teamNumber.map((id) => (
@@ -412,12 +412,12 @@ const TouristDestinationsPage = () => {
             store={s}
           />
 
-            <button
-               onClick={() => s.getState().deleteTeamPersone(id)}
-               className={classNames(c.persone_button, c.delete_persone_button)}
-            >
-               Удалить
-            </button>
+          <button
+            onClick={() => s.getState().deleteTeamPersone(id)}
+            className={classNames(c.persone_button, c.delete_persone_button)}
+          >
+            Удалить
+          </button>
 
           <hr />
         </Fragment>
@@ -713,7 +713,7 @@ const TextsSet = ({ name, path, keys, store }) => {
   }, [data]);
 
   const confirmHandler = () => {
-    store.getState().changeText(path, values, 'array');
+    store.getState().changeText(path, values, "array");
   };
 
   return (

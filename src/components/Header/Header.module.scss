@@ -1,34 +1,35 @@
-
 .header_empty {
-   height: var(--header-height);
-   width: 100%;
+  height: var(--header-height);
+  width: 100%;
 }
 
 .header {
-   width: 100%;
-   position: fixed;
-   top: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
 
-   z-index: 100;
+  z-index: 100;
 
-   height: var(--header-height);
-   background-color: #212121;
-   color: #fff;
-   display: flex;
-   align-items: center;
+  height: var(--header-height);
+  background-color: #212121;
+  color: #fff;
+  display: flex;
+  align-items: center;
 
-   transition: all .3s ease;
+  transition: all 0.3s ease;
 
-   @media (max-width: 1200px) {
-      padding: 0 40px;
-   }
-   @media (max-width: 760px) {
-      padding: 0 20px;
-      height: 83px;
-   }
-   @media (max-width: 600px) {
-      padding: 0;
-   }
+  border-bottom: 1px solid #333;
+
+  @media (max-width: 1200px) {
+    padding: 0 40px;
+  }
+  @media (max-width: 760px) {
+    padding: 0 20px;
+    height: 83px;
+  }
+  @media (max-width: 600px) {
+    padding: 0;
+  }
 }
 
 .wrapper {
@@ -86,10 +87,10 @@
 
 .menuItem,
 .modalMenuItem {
-   &._active {
-      color: #7291ff;
-      pointer-events: none;
-   }
+  &._active {
+    color: #7291ff;
+    pointer-events: none;
+  }
 }
 
 .menuItem {
