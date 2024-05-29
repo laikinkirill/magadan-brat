@@ -62,7 +62,7 @@ function Header({ className }) {
          <Container>
             <div className={styles.wrapper}>
                <Link to="/" className={styles.menuItem}>
-                  <img src={logo} alt="МагаданБрат" className={styles.logo} />
+                  <img src={logo} alt="МагаданБрат" className={styles.logo} style={{ pointerEvents: 'none' }} />
                </Link>
 
                <div className={styles.menu}>
