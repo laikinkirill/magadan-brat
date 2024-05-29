@@ -297,10 +297,18 @@
     overflow: hidden;
     border-radius: 10px;
 
+    @media (max-width: 768px) {
+      height: 400px;
+    }
+
     img {
       width: 100%;
       min-height: 400px;
       object-fit: cover;
+
+      @media (max-width: 768px) {
+        height: 400px;
+      }
     }
 
     &::after {
@@ -811,8 +819,6 @@
     }
   }
 }
-
-
 
 .jackButton {
   display: block;
