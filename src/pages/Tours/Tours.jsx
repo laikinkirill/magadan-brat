@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/iframe-has-title */
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useRef, useState } from "react";
 import { Header, ReviewsBlock, Video } from "../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
@@ -1037,19 +1037,21 @@ const JackLondonLakeBlock = () => {
 const TeamBlock = () => {
   const store = useTouristDestinationsPageStore();
 
+  const swiperRef = useRef()
+
   return (
-    <div className={classNames("_container")}>
+    <div className={classNames(c.team_block, "_container")}>
       <h2>
         <Text text={store.team_block?.title?.val} />
       </h2>
 
       <div className={c.box}>
          <Swiper
-            navigation={true}
-            modules={[Navigation, Autoplay]}
+            ref={swiperRef}
+            navigation={false}
+            modules={[Autoplay]}
             loop={true}
             speed={1500}
-            // slidesPerView={3}
             spaceBetween={30}
             autoplay={{
                delay: 2500,
@@ -1082,6 +1084,8 @@ const TeamBlock = () => {
                </SwiperSlide>
             ))}
          </Swiper>
+         <div className="swiper-button-prev" onClick={() => swiperRef.current?.swiper?.slidePrev()} ></div>
+         <div className="swiper-button-next" onClick={() => swiperRef.current?.swiper?.slideNext()} ></div>
       </div>
 
     </div>

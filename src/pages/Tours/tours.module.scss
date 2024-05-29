@@ -1290,7 +1290,75 @@
   margin-top: 32px;
 }
 
+.team_block {
+
+   @media (max-width: 1050px) {
+      width: calc(100vw - 175px);
+   }
+   @media (max-width: 500px) {
+      width: calc(100vw - 100px);
+   }
+
+   :global(.swiper-button-prev) {
+         position: absolute;
+         left: 0;
+         
+         @media (max-width: 1300px) {
+            transform: translate(-180%, 0);
+         }
+         @media (max-width: 500px) {
+            transform: translate(-100%, 0);
+         }
+      
+         &:active {
+            transform: scale(0.95);
+
+            @media (max-width: 1300px) {
+               transform: translate(-180%, 0) scale(0.95);
+            }
+            @media (max-width: 500px) {
+               transform: translate(-100%, 0) scale(0.95);
+            }
+         }
+    }
+    :global(.swiper-button-next) {
+       position: absolute;
+       right: 0;
+
+       @media (max-width: 1300px) {
+         transform: translate(180%, 0);
+       }
+       @media (max-width: 500px) {
+         transform: translate(100%, 0);
+      }
+    
+       &:active {
+          transform: scale(0.95);
+
+          @media (max-width: 1300px) {
+            transform: translate(180%, 0) scale(0.95);
+         }
+         @media (max-width: 500px) {
+            transform: translate(100%, 0) scale(0.95);
+         }
+       }
+    }
+    
+    :global(.swiper-button-prev),
+    :global(.swiper-button-next) {
+       color: #fff;
+    
+       &::after {
+          border: 1px solid #fff;
+          border-radius: 50%;
+          padding: 10px 16px;
+          font-size: 30px;
+       }
+    }
+}
+
 .box {
+   position: relative;
   margin-top: 48px;
   display: flex;
 //   justify-content: center;
@@ -1301,9 +1369,9 @@
 //     gap: 32px;
 //   }
 
-   @media (max-width: 640px) {
-      width: calc(100vw - 120px);
-   }
+   // @media (max-width: 640px) {
+   //    width: calc(100vw - 120px);
+   // }
 }
 
 .teamWrapper {
@@ -1320,8 +1388,8 @@
 .teamImage {
   border-radius: 50%;
   width: 100%;
-//   height: auto;
-//   aspect-ratio: 1/1;
+  height: auto;
+  aspect-ratio: 1/1;
 
   @media (max-width: 1100px) {
       width: 200px;
@@ -1420,28 +1488,12 @@
 .team_swiper {
    height: 100%;
    user-select: none;
-   //   height: max-content;
-   height: inherit;
-   // padding: 0 70px;
-   position: static!important;
-   display: grid!important;
  
-   @media (min-width: 1300px) {
-     width:85% !important;
-   }
-   @media (max-width: 1100px) {
-     width: 700px !important;
-   }
-   @media (max-width: 780px) {
+   @media (max-width: 800px) {
      width: 500px !important;
-   }
-   @media (max-width: 640px) {
-      width: inherit!important;
-      margin-left: 20px;
    }
 
    :global(.swiper-slide) {
-   //   min-height: 400px;
      font-size: 18px;
      font-family: "jost";
      font-weight: 400;
@@ -1467,43 +1519,43 @@
      }
    }
  
-   [class^="swiper-button-"]{
-      inset: initial;
-      margin: 0;
-      align-self: center;
-    }
-    :global(.swiper-button-prev) {
-      justify-self: start;
-      margin-left: -50px;
+   // [class^="swiper-button-"]{
+   //    inset: initial;
+   //    margin: 0;
+   //    align-self: center;
+   //  }
+   //  :global(.swiper-button-prev) {
+   //    justify-self: start;
+   //    margin-left: -50px;
 
-      @media (max-width: 1100px) {
-         margin-left: -40px;
-      }
-    }
-    :global(.swiper-button-next) {
-      justify-self: end;
-      margin-right: -50px;
+   //    @media (max-width: 1100px) {
+   //       margin-left: -40px;
+   //    }
+   //  }
+   //  :global(.swiper-button-next) {
+   //    justify-self: end;
+   //    margin-right: -50px;
 
-      @media (max-width: 1100px) {
-         margin-right: -40px;
-      }
-    }
+   //    @media (max-width: 1100px) {
+   //       margin-right: -40px;
+   //    }
+   //  }
 
-   :global(.swiper-button-prev),
-   :global(.swiper-button-next) {
-     color: #fff;
+   // :global(.swiper-button-prev),
+   // :global(.swiper-button-next) {
+   //   color: #fff;
  
-     &:active {
-       transform: scale(0.95);
-     }
+   //   &:active {
+   //     transform: scale(0.95);
+   //   }
  
-     &::after {
-       border: 1px solid #fff;
-       border-radius: 50%;
-       padding: 10px 16px;
-       font-size: 30px;
-     }
-   }
+   //   &::after {
+   //     border: 1px solid #fff;
+   //     border-radius: 50%;
+   //     padding: 10px 16px;
+   //     font-size: 30px;
+   //   }
+   // }
    // :global(.swiper-button-prev) {
    //   left: 20px;
    // }
