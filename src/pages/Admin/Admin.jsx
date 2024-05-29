@@ -148,9 +148,9 @@ const TouristDestinationsPage = () => {
       <hr />
 
       {/* VideoBlock */}
-      <Image name="Заставка видео" path="video_block/poster" store={s} />
+      {/* <Image name="Заставка видео" path="video_block/poster" store={s} /> */}
 
-      <Video name="Видео" path="video_block/video" store={s} />
+      <Text name="Видео" path="video_block/video" store={s} />
 
       <Text name="Текст" path="video_block/text" store={s} />
 
@@ -376,13 +376,13 @@ const TouristDestinationsPage = () => {
         store={s}
       />
 
-      <Image
+      {/* <Image
         name="Заставка видео"
         path="jack_london_lake_block/poster"
         store={s}
-      />
+      /> */}
 
-      <Video name="Видео" path="jack_london_lake_block/video" store={s} />
+      <Text name="Видео" path="jack_london_lake_block/video" store={s} />
       {/* JackLondonLakeBlock */}
 
       <hr />

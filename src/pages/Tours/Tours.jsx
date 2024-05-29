@@ -568,31 +568,28 @@ const FirstBlock = () => {
 const VideoBlock = () => {
   const store = useTouristDestinationsPageStore();
 
-  const playHandler = (e) => {
-    const video = e.currentTarget.querySelector("video");
+//   const playHandler = (e) => {
+//     const video = e.currentTarget.querySelector("video");
 
-    if (!video) return;
+//     if (!video) return;
 
-    if (video.paused) {
-      video.play();
-      e.currentTarget.classList.remove(c["_paused"]);
-      return;
-    }
+//     if (video.paused) {
+//       video.play();
+//       e.currentTarget.classList.remove(c["_paused"]);
+//       return;
+//     }
 
-    video.pause();
-    e.currentTarget.classList.add(c["_paused"]);
-  };
+//     video.pause();
+//     e.currentTarget.classList.add(c["_paused"]);
+//   };
 
   return (
     <div className={classNames(c.video_block, "_container")}>
       <div
         className={classNames(c.video_wrapper, c["_paused"])}
-        onClick={playHandler}
+      //   onClick={playHandler}
       >
-         <Video
-            src={store.video_block?.video.val}
-            poster={store.video_block?.poster.val}
-         />
+         <Video src={store.video_block?.video.val} />
       </div>
 
       <div className={c.text}>
@@ -954,28 +951,6 @@ const IndividualTourBlock = () => {
   );
 };
 
-// const JackLondonLakeBlock = () => {
-//   const store = useTouristDestinationsPageStore();
-
-//   return (
-//     <div className={classNames(c.jack_londonLake_block, "_container")}>
-//       <div className={c.sub_title}>
-//         <Text text={store.jack_london_lake_block?.text?.val} />
-//       </div>
-
-//       <h2>
-//         <Text text={store.jack_london_lake_block?.title?.val} />
-//       </h2>
-
-//       <Accordion accordion={store?.accordion} />
-
-//       <Button to="/jack-london-lake">
-//         {store.jack_london_lake_block?.button?.val}
-//       </Button>
-//     </div>
-//   );
-// };
-
 const JackLondonLakeBlock = () => {
   const store = useTouristDestinationsPageStore();
   const storeJack = useJackLondonLakeStore();
@@ -1009,10 +984,7 @@ const JackLondonLakeBlock = () => {
             className={classNames(c.video_wrapper, c["_paused"])}
             onClick={playHandler}
           >
-            <Video
-              src={store.video_block?.video.val}
-              poster={store.video_block?.poster.val}
-            />
+            <Video src={store.jack_london_lake_block?.video?.val} />
           </div>
 
           <div className={c.textWrapper}>
