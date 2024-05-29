@@ -1,25 +1,37 @@
 import ReactPlayer from "react-player"
 
 const Video = ({ src, ...props }) => {
+
+   const getUrl = () => {
+      let url = src
+      if ( src?.includes('//www.youtube') || src?.includes('//youtube') ) {
+         return url.replace('/watch?v=', '/embed/')
+      }
+      if ( src?.includes('//rutube') ) {
+         return url.replace('/video/', '/play/embed/')
+      }
+   }
+
    return (
       <iframe
          width='100%'
          height='auto'
          style={{ aspectRatio: '16/9' }}
-         src={src}
-         frameborder="0"
+         src={getUrl()}
+         frameBorder="0"
          allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-         referrerpolicy="strict-origin-when-cross-origin"
-         playsinline
-         muted
+         referrerPolicy="strict-origin-when-cross-origin"
+         playsInline
          loop
-         controls='false'
       >
       </iframe>
    )
 }
-{/* <iframe width="720" height="405" src="https://rutube.ru/play/embed/8978b556a2a335d5b8a4ed8a33ce65bc" frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-<iframe width="1273" height="716" src="https://www.youtube.com/embed/XxYME1RhToI" title="Природа Колымского края. Магадан. Магаданская область. Колыма" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+// https://www.youtube.com/watch?v=XxYME1RhToI
+// https://www.youtube.com/embed/XxYME1RhToI
+
+// https://rutube.ru/video/8978b556a2a335d5b8a4ed8a33ce65bc/
+// https://rutube.ru/play/embed/8978b556a2a335d5b8a4ed8a33ce65bc
 
 // const Video = ({ src, ...props }) => {
 //    return (
