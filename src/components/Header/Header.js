@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import logo from "../../assets/img/logo.svg";
 import { Container } from "../";
 import { Link, useLocation } from "react-router-dom";
@@ -33,28 +33,32 @@ function Header({ className }) {
 
    const location = useLocation()
 
+   const headerRef = useRef(null)
+
    useEffect(() => {
 
       let prevScrollpos = window.scrollY;
 
+      
       window.onscroll = function() {
-         var currentScrollPos = window.scrollY;
-         const nav = document.querySelector(`.${styles.header}`)
+         const nav = headerRef.current
+         const currentScrollPos = window.scrollY;
+         console.log(window.scrollY);
          if ( !nav ) return 
-         if ( prevScrollpos > currentScrollPos) {
-            nav.style.transform = 'translate(0, 0)'
-         } else {
+         if ( prevScrollpos < currentScrollPos ) {
             nav.style.transform = 'translate(0, -100%)'
+         } else {
+            nav.style.transform = 'translate(0, 0)'
          }
          prevScrollpos = currentScrollPos;
       }
 
-   }, [])
+   }, [location.pathname])
 
    return (<>
       <div className={styles.header_empty} ></div>
 
-      <header className={classNames(styles.header, className)}>
+      <header ref={headerRef} className={classNames(styles.header, className)} style={{ transform: 'translate(0px, 0px)'}} >
          <Container>
             <div className={styles.wrapper}>
                <Link to="/" className={styles.menuItem}>

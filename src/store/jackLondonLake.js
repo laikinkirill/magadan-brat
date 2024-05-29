@@ -153,6 +153,34 @@ export const useJackLondonLakeStore = create((set, get) => ({
     delete reviews[id];
     set({ reviews: { ...reviews } });
   },
+
+   addQuestion: async () => {
+      try {
+         const important_to_know_block = get().important_to_know_block;
+         important_to_know_block.accordion.push({
+            val: {
+               id: '',
+               text: '',
+               title: ''
+            }
+         })
+         set({ important_to_know_block: structuredClone(important_to_know_block) });
+      } catch (error) {
+         console.error(error);
+      }
+   },
+
+   deleteQuestion: async (id) => {
+      try {
+         await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `important_to_know_block/accordion/${id}`);
+         const important_to_know_block = get().important_to_know_block
+         important_to_know_block.accordion = [null, ...important_to_know_block.accordion.filter(el => el.val.id !== ""+id)]
+         set({ important_to_know_block: structuredClone(important_to_know_block) });
+      } catch (error) {
+         console.error(error);
+      }
+   },
+
 }));
 
 export const JACK_LONDON_MAP_POINTS = [

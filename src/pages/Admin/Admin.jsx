@@ -430,6 +430,14 @@ const TouristDestinationsPage = () => {
 const JackLondonLakePage = () => {
   const s = useJackLondonLakeStore;
 
+  const store = useJackLondonLakeStore(state => state.important_to_know_block);
+
+  const [questionsNumber, setQuestionsNumber] = useState([])
+
+  useEffect(() => {
+      setQuestionsNumber(arrayFromTo(1, store.accordion?.length-1 || 0))
+  }, [store])
+
   return (
     <div className={c.page}>
       <h3>Озеро Джека Лондона</h3>
@@ -520,17 +528,49 @@ const JackLondonLakePage = () => {
         store={s}
       />
 
+      <button
+         className={c.persone_button}
+         onClick={()=>s.getState().addQuestion()}
+      >
+         Добавить вопрос
+      </button>
+
+      {questionsNumber.map((id) => (
+        <Fragment key={id}>
+            <TextsSet
+               key={id}
+               name={`Вкладка ${id}`}
+               path={`important_to_know_block/accordion/${id}`}
+               keys={[
+                  { key: "id", name: "Id" },
+                  { key: "title", name: "заголовок" },
+                  { key: "text", name: "текст" },
+               ]}
+               store={s}
+            />
+
+            <button
+               onClick={() => s.getState().deleteQuestion(id)}
+               className={classNames(c.persone_button, c.delete_persone_button)}
+            >
+               Удалить
+            </button>
+
+          <hr />
+        </Fragment>
+      ))}
+
       {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-        <TextsSet
-          key={id}
-          name={`Вкладка ${id}`}
-          path={`important_to_know_block/accordion/${id}`}
-          keys={[
-            { key: "title", name: "заголовок" },
-            { key: "text", name: "текст" },
-          ]}
-          store={s}
-        />
+         <TextsSet
+            key={id}
+            name={`Вкладка ${id}`}
+            path={`important_to_know_block/accordion/${id}`}
+            keys={[
+               { key: "title", name: "заголовок" },
+               { key: "text", name: "текст" },
+            ]}
+            store={s}
+         />
       ))}
       {/* ImportantToKnowBlock */}
     </div>
