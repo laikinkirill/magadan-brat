@@ -1,14 +1,37 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/img/logo.svg";
 import { Container } from "../";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
 
 import styles from "./Header.module.scss";
 
+
+const LINKS = [
+   {
+      url: '/tours',
+      text: <span>Туристические <br /> направления</span>
+   },
+   {
+      url: '/jack-london-lake',
+      text: <span>Озеро Джека <br /> Лондона</span>
+   },
+   {
+      url: '/souvenir',
+      text: <span>Сувенирная <br /> продукция</span>
+   },
+   {
+      url: '/freeride',
+      text: <span>Фрирайд <br />в магадане</span>
+   },
+]
+
+
 function Header({ className }) {
 
    const [isOpen, setIsOpen] = useState(false);
+
+   const location = useLocation()
 
    useEffect(() => {
 
@@ -39,21 +62,16 @@ function Header({ className }) {
                </Link>
 
                <div className={styles.menu}>
-                  <Link to="/tours" className={styles.menuItem}>
-                  Туристические <br /> направления
-                  </Link>
 
-                  <Link to="/jack-london-lake" className={styles.menuItem}>
-                  Озеро Джека <br /> Лондона
-                  </Link>
+                  {LINKS.map(link => (
+                     <Link
+                        to={link.url}
+                        className={classNames(styles.menuItem, location.pathname === link.url ? styles._active : '')}
+                     >
+                        <span>{link.text}</span>
+                     </Link>
+                  ))}
 
-                  <Link to="/souvenir" className={styles.menuItem}>
-                  Сувенирная <br /> продукция
-                  </Link>
-
-                  <Link to="/freeride" className={styles.menuItem}>
-                  Фрирайд <br />в магадане
-                  </Link>
                </div>
 
                <div className={styles.menuMobile}>
@@ -68,21 +86,16 @@ function Header({ className }) {
                   </div>
                   {isOpen ? (
                   <div className={styles.modal}>
-                     <Link to="/tours" className={styles.modalMenuItem}>
-                        Туристические <br /> направления
-                     </Link>
+                     
+                     {LINKS.map(link => (
+                        <Link
+                           to={link.url}
+                           className={classNames(styles.modalMenuItem, location.pathname === link.url ? styles._active : '')}
+                        >
+                           <span>{link.text}</span>
+                        </Link>
+                     ))}
 
-                     <Link to="/jack-london-lake" className={styles.modalMenuItem}>
-                        Озеро Джека <br /> Лондона
-                     </Link>
-
-                     <Link to="/souvenir" className={styles.modalMenuItem}>
-                        Сувенирная <br /> продукция
-                     </Link>
-
-                     <Link to="/freeride" className={styles.modalMenuItem}>
-                        Фрирайд <br />в магадане
-                     </Link>
                   </div>
                   ) : (
                   <></>

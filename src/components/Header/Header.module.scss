@@ -84,6 +84,14 @@
   }
 }
 
+.menuItem,
+.modalMenuItem {
+   &._active {
+      color: #7291ff;
+      pointer-events: none;
+   }
+}
+
 .menuItem {
   font-size: 16px;
   line-height: 20px;
