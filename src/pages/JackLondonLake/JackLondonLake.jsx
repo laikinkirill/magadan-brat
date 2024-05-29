@@ -224,9 +224,10 @@ const HikingRoutesMapBlock = () => {
 
   return (
     <div className={classNames(c.hiking_routes_map_block, "_container")}>
-      {/* <h2><Text text={store.peninsula_routes_block?.title?.val} /></h2>
+      
+      <h2><Text text={store.hiking_routes_map_block?.title?.val} /></h2>
 
-      <div className={c.sub_title}>
+      {/* <div className={c.sub_title}>
         <Text text={store.peninsula_routes_block?.sub_title?.val} />
       </div> */}
 

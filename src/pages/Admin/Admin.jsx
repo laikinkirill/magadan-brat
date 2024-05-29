@@ -466,6 +466,8 @@ const JackLondonLakePage = () => {
       <hr />
 
       {/* HikingRoutesMapBlock */}
+      <Text name="Подзаголовок" path="hiking_routes_map_block/title" store={s} />
+
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((id) => (
         <Fragment key={id}>
           <Image name="Картинка" path={`map_points/${id}/img`} store={s} />
