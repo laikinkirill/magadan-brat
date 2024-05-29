@@ -47,6 +47,8 @@ const initialState = {
     reviews: {},
   },
 
+  accordion: {},
+
   admin: {},
 };
 

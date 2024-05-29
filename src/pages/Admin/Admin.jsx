@@ -497,9 +497,18 @@ const JackLondonLakePage = () => {
       {/* RoutesBlock */}
       <Text name="Подзаголовок" path="routes_block/title" store={s} />
 
-      <div style={{ color: "green" }}>
-        Аккордеон со страницы Туристические направления
-      </div>
+      {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
+        <TextsSet
+          key={id}
+          name={`Вкладка ${id}`}
+          path={`accordion/${id}`}
+          keys={[
+            { key: "title", name: "заголовок" },
+            { key: "text", name: "текст" },
+          ]}
+          store={s}
+        />
+      ))}
       {/* RoutesBlock */}
 
       <hr />

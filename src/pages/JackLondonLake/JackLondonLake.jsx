@@ -322,13 +322,11 @@ const PhotosBlock = () => {
 const RoutesBlock = () => {
   const store = useJackLondonLakeStore();
 
-  const store2 = useTouristDestinationsPageStore();
-
   return (
     <div className={classNames(c.routes_block, "_container")}>
       <h2>{store.routes_block?.title?.val}</h2>
 
-      <Accordion accordion={store2?.accordion} />
+      <Accordion accordion={store?.accordion} />
 
       <Button className={c.jackButton} to="https://wa.me/79965590730">
         Заказать Тур
