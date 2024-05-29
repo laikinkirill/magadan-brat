@@ -33,7 +33,7 @@ function Main() {
           <div className={styles.row}>
             <Link to="/tours" className={styles.reactLink}>
               <div className={styles.image}>
-                <img src={icon1} alt="bear" />
+                <img src={icon1} alt="bear" style={{ pointerEvents: 'none' }} />
               </div>
               <h4 className={styles.text}>
                 Туристические <br />
@@ -43,7 +43,7 @@ function Main() {
 
             <Link to="/souvenir" className={styles.reactLink}>
               <div className={styles.image}>
-                <img src={icon2} alt="bear" />
+                <img src={icon2} alt="bear" style={{ pointerEvents: 'none' }} />
               </div>
               <h4 className={styles.text}>
                 сувенирная <br /> продукция
@@ -52,7 +52,7 @@ function Main() {
 
             <Link to="/freeride" className={styles.reactLink}>
               <div className={styles.image}>
-                <img src={icon3} alt="bear" />
+                <img src={icon3} alt="bear" style={{ pointerEvents: 'none' }} />
               </div>
               <h4 className={styles.text}>
                 фрирайд <br /> в&nbsp;магадане
