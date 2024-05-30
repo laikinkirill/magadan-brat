@@ -79,38 +79,38 @@
     align-items: center;
     justify-content: center;
 
-   //  @media (any-hover: hover) {
-   //    &:hover {
-   //      &::before {
-   //        filter: brightness(1.2);
-   //        transform: scale(1.1);
-   //      }
-   //    }
-   //  }
+    //  @media (any-hover: hover) {
+    //    &:hover {
+    //      &::before {
+    //        filter: brightness(1.2);
+    //        transform: scale(1.1);
+    //      }
+    //    }
+    //  }
 
-   //  &._paused {
-   //    &::before {
-   //      opacity: 1;
-   //    }
-   //  }
+    //  &._paused {
+    //    &::before {
+    //      opacity: 1;
+    //    }
+    //  }
 
-   //  &::before {
-   //    content: "▶";
-   //    position: absolute;
-   //    display: flex;
-   //    align-items: center;
-   //    justify-content: center;
+    //  &::before {
+    //    content: "▶";
+    //    position: absolute;
+    //    display: flex;
+    //    align-items: center;
+    //    justify-content: center;
 
-   //    padding: 16px 16px 16px 20px;
-   //    background-color: #d9d9d9;
-   //    border-radius: 50%;
-   //    opacity: 0;
-   //    transition: all 0.3s ease;
+    //    padding: 16px 16px 16px 20px;
+    //    background-color: #d9d9d9;
+    //    border-radius: 50%;
+    //    opacity: 0;
+    //    transition: all 0.3s ease;
 
-   //    font-size: 35px;
-   //    color: #373737;
-   //    line-height: 35px;
-   //  }
+    //    font-size: 35px;
+    //    color: #373737;
+    //    line-height: 35px;
+    //  }
   }
 
   video {
@@ -281,7 +281,7 @@
         justify-items: center;
         gap: 15px;
         padding: 15px 20px 20px 20px;
-        background-color: rgba(6, 6, 6, 0.8);
+        background-color: #131313;
 
         .info_map {
           width: 310px;
@@ -745,7 +745,7 @@
         justify-items: center;
         gap: 15px;
         padding: 15px 20px 20px 20px;
-        background-color: rgba(6, 6, 6, 0.8);
+        background-color: #131313;
 
         .info_map {
           width: 310px;
@@ -993,7 +993,7 @@
         justify-items: center;
         gap: 15px;
         padding: 15px 20px 20px 20px;
-        background-color: rgba(6, 6, 6, 0.8);
+        background-color: #131313;
 
         .info_map {
           width: 310px;
@@ -1291,87 +1291,86 @@
 }
 
 .team_block {
+  @media (max-width: 1050px) {
+    width: calc(100vw - 175px);
+  }
+  @media (max-width: 500px) {
+    width: calc(100vw - 100px);
+  }
 
-   @media (max-width: 1050px) {
-      width: calc(100vw - 175px);
-   }
-   @media (max-width: 500px) {
-      width: calc(100vw - 100px);
-   }
+  :global(.swiper-button-prev) {
+    position: absolute;
+    left: 0;
 
-   :global(.swiper-button-prev) {
-         position: absolute;
-         left: 0;
-         
-         @media (max-width: 1300px) {
-            transform: translate(-180%, 0);
-         }
-         @media (max-width: 500px) {
-            transform: translate(-100%, 0);
-         }
-      
-         &:active {
-            transform: scale(0.95);
-
-            @media (max-width: 1300px) {
-               transform: translate(-180%, 0) scale(0.95);
-            }
-            @media (max-width: 500px) {
-               transform: translate(-100%, 0) scale(0.95);
-            }
-         }
+    @media (max-width: 1300px) {
+      transform: translate(-180%, 0);
     }
-    :global(.swiper-button-next) {
-       position: absolute;
-       right: 0;
+    @media (max-width: 500px) {
+      transform: translate(-100%, 0);
+    }
 
-       @media (max-width: 1300px) {
-         transform: translate(180%, 0);
-       }
-       @media (max-width: 500px) {
-         transform: translate(100%, 0);
+    &:active {
+      transform: scale(0.95);
+
+      @media (max-width: 1300px) {
+        transform: translate(-180%, 0) scale(0.95);
       }
-    
-       &:active {
-          transform: scale(0.95);
+      @media (max-width: 500px) {
+        transform: translate(-100%, 0) scale(0.95);
+      }
+    }
+  }
+  :global(.swiper-button-next) {
+    position: absolute;
+    right: 0;
 
-          @media (max-width: 1300px) {
-            transform: translate(180%, 0) scale(0.95);
-         }
-         @media (max-width: 500px) {
-            transform: translate(100%, 0) scale(0.95);
-         }
-       }
+    @media (max-width: 1300px) {
+      transform: translate(180%, 0);
     }
-    
-    :global(.swiper-button-prev),
-    :global(.swiper-button-next) {
-       color: #fff;
-    
-       &::after {
-          border: 1px solid #fff;
-          border-radius: 50%;
-          padding: 10px 16px;
-          font-size: 30px;
-       }
+    @media (max-width: 500px) {
+      transform: translate(100%, 0);
     }
+
+    &:active {
+      transform: scale(0.95);
+
+      @media (max-width: 1300px) {
+        transform: translate(180%, 0) scale(0.95);
+      }
+      @media (max-width: 500px) {
+        transform: translate(100%, 0) scale(0.95);
+      }
+    }
+  }
+
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    color: #fff;
+
+    &::after {
+      border: 1px solid #fff;
+      border-radius: 50%;
+      padding: 10px 16px;
+      font-size: 30px;
+    }
+  }
 }
 
 .box {
-   position: relative;
+  position: relative;
   margin-top: 48px;
   display: flex;
-//   justify-content: center;
+  //   justify-content: center;
   gap: 0 5%;
 
-//   @media screen and (max-width: 1024px) {
-//     flex-direction: column;
-//     gap: 32px;
-//   }
+  //   @media screen and (max-width: 1024px) {
+  //     flex-direction: column;
+  //     gap: 32px;
+  //   }
 
-   // @media (max-width: 640px) {
-   //    width: calc(100vw - 120px);
-   // }
+  // @media (max-width: 640px) {
+  //    width: calc(100vw - 120px);
+  // }
 }
 
 .teamWrapper {
@@ -1392,7 +1391,7 @@
   aspect-ratio: 1/1;
 
   @media (max-width: 1100px) {
-      width: 200px;
+    width: 200px;
   }
 }
 
@@ -1486,80 +1485,80 @@
 }
 
 .team_swiper {
-   height: 100%;
-   user-select: none;
- 
-   @media (max-width: 800px) {
-     width: 500px !important;
-   }
+  height: 100%;
+  user-select: none;
 
-   :global(.swiper-slide) {
-     font-size: 18px;
-     font-family: "jost";
-     font-weight: 400;
-     background: transparent;
-     display: flex;
-     align-items: center;
- 
-     & > div {
-       height: 100%;
-       display: grid;
-       justify-items: center;
-       padding: 20px;
- 
-       @media (max-width: 1300px) {
-         width: 100% !important;
-       }
-       @media (max-width: 760px) {
-         width: 550px !important;
-       }
-       @media (max-width: 600px) {
-         width: 90% !important;
-       }
-     }
-   }
- 
-   // [class^="swiper-button-"]{
-   //    inset: initial;
-   //    margin: 0;
-   //    align-self: center;
-   //  }
-   //  :global(.swiper-button-prev) {
-   //    justify-self: start;
-   //    margin-left: -50px;
+  @media (max-width: 800px) {
+    width: 500px !important;
+  }
 
-   //    @media (max-width: 1100px) {
-   //       margin-left: -40px;
-   //    }
-   //  }
-   //  :global(.swiper-button-next) {
-   //    justify-self: end;
-   //    margin-right: -50px;
+  :global(.swiper-slide) {
+    font-size: 18px;
+    font-family: "jost";
+    font-weight: 400;
+    background: transparent;
+    display: flex;
+    align-items: center;
 
-   //    @media (max-width: 1100px) {
-   //       margin-right: -40px;
-   //    }
-   //  }
+    & > div {
+      height: 100%;
+      display: grid;
+      justify-items: center;
+      padding: 20px;
 
-   // :global(.swiper-button-prev),
-   // :global(.swiper-button-next) {
-   //   color: #fff;
- 
-   //   &:active {
-   //     transform: scale(0.95);
-   //   }
- 
-   //   &::after {
-   //     border: 1px solid #fff;
-   //     border-radius: 50%;
-   //     padding: 10px 16px;
-   //     font-size: 30px;
-   //   }
-   // }
-   // :global(.swiper-button-prev) {
-   //   left: 20px;
-   // }
-   // :global(.swiper-button-next) {
-   //   right: 20px;
-   // }
- }
+      @media (max-width: 1300px) {
+        width: 100% !important;
+      }
+      @media (max-width: 760px) {
+        width: 550px !important;
+      }
+      @media (max-width: 600px) {
+        width: 90% !important;
+      }
+    }
+  }
+
+  // [class^="swiper-button-"]{
+  //    inset: initial;
+  //    margin: 0;
+  //    align-self: center;
+  //  }
+  //  :global(.swiper-button-prev) {
+  //    justify-self: start;
+  //    margin-left: -50px;
+
+  //    @media (max-width: 1100px) {
+  //       margin-left: -40px;
+  //    }
+  //  }
+  //  :global(.swiper-button-next) {
+  //    justify-self: end;
+  //    margin-right: -50px;
+
+  //    @media (max-width: 1100px) {
+  //       margin-right: -40px;
+  //    }
+  //  }
+
+  // :global(.swiper-button-prev),
+  // :global(.swiper-button-next) {
+  //   color: #fff;
+
+  //   &:active {
+  //     transform: scale(0.95);
+  //   }
+
+  //   &::after {
+  //     border: 1px solid #fff;
+  //     border-radius: 50%;
+  //     padding: 10px 16px;
+  //     font-size: 30px;
+  //   }
+  // }
+  // :global(.swiper-button-prev) {
+  //   left: 20px;
+  // }
+  // :global(.swiper-button-next) {
+  //   right: 20px;
+  // }
+}
