@@ -3,7 +3,7 @@
 import React, { Fragment, useRef, useState } from "react";
 import { Header, ReviewsBlock, Video } from "../../components";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 
 import telegram from "../../assets/img/icons/telegram.svg";
 import rutube from "../../assets/img/icons/rutube.svg";

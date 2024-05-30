@@ -1,6 +1,6 @@
+/* eslint-disable array-callback-return */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment, useEffect, useRef, useState } from "react";
-import { Header } from "../../components";
 import { Button } from "../../UI";
 import { useTouristDestinationsPageStore } from "../../store/touristDestinationsPage";
 import classNames from "classnames";
@@ -32,14 +32,22 @@ const Panel = () => {
     <>
       <div className={classNames(c.page_body, "_container")}>
         <div className={c.buttons}>
-          <Button onClick={() => setTab("tab_1")}>Гавная Страница</Button>
-          <Button onClick={() => setTab("tab_2")}>
+          <Button onClick={() => setTab("tab_1")} small>
+            Гавная Страница
+          </Button>
+          <Button onClick={() => setTab("tab_2")} small>
             Страница Туристические направления
           </Button>
-          <Button onClick={() => setTab("tab_3")}>
+          <Button onClick={() => setTab("tab_3")} small>
             Страница Озеро Джека Лондона
           </Button>
-          <Button onClick={() => setTab("tab_4")}>Отзывы</Button>
+          <Button onClick={() => setTab("tab_4")} small>
+            Отзывы
+          </Button>
+
+          <Button to="/" small className={c.buttonBack}>
+            Вернуться на сайт
+          </Button>
         </div>
 
         <div>
@@ -430,13 +438,15 @@ const TouristDestinationsPage = () => {
 const JackLondonLakePage = () => {
   const s = useJackLondonLakeStore;
 
-  const store = useJackLondonLakeStore(state => state.important_to_know_block);
+  const store = useJackLondonLakeStore(
+    (state) => state.important_to_know_block
+  );
 
-  const [questionsNumber, setQuestionsNumber] = useState([])
+  const [questionsNumber, setQuestionsNumber] = useState([]);
 
   useEffect(() => {
-      setQuestionsNumber(arrayFromTo(1, store.accordion?.length-1 || 0))
-  }, [store])
+    setQuestionsNumber(arrayFromTo(1, store.accordion?.length - 1 || 0));
+  }, [store]);
 
   return (
     <div className={c.page}>
@@ -466,7 +476,11 @@ const JackLondonLakePage = () => {
       <hr />
 
       {/* HikingRoutesMapBlock */}
-      <Text name="Подзаголовок" path="hiking_routes_map_block/title" store={s} />
+      <Text
+        name="Подзаголовок"
+        path="hiking_routes_map_block/title"
+        store={s}
+      />
 
       {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((id) => (
         <Fragment key={id}>
@@ -531,48 +545,48 @@ const JackLondonLakePage = () => {
       />
 
       <button
-         className={c.persone_button}
-         onClick={()=>s.getState().addQuestion()}
+        className={c.persone_button}
+        onClick={() => s.getState().addQuestion()}
       >
-         Добавить вопрос
+        Добавить вопрос
       </button>
 
       {questionsNumber.map((id) => (
         <Fragment key={id}>
-            <TextsSet
-               key={id}
-               name={`Вкладка ${id}`}
-               path={`important_to_know_block/accordion/${id}`}
-               keys={[
-                  { key: "id", name: "Id" },
-                  { key: "title", name: "заголовок" },
-                  { key: "text", name: "текст" },
-               ]}
-               store={s}
-            />
+          <TextsSet
+            key={id}
+            name={`Вкладка ${id}`}
+            path={`important_to_know_block/accordion/${id}`}
+            keys={[
+              { key: "id", name: "Id" },
+              { key: "title", name: "заголовок" },
+              { key: "text", name: "текст" },
+            ]}
+            store={s}
+          />
 
-            <button
-               onClick={() => s.getState().deleteQuestion(id)}
-               className={classNames(c.persone_button, c.delete_persone_button)}
-            >
-               Удалить
-            </button>
+          <button
+            onClick={() => s.getState().deleteQuestion(id)}
+            className={classNames(c.persone_button, c.delete_persone_button)}
+          >
+            Удалить
+          </button>
 
           <hr />
         </Fragment>
       ))}
 
       {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-         <TextsSet
-            key={id}
-            name={`Вкладка ${id}`}
-            path={`important_to_know_block/accordion/${id}`}
-            keys={[
-               { key: "title", name: "заголовок" },
-               { key: "text", name: "текст" },
-            ]}
-            store={s}
-         />
+        <TextsSet
+          key={id}
+          name={`Вкладка ${id}`}
+          path={`important_to_know_block/accordion/${id}`}
+          keys={[
+            { key: "title", name: "заголовок" },
+            { key: "text", name: "текст" },
+          ]}
+          store={s}
+        />
       ))}
       {/* ImportantToKnowBlock */}
     </div>

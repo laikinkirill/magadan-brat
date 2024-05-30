@@ -37,7 +37,14 @@ const Button = ({ children, to, onClick, className, small, defaultLink }) => {
           {children}
         </a>
       ) : (
-        <button className={c.button} onClick={onClick}>
+        <button
+          className={classNames({
+            [c.button]: true,
+            [className]: true,
+            [c.small]: small,
+          })}
+          onClick={onClick}
+        >
           {children}
         </button>
       )}

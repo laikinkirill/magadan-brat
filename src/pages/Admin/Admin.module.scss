@@ -77,7 +77,10 @@
       font-weight: 400;
       color: #fff;
       background-color: transparent;
-      border: none;
+      border: 1px solid #333;
+      border-radius: 2px;
+      padding: 8px;
+      resize: vertical;
     }
   }
 
@@ -99,7 +102,10 @@
       font-weight: 400;
       color: #fff;
       background-color: transparent;
-      border: none;
+      border: 1px solid #333;
+      padding: 8px;
+      border-radius: 2px;
+      resize: vertical;
     }
   }
 
@@ -290,19 +296,23 @@
 }
 
 .persone_button {
-   width: max-content;
-   padding: 12px 30px;
-   border-radius: 8px;
-   font-size: 16px;
-   font-weight: 500;
-   cursor: pointer;
+  width: max-content;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
 
-   &:active {
-      transform: scale(.95);
-   }
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .delete_persone_button {
-   background-color: #fc9b9b;
-   margin: 0 auto;
+  background-color: #fc9b9b;
+  margin: 0 auto;
+}
+
+.buttonBack {
+  background-color: #333;
 }
