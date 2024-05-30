@@ -577,9 +577,29 @@ const FirstBlock = () => {
           <Text text={store?.first_block?.title.val} />
         </h1>
 
-        <Button to={store?.first_block?.button?.val?.link}>
+        <div className={c.btns} >
+         <Button
+            to="mailto:magadanbrat@bk.ru"
+            small={true}
+            defaultLink={true}
+            className={classNames(c.buttonD)}
+         >
+            Заказать тур
+         </Button>
+
+         <Button
+            to="https://wa.me/79965590730"
+            className={classNames(c.buttonM)}
+            small={true}
+            defaultLink
+         >
+            Заказать тур
+         </Button>
+
+        {/* <Button to={store?.first_block?.button?.val?.link}>
           {store?.first_block?.button?.val?.text}
-        </Button>
+        </Button> */}
+        </div>
       </div>
     </div>
   );
@@ -973,9 +993,30 @@ const IndividualTourBlock = () => {
           <Text text={store.individual_tour_block?.text?.val} />
         </div>
 
-        <Button to={store.first_block?.button?.val?.link}>
-          {store.first_block?.button?.val?.text}
-        </Button>
+        <div className={c.btns} >
+         <Button
+            to="mailto:magadanbrat@bk.ru"
+            small={true}
+            defaultLink={true}
+            className={classNames(c.buttonD)}
+         >
+            Заказать тур
+         </Button>
+
+         <Button
+            to="https://wa.me/79965590730"
+            className={classNames(c.buttonM)}
+            small={true}
+            defaultLink
+         >
+            Заказать тур
+         </Button>
+
+         {/* <Button to={store.first_block?.button?.val?.link}>
+            {store.first_block?.button?.val?.text}
+         </Button> */}
+        </div>
+        
       </div>
     </div>
   );

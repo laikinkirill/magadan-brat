@@ -58,6 +58,15 @@
     align-content: center;
     gap: 64px;
   }
+
+  .btns {
+      a {
+         @media (min-width: 760px) {
+            font-size: 20px;
+            padding: 15px 40px;
+         }
+      }
+  }
 }
 
 .video_block {
@@ -1308,6 +1317,15 @@
       margin-top: 20px;
     }
   }
+
+   .btns {
+      a {
+         @media (min-width: 760px) {
+            font-size: 20px;
+            padding: 15px 40px;
+         }
+      }
+   }
 }
 
 .buttonBlue {

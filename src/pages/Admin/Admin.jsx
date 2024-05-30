@@ -142,7 +142,7 @@ const TouristDestinationsPage = () => {
       {/* FirstBlock */}
       <Text name="Заголовок" path="first_block/title" store={s} />
 
-      <TextsSet
+      {/* <TextsSet
         name="Кнопка"
         path="first_block/button"
         keys={[
@@ -150,7 +150,7 @@ const TouristDestinationsPage = () => {
           { key: "link", name: "Ссылка" },
         ]}
         store={s}
-      />
+      /> */}
       {/* FirstBlock */}
 
       <hr />
@@ -460,7 +460,7 @@ const JackLondonLakePage = () => {
       <Text name="Дата 2" path="first_block/dates/2" store={s} />
       <Text name="Дата 3" path="first_block/dates/3" store={s} />
       <Text name="Дата 4" path="first_block/dates/4" store={s} />
-      
+
       <Text name="Текст" path="first_block/text" store={s} />
       {/* FirstBlock */}
 

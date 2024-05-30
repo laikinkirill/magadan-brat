@@ -348,9 +348,29 @@ const RoutesBlock = () => {
 
       <Accordion accordion={store?.accordion} />
 
-      <Button className={c.jackButton} to="https://wa.me/79965590730">
-        Заказать Тур
-      </Button>
+      <div className={c.btns} >
+         <Button
+            to="mailto:magadanbrat@bk.ru"
+            small={true}
+            defaultLink={true}
+            className={classNames(c.jackButton, c.buttonD)}
+         >
+            Заказать тур
+         </Button>
+
+         <Button
+            to="https://wa.me/79965590730"
+            className={classNames(c.jackButton, c.buttonM)}
+            small={true}
+            defaultLink
+         >
+            Заказать тур
+         </Button>
+
+         {/* <Button className={c.jackButton} to="https://wa.me/79965590730">
+         Заказать Тур
+         </Button> */}
+        </div>
     </div>
   );
 };

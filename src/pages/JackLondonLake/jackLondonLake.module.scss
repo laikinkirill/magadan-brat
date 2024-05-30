@@ -756,6 +756,15 @@
   h2 {
     margin-bottom: 48px;
   }
+
+  .btns {
+   a {
+      @media (min-width: 760px) {
+         font-size: 20px;
+         padding: 15px 40px;
+      }
+   }
+}
 }
 
 .important_to_know_block {
