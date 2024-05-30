@@ -1,3 +1,7 @@
+.title {
+  margin: 0 !important;
+}
+
 .reviews_block {
   overflow: hidden;
   h2 {
@@ -6,7 +10,7 @@
 
   & > button {
     display: block;
-    margin: 60px auto 0 auto;
+    margin: 0 auto 0 auto;
   }
 }
 .reviews_swiper {
