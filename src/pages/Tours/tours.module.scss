@@ -1324,6 +1324,65 @@
   }
 }
 
+.jack_london_lake_block_body {
+   display: grid;
+   gap: 60px;
+
+   .video_wrapper {
+      @media (min-width: 1000px) {
+         width: 70%;
+         margin: 0 auto;
+      }
+   }
+
+   .textWrapper {
+      display: flex;
+      flex-direction: column;
+   }
+
+   .text_wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      .text {
+         display: block;
+         transition: all 0.3s ease;
+         
+         animation: identifier 0.5s forwards;
+
+         &._hide {
+            display: none;
+         }
+      }
+
+      @keyframes identifier {
+         0% {
+           opacity: 0;
+         }
+         100% {
+           opacity: 1;
+         }
+       }
+   }
+
+   .show_text_button {
+      width: max-content;
+      padding: 12px 40px 12px 0;
+      margin-top: 20px;
+      color: #a6a6a6;
+      font-size: 18px;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      cursor: pointer;
+  
+      @media (max-width: 1200px) {
+        font-size: 16px;
+      }
+   }
+}
+
 .hiddenMobile {
   @media (max-width: 767px) {
     display: none;

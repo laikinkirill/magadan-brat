@@ -985,7 +985,7 @@ const JackLondonLakeBlock = () => {
   const store = useTouristDestinationsPageStore();
   const storeJack = useJackLondonLakeStore();
 
-  // const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
 
   const playHandler = (e) => {
     const video = e.currentTarget.querySelector("video");
@@ -1009,7 +1009,7 @@ const JackLondonLakeBlock = () => {
           <Text text={store.jack_london_lake_block?.title?.val} />
         </h2>
 
-        <div className={classNames(c.video_block)}>
+        <div className={classNames(c.jack_london_lake_block_body)}>
           <div
             className={classNames(c.video_wrapper, c["_paused"])}
             onClick={playHandler}
@@ -1018,9 +1018,18 @@ const JackLondonLakeBlock = () => {
           </div>
 
           <div className={c.textWrapper}>
-            <div className={classNames(c.text)}>
-              <Text text={storeJack.description_block?.text?.val} />
+            <div className={c.text_wrapper} >
+               <div className={classNames(c.text)}>
+                  <Text text={store.jack_london_lake_block?.text?.val} />
+               </div>
+               <div className={classNames(c.text, show ? c._show : c._hide)}>
+                  <Text text={store.jack_london_lake_block?.hidden_text?.val} />
+               </div>
             </div>
+
+            <button className={c.show_text_button} onClick={() => setShow((prev) => !prev)}>
+               {show ? "Свернуть" : "Подробнее"}
+            </button>
 
             <Button
               to="/jack-london-lake"

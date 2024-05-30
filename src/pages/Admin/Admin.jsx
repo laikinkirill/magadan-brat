@@ -378,19 +378,17 @@ const TouristDestinationsPage = () => {
       {/* JackLondonLakeBlock */}
       <Text name="Подзаголовок" path="jack_london_lake_block/title" store={s} />
 
+      <Text name="Видео" path="jack_london_lake_block/video" store={s} />
+
+      <Text name="Текст" path="jack_london_lake_block/text" store={s} />
+
+      <Text name="Спрятанный текст" path="jack_london_lake_block/hidden_text" store={s} />
+
       <Text
         name="Текст кнопки"
         path="jack_london_lake_block/button"
         store={s}
       />
-
-      {/* <Image
-        name="Заставка видео"
-        path="jack_london_lake_block/poster"
-        store={s}
-      /> */}
-
-      <Text name="Видео" path="jack_london_lake_block/video" store={s} />
       {/* JackLondonLakeBlock */}
 
       <hr />
