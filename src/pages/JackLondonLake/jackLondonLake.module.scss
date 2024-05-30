@@ -279,6 +279,10 @@
 .first_block {
   display: grid;
   gap: 30px;
+  
+  @media (max-width: 760px) {
+      padding: 0;
+  }
 
   .sub_title {
     font-size: 24px;
@@ -445,7 +449,44 @@
       }
     }
   }
+
+  .text {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-top: 30px;
+
+      h3 {
+         @media (max-width: 760px) {
+            font-size: 20px;
+         }
+      }
+
+      @media (max-width: 760px) {
+         margin-top: 0px;
+      }
+      @media (max-width: 600px) {
+         flex-direction: column;
+         align-items: baseline;
+      }
+  }
 }
+
+.buttonD {
+   display: block;
+ 
+   @media (max-width: 767px) {
+     display: none !important;
+   }
+ }
+ 
+ .buttonM {
+   display: none !important;
+ 
+   @media (max-width: 767px) {
+     display: block !important;
+   }
+ }
 
 .description_block {
   background-color: #212121;

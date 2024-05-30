@@ -453,7 +453,6 @@ const JackLondonLakePage = () => {
       {/* FirstBlock */}
       <Text name="Заголовок" path="first_block/title" store={s} />
 
-      <Text name="Подзаголовок" path="first_block/sub_title" store={s} />
 
       <Image name="Картинка" path="first_block/img" store={s} />
 
@@ -461,6 +460,8 @@ const JackLondonLakePage = () => {
       <Text name="Дата 2" path="first_block/dates/2" store={s} />
       <Text name="Дата 3" path="first_block/dates/3" store={s} />
       <Text name="Дата 4" path="first_block/dates/4" store={s} />
+      
+      <Text name="Текст" path="first_block/text" store={s} />
       {/* FirstBlock */}
 
       <hr />

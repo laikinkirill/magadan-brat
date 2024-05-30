@@ -125,8 +125,6 @@ const FirstBlock = () => {
     <div className={classNames(c.first_block, "_container")}>
       <h1>{store.first_block?.title?.val}</h1>
 
-      {/* <p className={c.sub_title}>{store.first_block?.sub_title?.val}</p> */}
-
       <div className={c.img_wrapper}>
         <img src={store.first_block?.img?.val} alt="" height={650} />
 
@@ -192,6 +190,27 @@ const FirstBlock = () => {
             {store.first_block?.dates?.[4]?.val}
           </a>
         </div>
+      </div>
+
+      <div className={c.text} >
+         <h3>{store.first_block?.text?.val}</h3>
+         <Button
+            to="mailto:magadanbrat@bk.ru"
+            small={true}
+            defaultLink={true}
+            className={classNames(c.buttonD)}
+         >
+            Заказать тур
+         </Button>
+
+         <Button
+            to="https://wa.me/79965590730"
+            className={classNames(c.buttonM)}
+            small={true}
+            defaultLink
+         >
+            Заказать тур
+         </Button>
       </div>
     </div>
   );
