@@ -791,162 +791,164 @@ const SeaRoutesBlock = () => {
   };
 
   return (
-    <div className="_container">
-      <div className={c.sea_routes}>
-        <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
-          <h2>{store.sea_routes_block?.title.val}</h2>
-          <Button
-            to="mailto:magadanbrat@bk.ru"
-            small={true}
-            defaultLink
-            className={classNames(c.buttonD, c.buttonBlue)}
-          >
-            Заказать тур
-          </Button>
+    <div className={c.seaWrapper}>
+      <div className="_container">
+        <div className={c.sea_routes}>
+          <div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
+            <h2>{store.sea_routes_block?.title.val}</h2>
+            <Button
+              to="mailto:magadanbrat@bk.ru"
+              small={true}
+              defaultLink
+              className={classNames(c.buttonD, c.buttonBlue)}
+            >
+              Заказать тур
+            </Button>
 
-          <Button
-            to="https://wa.me/79965590730"
-            className={classNames(c.buttonM, c.buttonBlue)}
-            small={true}
-            defaultLink
-          >
-            Заказать тур
-          </Button>
-        </div>
+            <Button
+              to="https://wa.me/79965590730"
+              className={classNames(c.buttonM, c.buttonBlue)}
+              small={true}
+              defaultLink
+            >
+              Заказать тур
+            </Button>
+          </div>
 
-        <div className={c.sub_title}>
-          <Text text={store.sea_routes_block?.sub_title.val} />
-        </div>
+          <div className={c.sub_title}>
+            <Text text={store.sea_routes_block?.sub_title.val} />
+          </div>
 
-        <div className={c.map}>
-          <img src={seaMap} alt="" />
+          <div className={c.map}>
+            <img src={seaMap} alt="" />
 
-          {SEA_POINTS.map((point) => (
-            <Fragment key={point?.id}>
-              <SeaMapPoint
-                id={point?.id}
-                textOrientation={point?.textOrientation}
-                position={point?.position}
-                popupPosition={point?.popupPosition || ""}
-                data={store.sea_points[point?.id]}
-                onClick={() => onClick(point?.id)}
-                onClose={() => onClick(point?.id)}
-              />
+            {SEA_POINTS.map((point) => (
+              <Fragment key={point?.id}>
+                <SeaMapPoint
+                  id={point?.id}
+                  textOrientation={point?.textOrientation}
+                  position={point?.position}
+                  popupPosition={point?.popupPosition || ""}
+                  data={store.sea_points[point?.id]}
+                  onClick={() => onClick(point?.id)}
+                  onClose={() => onClick(point?.id)}
+                />
 
-              <hr className={c.dotted_line} />
+                <hr className={c.dotted_line} />
 
-              <img
-                className={classNames(
-                  c.route,
-                  activeRoute !== point?.id ? c._hidden : ""
-                )}
-                src={store.sea_points[point?.id]?.map_img?.val}
-                alt=""
-              />
-            </Fragment>
-          ))}
+                <img
+                  className={classNames(
+                    c.route,
+                    activeRoute !== point?.id ? c._hidden : ""
+                  )}
+                  src={store.sea_points[point?.id]?.map_img?.val}
+                  alt=""
+                />
+              </Fragment>
+            ))}
 
-          <span
-            style={{
-              top: "11%",
-              left: "47%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              textAlign: "right",
-              pointerEvents: "none",
-              width: 65 + "px",
-              lineHeight: 14 + "px",
-            }}
-          >
-            мыс Чирикова
-          </span>
+            <span
+              style={{
+                top: "11%",
+                left: "47%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                textAlign: "right",
+                pointerEvents: "none",
+                width: 65 + "px",
+                lineHeight: 14 + "px",
+              }}
+            >
+              мыс Чирикова
+            </span>
 
-          <span
-            style={{
-              top: "5%",
-              left: "63.3%",
-              fontSize: 8,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-            }}
-          >
-            Магадан
-          </span>
+            <span
+              style={{
+                top: "5%",
+                left: "63.3%",
+                fontSize: 8,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+              }}
+            >
+              Магадан
+            </span>
 
-          <span
-            style={{
-              top: "33%",
-              left: "4%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-            }}
-          >
-            остров Талан
-          </span>
+            <span
+              style={{
+                top: "33%",
+                left: "4%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+              }}
+            >
+              остров Талан
+            </span>
 
-          <span
-            style={{
-              top: "58%",
-              left: "6%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-              width: 50 + "px",
-            }}
-          >
-            остров Спафарьева
-          </span>
+            <span
+              style={{
+                top: "58%",
+                left: "6%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+                width: 50 + "px",
+              }}
+            >
+              остров Спафарьева
+            </span>
 
-          <span
-            style={{
-              top: "61%",
-              left: "68%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-            }}
-          >
-            мыс Таран
-          </span>
+            <span
+              style={{
+                top: "61%",
+                left: "68%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+              }}
+            >
+              мыс Таран
+            </span>
 
-          <span
-            style={{
-              top: "59%",
-              left: "49.2%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-              width: 50 + "px",
-            }}
-          >
-            остров Завьялова
-          </span>
+            <span
+              style={{
+                top: "59%",
+                left: "49.2%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+                width: 50 + "px",
+              }}
+            >
+              остров Завьялова
+            </span>
 
-          <span
-            style={{
-              bottom: "-15px",
-              left: "76%",
-              fontSize: 12,
-              color: "#ACACAC",
-              position: "absolute",
-              pointerEvents: "none",
-              lineHeight: 14 + "px",
-            }}
-          >
-            мыс Алевина
-          </span>
+            <span
+              style={{
+                bottom: "-15px",
+                left: "76%",
+                fontSize: 12,
+                color: "#ACACAC",
+                position: "absolute",
+                pointerEvents: "none",
+                lineHeight: 14 + "px",
+              }}
+            >
+              мыс Алевина
+            </span>
+          </div>
         </div>
       </div>
     </div>

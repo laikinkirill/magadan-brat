@@ -866,6 +866,12 @@
   margin: 0 64px;
 }
 
+.seaWrapper {
+  & > div {
+    padding: 0;
+  }
+}
+
 .sea_routes {
   position: relative;
   background-color: rgba(53, 153, 245, 0.15);
