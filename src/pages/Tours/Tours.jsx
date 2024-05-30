@@ -34,7 +34,6 @@ import c from "./tours.module.scss";
 import routesMap from "../../assets/img/tours/routes_map.svg";
 import seaMap from "../../assets/img/tours/sea_map.svg";
 
-
 function Tours() {
   return (
     <>
@@ -431,7 +430,26 @@ const SeaMapPoint = ({
               <div>
                 <p>Время в пути</p>
                 <span>
-                  <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.21364 0.405099C8.11696 0.450216 8.0697 0.531856 8.07185 0.654317C8.074 0.800411 8.10193 0.869161 8.35759 1.38479C9.86364 4.3969 10.7338 7.61311 10.8927 10.752C10.9207 11.2998 10.9185 12.2344 10.8906 12.7071C10.8541 13.3022 10.8584 13.4912 10.9099 13.6524C11.0109 13.9617 11.2322 14.1938 11.5351 14.3012C11.7478 14.3764 12.9445 14.4043 14.1261 14.3613C15.875 14.2969 17.5078 14.0692 18.4445 13.7576C18.9215 13.5987 19.2824 13.0959 19.3082 12.5567C19.3189 12.3354 19.2802 12.1033 19.1299 11.4932C18.4552 8.77971 17.0459 6.28107 15.0972 4.34318C14.5472 3.79748 14.0875 3.40217 13.4666 2.93596C12.1238 1.93049 10.6607 1.15061 8.94841 0.525411C8.5445 0.377169 8.3447 0.344942 8.21364 0.405099Z" fill="white"/><path d="M9.02344 6.68281C8.95469 6.74512 8.87734 6.88047 8.64961 7.33594C8.34023 7.95254 8.14473 8.30918 7.82461 8.85059C6.93516 10.3416 5.68477 12.099 4.31836 13.7748C4.02188 14.1379 3.95312 14.2625 3.95312 14.4322C3.95312 14.5805 4.01328 14.6729 4.15723 14.7459L4.2625 14.8018H6.03711H7.80957L8.00293 14.7416C8.38965 14.6213 8.72266 14.4322 8.94395 14.2023C9.09219 14.0498 9.23184 13.7813 9.36719 13.3838C9.76035 12.2365 9.88066 10.7219 9.71953 8.94727C9.65078 8.18027 9.4918 7.11895 9.40801 6.86973C9.31992 6.60332 9.18457 6.53887 9.02344 6.68281Z" fill="white"/><path d="M19.9162 14.6192C19.3146 14.7545 17.9804 15.0166 17.3165 15.1326C13.98 15.7149 10.8626 15.9942 7.73666 15.9942C5.556 15.9942 3.77279 15.876 2.00892 15.616C1.57494 15.5516 1.40092 15.5473 1.24193 15.5946C1.08939 15.6375 0.941151 15.7686 0.889589 15.8975C0.790761 16.1574 0.947597 16.4668 1.41596 16.9481C2.74584 18.3123 5.4142 19.1824 9.2599 19.5069C10.9572 19.6487 12.6415 19.6594 13.9521 19.5369C17.3896 19.219 19.7507 18.018 20.7927 16.0586C20.9281 15.8072 21.0849 15.4184 21.1193 15.2572C21.2031 14.8512 20.898 14.5289 20.4339 14.5354C20.3544 14.5354 20.1246 14.574 19.9162 14.6192Z" fill="white"/></svg>
+                  <svg
+                    width="22"
+                    height="20"
+                    viewBox="0 0 22 20"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M8.21364 0.405099C8.11696 0.450216 8.0697 0.531856 8.07185 0.654317C8.074 0.800411 8.10193 0.869161 8.35759 1.38479C9.86364 4.3969 10.7338 7.61311 10.8927 10.752C10.9207 11.2998 10.9185 12.2344 10.8906 12.7071C10.8541 13.3022 10.8584 13.4912 10.9099 13.6524C11.0109 13.9617 11.2322 14.1938 11.5351 14.3012C11.7478 14.3764 12.9445 14.4043 14.1261 14.3613C15.875 14.2969 17.5078 14.0692 18.4445 13.7576C18.9215 13.5987 19.2824 13.0959 19.3082 12.5567C19.3189 12.3354 19.2802 12.1033 19.1299 11.4932C18.4552 8.77971 17.0459 6.28107 15.0972 4.34318C14.5472 3.79748 14.0875 3.40217 13.4666 2.93596C12.1238 1.93049 10.6607 1.15061 8.94841 0.525411C8.5445 0.377169 8.3447 0.344942 8.21364 0.405099Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M9.02344 6.68281C8.95469 6.74512 8.87734 6.88047 8.64961 7.33594C8.34023 7.95254 8.14473 8.30918 7.82461 8.85059C6.93516 10.3416 5.68477 12.099 4.31836 13.7748C4.02188 14.1379 3.95312 14.2625 3.95312 14.4322C3.95312 14.5805 4.01328 14.6729 4.15723 14.7459L4.2625 14.8018H6.03711H7.80957L8.00293 14.7416C8.38965 14.6213 8.72266 14.4322 8.94395 14.2023C9.09219 14.0498 9.23184 13.7813 9.36719 13.3838C9.76035 12.2365 9.88066 10.7219 9.71953 8.94727C9.65078 8.18027 9.4918 7.11895 9.40801 6.86973C9.31992 6.60332 9.18457 6.53887 9.02344 6.68281Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M19.9162 14.6192C19.3146 14.7545 17.9804 15.0166 17.3165 15.1326C13.98 15.7149 10.8626 15.9942 7.73666 15.9942C5.556 15.9942 3.77279 15.876 2.00892 15.616C1.57494 15.5516 1.40092 15.5473 1.24193 15.5946C1.08939 15.6375 0.941151 15.7686 0.889589 15.8975C0.790761 16.1574 0.947597 16.4668 1.41596 16.9481C2.74584 18.3123 5.4142 19.1824 9.2599 19.5069C10.9572 19.6487 12.6415 19.6594 13.9521 19.5369C17.3896 19.219 19.7507 18.018 20.7927 16.0586C20.9281 15.8072 21.0849 15.4184 21.1193 15.2572C21.2031 14.8512 20.898 14.5289 20.4339 14.5354C20.3544 14.5354 20.1246 14.574 19.9162 14.6192Z"
+                      fill="white"
+                    />
+                  </svg>
                   {data?.val?.time}
                 </span>
               </div>
@@ -568,28 +586,28 @@ const FirstBlock = () => {
 const VideoBlock = () => {
   const store = useTouristDestinationsPageStore();
 
-//   const playHandler = (e) => {
-//     const video = e.currentTarget.querySelector("video");
+  //   const playHandler = (e) => {
+  //     const video = e.currentTarget.querySelector("video");
 
-//     if (!video) return;
+  //     if (!video) return;
 
-//     if (video.paused) {
-//       video.play();
-//       e.currentTarget.classList.remove(c["_paused"]);
-//       return;
-//     }
+  //     if (video.paused) {
+  //       video.play();
+  //       e.currentTarget.classList.remove(c["_paused"]);
+  //       return;
+  //     }
 
-//     video.pause();
-//     e.currentTarget.classList.add(c["_paused"]);
-//   };
+  //     video.pause();
+  //     e.currentTarget.classList.add(c["_paused"]);
+  //   };
 
   return (
     <div className={classNames(c.video_block, "_container")}>
       <div
         className={classNames(c.video_wrapper, c["_paused"])}
-      //   onClick={playHandler}
+        //   onClick={playHandler}
       >
-         <Video src={store.video_block?.video.val} />
+        <Video src={store.video_block?.video.val} />
       </div>
 
       <div className={c.text}>
@@ -599,9 +617,11 @@ const VideoBlock = () => {
       <div className={c.features}>
         {Object.values(store.video_block?.features)?.map((feature, i) => (
           <div key={i}>
-            <span><Text text={feature?.val.title} /></span>
+            <span>
+              <Text text={feature?.val.title} />
+            </span>
             <div>
-               <Text text={feature?.val.text} />
+              <Text text={feature?.val.text} />
             </div>
           </div>
         ))}
@@ -690,7 +710,9 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          <Text text={store.routes_outside_the_city_block?.districts?.[1]?.val} />
+          <Text
+            text={store.routes_outside_the_city_block?.districts?.[1]?.val}
+          />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
@@ -718,7 +740,9 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          <Text text={store.routes_outside_the_city_block?.districts?.[2]?.val} />
+          <Text
+            text={store.routes_outside_the_city_block?.districts?.[2]?.val}
+          />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
@@ -736,7 +760,9 @@ const RoutesOutsideTheCityBlock = () => {
 
       <div>
         <p className={c.title}>
-          <Text text={store.routes_outside_the_city_block?.districts?.[3]?.val} />
+          <Text
+            text={store.routes_outside_the_city_block?.districts?.[3]?.val}
+          />
         </p>
         <div className={c.road}>
           <span className={c.dotted_wrapper}>
@@ -1009,7 +1035,7 @@ const JackLondonLakeBlock = () => {
 const TeamBlock = () => {
   const store = useTouristDestinationsPageStore();
 
-  const swiperRef = useRef()
+  const swiperRef = useRef();
 
   return (
     <div className={classNames(c.team_block, "_container")}>
@@ -1018,48 +1044,49 @@ const TeamBlock = () => {
       </h2>
 
       <div className={c.box}>
-         <Swiper
-            ref={swiperRef}
-            navigation={false}
-            modules={[Autoplay]}
-            loop={true}
-            speed={1500}
-            spaceBetween={30}
-            autoplay={{
-               delay: 2500,
-               disableOnInteraction: true,
-            }}
-            breakpoints={{
-               1100: {
-                  slidesPerView: 3
-               },
-               760: {
-                  slidesPerView: 2
-               },
-               340: {
-                  slidesPerView: 1
-               }
-            }}
-            className={c.team_swiper}
-         >
-            {Object.values(store.team_block?.team || {}).map((person, i) => (
-               <SwiperSlide key={i}>
-                  <div key={person.val.id} className={c.teamWrapper}>
-                     <img
-                        src={person.img?.val}
-                        className={c.teamImage}
-                        alt="#"
-                     />
-                     <div className={c.teamName}>{person.val.fio}</div>
-                     <div className={c.job}>{person.val.post}</div>
-                  </div>
-               </SwiperSlide>
-            ))}
-         </Swiper>
-         <div className="swiper-button-prev" onClick={() => swiperRef.current?.swiper?.slidePrev()} ></div>
-         <div className="swiper-button-next" onClick={() => swiperRef.current?.swiper?.slideNext()} ></div>
+        <Swiper
+          ref={swiperRef}
+          navigation={false}
+          modules={[Autoplay]}
+          loop={true}
+          speed={1500}
+          spaceBetween={30}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: true,
+          }}
+          breakpoints={{
+            1100: {
+              slidesPerView: 3,
+            },
+            760: {
+              slidesPerView: 2,
+            },
+            340: {
+              slidesPerView: 1,
+            },
+          }}
+          className={c.team_swiper}
+        >
+          {Object.values(store.team_block?.team || {}).map((person, i) => (
+            <SwiperSlide key={i}>
+              <div key={person.val.id} className={c.teamWrapper}>
+                <img src={person.img?.val} className={c.teamImage} alt="#" />
+                <div className={c.teamName}>{person.val.fio}</div>
+                <div className={c.job}>{person.val.post}</div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div
+          className="swiper-button-prev"
+          onClick={() => swiperRef.current?.swiper?.slidePrev()}
+        ></div>
+        <div
+          className="swiper-button-next"
+          onClick={() => swiperRef.current?.swiper?.slideNext()}
+        ></div>
       </div>
-
     </div>
   );
 };
@@ -1068,71 +1095,77 @@ const ContactsBlock = () => {
   const store = useMainPageStore();
 
   return (
-    <div className={classNames("_container")}>
-      <h2>
-        <Text text="Контакты" />
-      </h2>
+    <div className={c.contactWrapper}>
+      <div className={classNames("_container")}>
+        <h2>
+          <Text text="Контакты" />
+        </h2>
 
-      <div className={c.social}>
-        <Link
-          to={store.telegram?.val.link}
-          target="_blank"
-          className={c.socialtLink}
-        >
-          <div className={c.socialItem}>
-            <div className={c.iconBox}>
-              <img src={telegram} alt="telegram" />
+        <div className={c.social}>
+          <Link
+            to={store.telegram?.val.link}
+            target="_blank"
+            className={c.socialtLink}
+          >
+            <div className={c.socialItem}>
+              <div className={c.iconBox}>
+                <img src={telegram} alt="telegram" />
+              </div>
+              <div className={c.textBox}>
+                <div className={c.name}>Telegram</div>
+                <div className={c.link}>{store.telegram?.val.name}</div>
+              </div>
             </div>
-            <div className={c.textBox}>
-              <div className={c.name}>Telegram</div>
-              <div className={c.link}>{store.telegram?.val.name}</div>
-            </div>
-          </div>
-        </Link>
+          </Link>
 
-        <Link
-          to={store.rutube?.val.link}
-          target="_blank"
-          className={c.socialtLink}
-        >
-          <div className={c.socialItem}>
-            <div className={c.iconBox}>
-              <img src={rutube} alt="rutube" />
+          <Link
+            to={store.rutube?.val.link}
+            target="_blank"
+            className={c.socialtLink}
+          >
+            <div className={c.socialItem}>
+              <div className={c.iconBox}>
+                <img src={rutube} alt="rutube" />
+              </div>
+              <div className={c.textBox}>
+                <div className={c.name}>RuTube</div>
+                <div className={c.link}>{store.rutube?.val.name}</div>
+              </div>
             </div>
-            <div className={c.textBox}>
-              <div className={c.name}>RuTube</div>
-              <div className={c.link}>{store.rutube?.val.name}</div>
-            </div>
-          </div>
-        </Link>
+          </Link>
 
-        <Link
-          to={store.youtube?.val.link}
-          target="_blank"
-          className={c.socialtLink}
-        >
-          <div className={c.socialItem}>
-            <div className={c.iconBox}>
-              <img src={youtube} alt="youtube" />
+          <Link
+            to={store.youtube?.val.link}
+            target="_blank"
+            className={c.socialtLink}
+          >
+            <div className={c.socialItem}>
+              <div className={c.iconBox}>
+                <img src={youtube} alt="youtube" />
+              </div>
+              <div className={c.textBox}>
+                <div className={c.name}>Youtube</div>
+                <div className={c.link}>{store.youtube?.val.name}</div>
+              </div>
             </div>
-            <div className={c.textBox}>
-              <div className={c.name}>Youtube</div>
-              <div className={c.link}>{store.youtube?.val.name}</div>
-            </div>
-          </div>
-        </Link>
+          </Link>
 
-        <Link to={store.vk?.val.link} target="_blank" className={c.socialtLink}>
-          <div className={c.socialItem}>
-            <div className={c.iconBox}>
-              <img src={vk} alt="vk" />
+          <Link
+            to={store.vk?.val.link}
+            target="_blank"
+            className={c.socialtLink}
+          >
+            <div className={c.socialItem}>
+              <div className={c.iconBox}>
+                <img src={vk} alt="vk" />
+              </div>
+              <div className={c.textBox}>
+                <div className={c.name}>ВКонтакте</div>
+                <div className={c.link}>{store.vk?.val.name}</div>
+              </div>
             </div>
-            <div className={c.textBox}>
-              <div className={c.name}>ВКонтакте</div>
-              <div className={c.link}>{store.vk?.val.name}</div>
-            </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );
