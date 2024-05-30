@@ -118,6 +118,7 @@ const MapPoint = ({
           <div className={c.img_wrapper}>
             {data?.img?.val && <img src={data.img.val} alt="" />}
             <p className={c.title}>{data?.val?.text}</p>
+            <div className={c.overlay_popup}></div>
           </div>
 
           <div className={c.info}>
@@ -388,6 +389,7 @@ const SeaMapPoint = ({
           <div className={c.img_wrapper}>
             {data?.img?.val && <img src={data.img.val} alt="" />}
             <p className={c.title}>{data?.val?.text}</p>
+            <div className={c.overlay_popup}></div>
           </div>
 
           <div className={c.info}>

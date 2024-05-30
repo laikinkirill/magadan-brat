@@ -1,6 +1,10 @@
 .header_empty {
   height: var(--header-height);
   width: 100%;
+
+  @media (max-width: 767px) {
+    height: var(--header-height-mobile);
+  }
 }
 
 .header {
