@@ -576,18 +576,6 @@ const JackLondonLakePage = () => {
         </Fragment>
       ))}
 
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-        <TextsSet
-          key={id}
-          name={`Вкладка ${id}`}
-          path={`important_to_know_block/accordion/${id}`}
-          keys={[
-            { key: "title", name: "заголовок" },
-            { key: "text", name: "текст" },
-          ]}
-          store={s}
-        />
-      ))}
       {/* ImportantToKnowBlock */}
     </div>
   );

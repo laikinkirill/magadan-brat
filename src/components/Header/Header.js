@@ -39,11 +39,9 @@ function Header({ className }) {
 
       let prevScrollpos = window.scrollY;
 
-      
       window.onscroll = function() {
          const nav = headerRef.current
          const currentScrollPos = window.scrollY;
-         console.log(window.scrollY);
          if ( !nav ) return 
          if ( prevScrollpos < currentScrollPos ) {
             nav.style.transform = 'translate(0, -100%)'
