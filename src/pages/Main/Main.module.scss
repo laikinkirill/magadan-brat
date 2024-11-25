@@ -1,242 +1,242 @@
 .main {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  background-color: rgba(0, 0, 0, 0.2);
+	position: relative;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.2);
 
-  @media screen and (max-width: 767px) {
-    height: 240%;
-    background-color: rgba(0, 0, 0, 0.3);
-  }
+	@media screen and (max-width: 767px) {
+		height: 240%;
+		background-color: rgba(0, 0, 0, 0.3);
+	}
 }
 
 .video {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-  object-fit: cover;
+	position: absolute;
+	height: 100vh;
+	width: 100%;
+	z-index: -1;
+	object-fit: cover;
 
-  @media screen and (max-width: 1024px) {
-    display: none;
-  }
+	@media screen and (max-width: 1024px) {
+		display: none;
+	}
 }
 
 .videoMobile {
-  display: none;
+	display: none;
 
-  @media screen and (max-width: 1024px) {
-    display: block;
+	@media screen and (max-width: 1024px) {
+		display: block;
 
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    object-fit: cover;
-  }
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		object-fit: cover;
+	}
 }
 
 .reactLink {
-  text-decoration: none;
-  color: #fff;
-  transition: all 0.2s;
-  gap: 24px 0;
+	text-decoration: none;
+	color: #fff;
+	transition: all 0.2s;
+	gap: 12px 0;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 
-  flex: 1;
+	flex: 1;
 
-  &:nth-child(2) {
-    & .image {
-      width: 80%;
-      min-width: 240px;
+	&:nth-child(2) {
+		& .image {
+			width: 80%;
+			min-width: 240px;
 
-      @media screen and (max-width: 1024px) {
-        width: 40%;
-      }
+			@media screen and (max-width: 1024px) {
+				width: 40%;
+			}
 
-      @media screen and (max-width: 768px) {
-        width: 50%;
-      }
-    }
-  }
+			@media screen and (max-width: 768px) {
+				width: 50%;
+			}
+		}
+	}
 
-  @media screen and (max-width: 767px) {
-    gap: 16px 0;
-  }
+	@media screen and (max-width: 767px) {
+		gap: 16px 0;
+	}
 
-  &:hover {
-    transform: scale(1.05);
-    transition: all 0.2s;
-  }
+	&:hover {
+		transform: scale(1.05);
+		transition: all 0.2s;
+	}
 }
 
 .rowContainer {
-  width: 100%;
-  height: 65vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	width: 100%;
+	height: 65vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  @media screen and (max-width: 1024px) {
-    display: block;
-    height: auto;
-  }
+	@media screen and (max-width: 1024px) {
+		display: block;
+		height: auto;
+	}
 }
 
 .mainTitleWrapper {
-  height: 15vh;
-  display: flex;
-  align-items: flex-end;
-  width: 100%;
+	height: 15vh;
+	display: flex;
+	align-items: flex-end;
+	width: 100%;
 }
 
 .mainTitle {
-  text-align: center;
-  width: 100%;
+	text-align: center;
+	width: 100%;
 
-  @media screen and (max-width: 1024px) {
-    width: 80%;
-    margin: 32px auto 0;
-  }
+	@media screen and (max-width: 1024px) {
+		width: 80%;
+		margin: 32px auto 0;
+	}
 }
 
 .row {
-  display: flex;
-  gap: 48px;
-  width: 100%;
-  width: 75%;
+	display: flex;
+	gap: 48px;
+	width: 100%;
+	width: 55%;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    margin: 64px auto 80px;
-    gap: 0;
-    width: 90%;
-  }
+	@media screen and (max-width: 1024px) {
+		flex-direction: column;
+		margin: 64px auto 80px;
+		gap: 0;
+		width: 90%;
+	}
 
-  & img {
-    @media screen and (max-width: 767px) {
-      width: 80%;
-    }
-  }
+	& img {
+		@media screen and (max-width: 767px) {
+			width: 80%;
+		}
+	}
 }
 
 .image {
-  display: flex;
-  width: 60%;
-  min-width: 200px;
-  height: 200px;
-  align-items: flex-end;
+	display: flex;
+	width: 60%;
+	min-width: 200px;
+	height: 200px;
+	align-items: flex-end;
 
-  & img {
-    width: 100%;
-  }
+	& img {
+		width: 100%;
+	}
 
-  @media screen and (max-width: 1024px) {
-    width: 30%;
-    margin: 0 auto;
-  }
+	@media screen and (max-width: 1024px) {
+		width: 30%;
+		margin: 0 auto;
+	}
 
-  @media screen and (max-width: 767px) {
-    width: 40%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    height: 180px;
-  }
+	@media screen and (max-width: 767px) {
+		width: 40%;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		height: 180px;
+	}
 }
 
 .text {
-  width: 100%;
-  text-align: center;
+	width: 100%;
+	text-align: center;
 }
 
 .socialWrapper {
-  width: 100%;
-  height: 20vh;
+	width: 100%;
+	height: 20vh;
 
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 
-  @media screen and (max-width: 1024px) {
-    display: block;
-    height: auto;
-  }
+	@media screen and (max-width: 1024px) {
+		display: block;
+		height: auto;
+	}
 }
 
 .social {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px 48px;
-  width: 75%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 32px 48px;
+	width: 75%;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    margin-bottom: 48px;
-    width: 100%;
-  }
+	@media screen and (max-width: 1024px) {
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		margin-bottom: 48px;
+		width: 100%;
+	}
 }
 
 .socialItem {
-  display: flex;
-  align-items: center;
-  width: 264px;
+	display: flex;
+	align-items: center;
+	width: 264px;
 }
 
 .socialtLink {
-  transform: scale(0.95);
-  text-decoration: none;
-  color: #fff;
-  transition: all 0.2s;
-  flex: 1;
+	transform: scale(0.95);
+	text-decoration: none;
+	color: #fff;
+	transition: all 0.2s;
+	flex: 1;
 
-  @media screen and (max-width: 767px) {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  &:hover {
-    transform: scale(1);
-    transition: all 0.2s;
-  }
+	@media screen and (max-width: 767px) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	&:hover {
+		transform: scale(1);
+		transition: all 0.2s;
+	}
 }
 
 .iconBox {
-  padding: 16px;
-  margin-right: 16px;
-  position: relative;
+	padding: 16px;
+	margin-right: 16px;
+	position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-  &::after {
-    content: "";
+	&::after {
+		content: '';
 
-    height: 40px;
-    width: 2px;
-    position: absolute;
-    right: 0;
-    top: calc(50% - 20px);
-    background-color: #fff;
-    border-radius: 2px;
-  }
+		height: 40px;
+		width: 2px;
+		position: absolute;
+		right: 0;
+		top: calc(50% - 20px);
+		background-color: #fff;
+		border-radius: 2px;
+	}
 }
 
 .name {
-  font-size: 18px;
-  line-height: 24px;
+	font-size: 18px;
+	line-height: 24px;
 }
 
 .link {
-  font-size: 24px;
-  line-height: 32px;
+	font-size: 24px;
+	line-height: 32px;
 }
