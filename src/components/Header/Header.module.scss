@@ -1,204 +1,204 @@
 .header_empty {
-  height: var(--header-height);
-  width: 100%;
+	height: var(--header-height);
+	width: 100%;
 
-  @media (max-width: 767px) {
-    height: var(--header-height-mobile);
-  }
+	@media (max-width: 767px) {
+		height: var(--header-height-mobile);
+	}
 }
 
 .header {
-  width: 100%;
-  position: fixed;
-  top: 0;
+	width: 100%;
+	position: fixed;
+	top: 0;
 
-  z-index: 100;
+	z-index: 100;
 
-  height: var(--header-height);
-  background-color: #212121;
-  color: #fff;
-  display: flex;
-  align-items: center;
+	height: var(--header-height);
+	background-color: #212121;
+	color: #fff;
+	display: flex;
+	align-items: center;
 
-  transition: all 0.3s ease;
+	transition: all 0.3s ease;
 
-  border-bottom: 1px solid #333;
+	border-bottom: 1px solid #333;
 
-  @media (max-width: 1200px) {
-    padding: 0 40px;
-  }
-  @media (max-width: 760px) {
-    padding: 0 20px;
-    height: 83px;
-  }
-  @media (max-width: 600px) {
-    padding: 0;
-  }
+	@media (max-width: 1200px) {
+		padding: 0 40px;
+	}
+	@media (max-width: 760px) {
+		padding: 0 20px;
+		height: 83px;
+	}
+	@media (max-width: 600px) {
+		padding: 0;
+	}
 }
 
 .wrapper {
-  display: flex;
+	display: flex;
 
-  @media screen and (max-width: 767px) {
-    width: calc(100% - 40px);
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
-  }
+	@media screen and (max-width: 767px) {
+		width: calc(100% - 40px);
+		margin: 0 auto;
+		justify-content: space-between;
+		align-items: center;
+	}
 }
 
 .menu {
-  display: flex;
-  align-items: center;
-  gap: 0 64px;
+	display: flex;
+	align-items: center;
+	gap: 0 64px;
 
-  @media (max-width: 850px) {
-    gap: 0 40px;
-  }
-  @media screen and (max-width: 767px) {
-    display: none;
-  }
+	@media (max-width: 850px) {
+		gap: 0 40px;
+	}
+	@media screen and (max-width: 767px) {
+		display: none;
+	}
 
-  a {
-    @media (max-width: 1000px) {
-      font-size: 16px;
-    }
-  }
+	a {
+		@media (max-width: 1000px) {
+			font-size: 16px;
+		}
+	}
 }
 
 .logo {
-  margin-right: 128px;
-  transition: all 0.2s;
+	margin-right: 128px;
+	transition: all 0.2s;
 
-  &:hover {
-    transition: all 0.2s;
-    opacity: 0.8;
-  }
+	&:hover {
+		transition: all 0.2s;
+		opacity: 0.8;
+	}
 
-  @media (max-width: 1000px) {
-    margin-right: 70px;
-  }
-  @media (max-width: 850px) {
-    margin-right: 50px;
-  }
-  @media screen and (max-width: 767px) {
-    height: 32px;
-    margin: 0;
-    position: relative;
-    z-index: 99999999999999999999;
-  }
+	@media (max-width: 1000px) {
+		margin-right: 70px;
+	}
+	@media (max-width: 850px) {
+		margin-right: 50px;
+	}
+	@media screen and (max-width: 767px) {
+		height: 32px;
+		margin: 0;
+		position: relative;
+		z-index: 99999999999999999999;
+	}
 }
 
 .menuItem,
 .modalMenuItem {
-  &._active {
-    color: #7291ff;
-    pointer-events: none;
-  }
+	&._active {
+		color: #7291ff;
+		pointer-events: none;
+	}
 }
 
 .menuItem {
-  font-size: 16px;
-  line-height: 20px;
-  text-transform: uppercase;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.2s;
+	font-size: 16px;
+	line-height: 20px;
+	text-transform: uppercase;
+	color: #fff;
+	text-decoration: none;
+	transition: all 0.2s;
 
-  &:hover {
-    color: #7291ff;
-    transition: all 0.2s;
-  }
+	&:hover {
+		color: #a9baf8;
+		transition: all 0.2s;
+	}
 }
 
 // modal
 
 .menuMobile {
-  display: none;
+	display: none;
 
-  @media screen and (max-width: 767px) {
-    display: block;
-  }
+	@media screen and (max-width: 767px) {
+		display: block;
+	}
 }
 
 .burger {
-  width: 32px;
-  height: 32px;
-  position: relative;
-  z-index: 999999999999999;
+	width: 32px;
+	height: 32px;
+	position: relative;
+	z-index: 999999999999999;
 
-  & span {
-    height: 2px;
-    width: 24px;
-    left: 4px;
-    background-color: #fff;
-    position: relative;
-    display: block;
-    top: calc(50% - 2px);
-    transition: all 0.2s;
+	& span {
+		height: 2px;
+		width: 24px;
+		left: 4px;
+		background-color: #fff;
+		position: relative;
+		display: block;
+		top: calc(50% - 2px);
+		transition: all 0.2s;
 
-    &::before {
-      content: "";
-      position: absolute;
-      height: 2px;
-      width: 24px;
-      bottom: 8px;
-      background-color: #fff;
-      transition: all 0.2s;
-    }
+		&::before {
+			content: '';
+			position: absolute;
+			height: 2px;
+			width: 24px;
+			bottom: 8px;
+			background-color: #fff;
+			transition: all 0.2s;
+		}
 
-    &::after {
-      content: "";
-      position: absolute;
-      height: 2px;
-      width: 24px;
-      top: 8px;
-      background-color: #fff;
-      transition: all 0.2s;
-    }
-  }
+		&::after {
+			content: '';
+			position: absolute;
+			height: 2px;
+			width: 24px;
+			top: 8px;
+			background-color: #fff;
+			transition: all 0.2s;
+		}
+	}
 }
 
 .burgerClose {
-  & span {
-    background-color: #212121;
-    transition: all 0.2s;
+	& span {
+		background-color: #212121;
+		transition: all 0.2s;
 
-    &::before {
-      transform: rotate(45deg);
-      bottom: 0;
-      transition: all 0.2s;
-    }
+		&::before {
+			transform: rotate(45deg);
+			bottom: 0;
+			transition: all 0.2s;
+		}
 
-    &::after {
-      transform: rotate(-45deg);
-      top: 0;
-      transition: all 0.2s;
-    }
-  }
+		&::after {
+			transform: rotate(-45deg);
+			top: 0;
+			transition: all 0.2s;
+		}
+	}
 }
 
 .modal {
-  position: absolute;
-  background-color: #212121;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 9999999;
+	position: absolute;
+	background-color: #212121;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100vh;
+	z-index: 9999999;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 64px 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 64px 0;
 }
 
 .modalMenuItem {
-  text-decoration: none;
-  text-transform: uppercase;
-  color: #fff;
-  text-align: center;
-  font-size: 18px;
-  line-height: 18px;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	line-height: 18px;
 }
