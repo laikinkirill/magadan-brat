@@ -854,15 +854,15 @@ const Image = ({ name, path, store, deleteBtn }) => {
         name="file"
         onChange={loadImg}
       />
+      <button onClick={confirmHandler} disabled={!loadedImg}>
+        Сохранить
+      </button>
+      {loadedImg && <button onClick={cancelUpload}>Отмена</button>}
       {deleteBtn &&
         <button onClick={deleteHandler} >
           Удалить
         </button>
       }
-      <button onClick={confirmHandler} disabled={!loadedImg}>
-        Сохранить
-      </button>
-      {loadedImg && <button onClick={cancelUpload}>Отмена</button>}
     </div>
   );
 };
