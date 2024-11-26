@@ -65,7 +65,6 @@ export const useJackLondonLakeStore = create((set, get) => ({
   queryAdminData: async () => {
     const data = await getData(ADMIN_COLLECTION_NAME);
     if (!data) return;
-    console.log(data);
     set(data);
   },
 
@@ -131,6 +130,37 @@ export const useJackLondonLakeStore = create((set, get) => ({
       await deleteData(
         JACK_LONDON_LAKE_PAGE_COLLECTION_NAME,
         `reviews_block/reviews/${id}`
+      );
+    }
+
+    if (!res) return;
+    set({
+      reviews: {
+        ...get().reviews,
+        [id]: {
+          img: get().reviews[id].img,
+          ...review,
+        },
+      },
+    });
+    console.log(res);
+  },
+
+  editReview: async (id, text) => {
+    const review = get().reviews[id];
+    const path = `reviews/${id}`;
+
+    if (!review) return;
+
+    review.text = text;
+
+    const res = await setData(ADMIN_COLLECTION_NAME, path, review);
+
+    if ( review.show ) {
+      await setData(
+        JACK_LONDON_LAKE_PAGE_COLLECTION_NAME,
+        `reviews_block/reviews/${id}`,
+        review
       );
     }
 

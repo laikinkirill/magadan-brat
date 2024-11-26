@@ -613,7 +613,33 @@ const Reviews = () => {
 };
 
 const Review = ({ s, review }) => {
+
   const [confirm, setConfirm] = useState(false);
+  const [text, setText] = useState('')
+
+  const textareaRef = useRef(null)
+  const initialTextRef = useRef('')
+
+  useEffect(() => {
+    let t = ''
+    review?.text?.forEach((str, i) => {
+      if ( i === review?.text.length-1 ) {
+        t += str
+        return
+      }
+      t += str + '\n'
+    })
+    setText(t)
+    initialTextRef.current = t
+  }, [review])
+
+  useEffect(() => {
+    const textarea = textareaRef.current
+    if ( textarea ) {
+      textarea.style.height = 'auto';
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
+  }, [textareaRef.current])
 
   const showReview = (id) => {
     s.getState().showHideReview(id, true);
@@ -623,9 +649,23 @@ const Review = ({ s, review }) => {
     s.getState().showHideReview(id, false);
   };
 
+  const editReview = () => {
+    s.getState().editReview(
+      review.id,
+      text.split("\n")
+    );
+    initialTextRef.current = text
+  };
+
   const confirmHandler = (id) => {
     s.getState().deleteReview(id);
   };
+
+  const editTextHandler = ( e ) => {
+    setText(e.target.value)
+  }
+
+  const edited = initialTextRef.current !== text
 
   return (
     <div className={classNames(c.review)}>
@@ -637,12 +677,21 @@ const Review = ({ s, review }) => {
       />
       <span>{review?.name}</span>
       <span>{review?.tel}</span>
-      <div className={c.text}>
+      {/* <div className={c.text}>
         {review?.text.map((str) => (
           <p key={str}>{str}</p>
         ))}
-      </div>
+      </div> */}
+      <textarea
+        ref={textareaRef}
+        className={classNames(c.text, edited ? c._edited : '')}
+        value={text}
+        onChange={editTextHandler}
+      ></textarea>
       <div className={c.btns}>
+        {edited &&
+          <button onClick={editReview}>Сохранить изменения</button>
+        }
         {review?.show ? (
           <button onClick={() => hideReview(review?.id)}>Скрыть</button>
         ) : (

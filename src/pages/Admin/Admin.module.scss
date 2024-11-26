@@ -263,6 +263,24 @@
 
 		.text {
 			grid-column: 2/3;
+
+      background-color: transparent;
+      border: none;
+      resize: none;
+      outline: none;
+      overflow-y: hidden;
+      border-radius: 6px;
+
+      color: #FFFFFF;
+			font-size: 16px;
+
+      &:focus {
+        // outline: 1px solid #FFFFFF;
+      }
+
+      &._edited {
+        // outline: 1px solid #FFFFFF;
+      }
 		}
 
 		.btns {
