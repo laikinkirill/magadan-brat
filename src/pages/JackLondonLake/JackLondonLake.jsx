@@ -43,6 +43,8 @@ function JackLondonLake() {
 
 				<PriceBlock />
 
+				<EquipmentBlock />
+
 				<ImportantToKnowBlock />
 
 				<ReviewsBlock />
@@ -418,6 +420,43 @@ const PriceBlock = () => {
 				</div>
 			</div>
 		</div>
+	)
+}
+
+const EquipmentBlock = () => {
+	// const store = useJackLondonLakeStore()
+
+	return (
+		// <div className={c.PriceBlock}>
+		<div className={'_container'}>
+			<div className={c.PriceBlockWrapper}>
+				<div className={c.PriceBlockCol}>
+					<div className={c.PriceBlockTitle}>Личное снаряжение</div>
+					<div className={c.PriceBlockItem}>Палатка 2-х, 3-х местная</div>
+					<div className={c.PriceBlockItem}>Рюкзак объемом от 80 литров</div>
+					<div className={c.PriceBlockItem}>
+						Накидка влагозащитная на рюкзак
+					</div>
+					<div className={c.PriceBlockItem}>
+						Спальный мешок с температурой комфорта ~ 0 -10 С°
+					</div>
+					<div className={c.PriceBlockItem}>
+						Набор посуды: кружка, миска, ложка-вилка
+					</div>
+					<div className={c.PriceBlockItem}>Аренда походного снаряжения</div>
+				</div>
+
+				<div className={c.PriceBlockCol}>
+					<div className={c.PriceBlockTitle}>В стоимость не входит:</div>
+					<div className={c.PriceBlockItem}>Авиабилеты в Магадан и обратно</div>
+					<div className={c.PriceBlockItem}>
+						Личные расходы на сувениры и прочее
+					</div>
+					<div className={c.PriceBlockItem}>Индивидуальная страховка</div>
+				</div>
+			</div>
+		</div>
+		// </div>
 	)
 }
 
