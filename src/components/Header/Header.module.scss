@@ -68,24 +68,14 @@
 }
 
 .logo {
-	transition: all 0.2s;
-
-	&:hover {
+	& path {
 		transition: all 0.2s;
-		opacity: 0.8;
 	}
-
-	@media (max-width: 1000px) {
-		// margin-right: 70px;
-	}
-	@media (max-width: 850px) {
-		// margin-right: 50px;
-	}
-	@media screen and (max-width: 767px) {
-		height: 32px;
-		margin: 0;
-		position: relative;
-		z-index: 99999999999999999999;
+	&:hover {
+		& path {
+			transition: all 0.2s;
+			fill: #a9baf8;
+		}
 	}
 }
 
@@ -98,6 +88,7 @@
 }
 
 .menuItem {
+	display: flex;
 	font-size: 16px;
 	line-height: 20px;
 	text-transform: uppercase;
