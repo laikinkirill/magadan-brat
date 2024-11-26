@@ -41,6 +41,8 @@ function JackLondonLake() {
 
 				<RoutesBlock />
 
+				<PriceBlock />
+
 				<ImportantToKnowBlock />
 
 				<ReviewsBlock />
@@ -294,45 +296,48 @@ const PhotosBlock = () => {
 	const store = useJackLondonLakeStore()
 
 	return (
-		<div className={classNames(c.photos_block, '_container')}>
-			<h2>Фотографии</h2>
+		<div className={c.photosWrapper}>
+			<div className={classNames(c.photos_block, '_container')}>
+				<h2>Фотографии</h2>
 
-			<Swiper
-				style={{
-					'--swiper-navigation-color': '#fff',
-					'--swiper-pagination-color': '#fff',
-				}}
-				loop={true}
-				spaceBetween={10}
-				navigation={true}
-				thumbs={{
-					swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-				}}
-				modules={[FreeMode, Navigation, Thumbs]}
-				className='mySwiper2'
-			>
-				{Object.values(store.photos_block?.images).map((img, index) => (
-					<SwiperSlide key={index}>
-						<img src={img.val} alt='' />
-					</SwiperSlide>
-				))}
-			</Swiper>
-			<Swiper
-				onSwiper={setThumbsSwiper}
-				loop={true}
-				spaceBetween={10}
-				slidesPerView={4}
-				freeMode={true}
-				watchSlidesProgress={true}
-				modules={[FreeMode, Navigation, Thumbs]}
-				className='mySwiper'
-			>
-				{Object.values(store.photos_block?.images).map((img, index) => (
-					<SwiperSlide key={index}>
-						<img src={img.val} alt='' />
-					</SwiperSlide>
-				))}
-			</Swiper>
+				<Swiper
+					style={{
+						'--swiper-navigation-color': '#fff',
+						'--swiper-pagination-color': '#fff',
+					}}
+					loop={true}
+					spaceBetween={10}
+					navigation={true}
+					thumbs={{
+						swiper:
+							thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+					}}
+					modules={[FreeMode, Navigation, Thumbs]}
+					className='mySwiper2'
+				>
+					{Object.values(store.photos_block?.images).map((img, index) => (
+						<SwiperSlide key={index}>
+							<img src={img.val} alt='' />
+						</SwiperSlide>
+					))}
+				</Swiper>
+				<Swiper
+					onSwiper={setThumbsSwiper}
+					loop={true}
+					spaceBetween={10}
+					slidesPerView={4}
+					freeMode={true}
+					watchSlidesProgress={true}
+					modules={[FreeMode, Navigation, Thumbs]}
+					className='mySwiper'
+				>
+					{Object.values(store.photos_block?.images).map((img, index) => (
+						<SwiperSlide key={index}>
+							<img src={img.val} alt='' />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</div>
 		</div>
 	)
 }
@@ -369,6 +374,48 @@ const RoutesBlock = () => {
 				{/* <Button className={c.jackButton} to="https://wa.me/79965590730">
          Заказать Тур
          </Button> */}
+			</div>
+		</div>
+	)
+}
+
+const PriceBlock = () => {
+	// const store = useJackLondonLakeStore()
+
+	return (
+		<div className={c.PriceBlock}>
+			<div className={'_container'}>
+				<h1 className={c.PriceBlockH1}>140 000 ₽</h1>
+				<div className={c.PriceBlockWrapper}>
+					<div className={c.PriceBlockCol}>
+						<div className={c.PriceBlockTitle}>
+							В стоимость путешествия входит:
+						</div>
+						<div className={c.PriceBlockItem}>Работа проводников</div>
+						<div className={c.PriceBlockItem}>Все трансферы и заброски</div>
+						<div className={c.PriceBlockItem}>
+							Пропуск в национальный парк «Черский»
+						</div>
+						<div className={c.PriceBlockItem}>
+							Проживание в Магадане и пос. Ягодное
+						</div>
+						<div className={c.PriceBlockItem}>
+							​Питание на протяжении всего похода
+						</div>
+						<div className={c.PriceBlockItem}>Аренда походного снаряжения</div>
+					</div>
+
+					<div className={c.PriceBlockCol}>
+						<div className={c.PriceBlockTitle}>В стоимость не входит:</div>
+						<div className={c.PriceBlockItem}>
+							Авиабилеты в Магадан и обратно
+						</div>
+						<div className={c.PriceBlockItem}>
+							Личные расходы на сувениры и прочее
+						</div>
+						<div className={c.PriceBlockItem}>Индивидуальная страховка</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	)

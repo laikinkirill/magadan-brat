@@ -650,6 +650,10 @@
 	}
 }
 
+.photosWrapper {
+	background-color: #23232a;
+	padding: 100px 0;
+}
 .photos_block {
 	h2 {
 		margin-bottom: 48px;
@@ -769,6 +773,64 @@
 		}
 	}
 }
+
+// PriceBlock
+
+.PriceBlock {
+	background-color: #23232a;
+	padding: 100px 0;
+
+	@media (max-width: 767px) {
+		padding: 80px 0;
+	}
+}
+
+.PriceBlockH1 {
+	margin-bottom: 24px;
+}
+
+.PriceBlockWrapper {
+	display: flex;
+	gap: 0 100px;
+
+	@media (max-width: 767px) {
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+}
+
+.PriceBlockCol {
+	@media (max-width: 767px) {
+		margin-bottom: 32px;
+
+		&:first-child {
+			margin-top: 8px;
+		}
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+
+.PriceBlockTitle {
+	font-size: 30px;
+	line-height: 36px;
+	font-weight: 500;
+	margin-bottom: 16px;
+}
+
+.PriceBlockItem {
+	font-size: 18px;
+	line-height: 25px;
+	padding: 12px 0;
+	border-top: 1px solid #373742;
+
+	&:nth-child(2) {
+		border: 0;
+	}
+}
+
+// PriceBlock end
 
 .important_to_know_block {
 	background-color: #23232a;
