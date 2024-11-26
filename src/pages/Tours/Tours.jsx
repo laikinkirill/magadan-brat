@@ -579,7 +579,7 @@ const FirstBlock = () => {
 
 				<div className={c.btns}>
 					<Button
-						to='mailto:magadanbrat@bk.ru'
+						to='mailto:tvoyakolyma@mail.ru'
 						small={true}
 						defaultLink={true}
 						className={classNames(c.buttonD)}
@@ -660,7 +660,7 @@ const PeninsulaRoutesBlock = () => {
 			<div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
 				<h2>{store.peninsula_routes_block?.title?.val}</h2>
 				<Button
-					to='mailto:magadanbrat@bk.ru'
+					to='mailto:tvoyakolyma@mail.ru'
 					small={true}
 					defaultLink={true}
 					className={classNames(c.buttonD)}
@@ -712,7 +712,7 @@ const RoutesOutsideTheCityBlock = () => {
 			<div className={c.titleAndButton}>
 				<h2>{store.routes_outside_the_city_block?.title?.val}</h2>
 				<Button
-					to='mailto:magadanbrat@bk.ru'
+					to='mailto:tvoyakolyma@mail.ru'
 					className={classNames(c.buttonD)}
 					small={true}
 					defaultLink
@@ -819,7 +819,7 @@ const SeaRoutesBlock = () => {
 					<div className={classNames(c.titleAndButton, c.titleAndButtonSea)}>
 						<h2>{store.sea_routes_block?.title.val}</h2>
 						<Button
-							to='mailto:magadanbrat@bk.ru'
+							to='mailto:tvoyakolyma@mail.ru'
 							small={true}
 							defaultLink
 							className={classNames(c.buttonD, c.buttonBlue)}
@@ -995,7 +995,7 @@ const IndividualTourBlock = () => {
 
 				<div className={c.btns}>
 					<Button
-						to='mailto:magadanbrat@bk.ru'
+						to='mailto:tvoyakolyma@mail.ru'
 						small={true}
 						defaultLink={true}
 						className={classNames(c.buttonD)}

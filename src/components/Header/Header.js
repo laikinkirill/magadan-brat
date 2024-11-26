@@ -3,6 +3,7 @@ import logo from '../../assets/img/logo.svg'
 import { Container } from '../'
 import { Link, useLocation } from 'react-router-dom'
 import classNames from 'classnames'
+import { Button } from '../../UI'
 
 import styles from './Header.module.scss'
 
@@ -74,7 +75,7 @@ function Header({ className }) {
 						<Link to='/' className={styles.menuItem}>
 							<img
 								src={logo}
-								alt='МагаданБрат'
+								alt='ТвояКолыма'
 								className={styles.logo}
 								style={{ pointerEvents: 'none' }}
 							/>
@@ -121,6 +122,16 @@ function Header({ className }) {
 							) : (
 								<></>
 							)}
+						</div>
+
+						<div className={styles.headerButton}>
+							<Button
+								to='mailto:tvoyakolyma@mail.ru'
+								small={true}
+								defaultLink={true}
+							>
+								Заказать тур
+							</Button>
 						</div>
 					</div>
 				</Container>
