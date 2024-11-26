@@ -100,6 +100,13 @@ export const useJackLondonLakeStore = create((set, get) => ({
     console.log(res);
   },
 
+  deleteFile: async (path) => {
+    await deleteData(
+      JACK_LONDON_LAKE_PAGE_COLLECTION_NAME,
+      path
+    );
+  },
+
   sendReview: async (review) => {
     const path = `reviews/${review.id}`;
     const { photo, ...data } = review;
