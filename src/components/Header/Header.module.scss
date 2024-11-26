@@ -15,14 +15,14 @@
 	z-index: 100;
 
 	height: var(--header-height);
-	background-color: #212121;
+	background-color: #23232a;
 	color: #fff;
 	display: flex;
 	align-items: center;
 
 	transition: all 0.3s ease;
 
-	border-bottom: 1px solid #333;
+	border-bottom: 1px solid #373742;
 
 	@media (max-width: 1200px) {
 		padding: 0 40px;
@@ -90,6 +90,7 @@
 .menuItem {
 	display: flex;
 	font-size: 16px;
+	font-weight: 500;
 	line-height: 20px;
 	text-transform: uppercase;
 	color: #fff;
@@ -162,7 +163,7 @@
 
 .burgerClose {
 	& span {
-		background-color: #212121;
+		background-color: #23232a;
 		transition: all 0.2s;
 
 		&::before {
@@ -181,7 +182,7 @@
 
 .modal {
 	position: absolute;
-	background-color: #212121;
+	background-color: #23232a;
 	left: 0;
 	top: 0;
 	width: 100%;

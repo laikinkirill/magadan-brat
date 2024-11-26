@@ -9,20 +9,24 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-	background: #000; /* цвет зоны отслеживания */
+	background: #17171b; /* цвет зоны отслеживания */
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: #fff; /* цвет бегунка */
+	background-color: #8b8b8d; /* цвет бегунка */
 	border-radius: 20px; /* округлось бегунка */
-	border: 3px solid #000; /* отступ вокруг бегунка */
+	border: 3px solid #17171b; /* отступ вокруг бегунка */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background-color: #fff;
 }
 
 body {
 	font-family: 'Jost', sans-serif;
 	font-weight: normal;
 	font-style: normal;
-	background-color: #131313;
+	background-color: #17171b;
 	color: #fff;
 }
 
@@ -37,12 +41,14 @@ h4 {
 
 h1 {
 	font-size: 64px;
-	line-height: 80px;
+	line-height: 72px;
+	font-weight: 800;
 }
 
 h2 {
 	font-size: 48px;
-	line-height: 64px;
+	line-height: 56px;
+	font-weight: 800;
 }
 
 h3 {

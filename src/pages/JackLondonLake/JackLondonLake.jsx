@@ -248,10 +248,6 @@ const HikingRoutesMapBlock = () => {
 				<Text text={store.hiking_routes_map_block?.title?.val} />
 			</h2>
 
-			{/* <div className={c.sub_title}>
-        <Text text={store.peninsula_routes_block?.sub_title?.val} />
-      </div> */}
-
 			<div className={c.map}>
 				<img src={routesMap} alt='' />
 

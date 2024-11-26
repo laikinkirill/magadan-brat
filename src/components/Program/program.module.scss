@@ -1,9 +1,14 @@
 .program {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 64px 24px;
+	gap: 80px 24px;
 	position: relative;
 	overflow: hidden;
+
+	@media (max-width: 1200px) {
+		display: flex;
+		flex-wrap: wrap;
+	}
 }
 
 .programCard {
@@ -23,8 +28,7 @@
 }
 
 .programCardTitle {
-	color: #a6a6a6;
-	margin-bottom: 8px;
+	margin-bottom: 16px;
 }
 
 .programCardText {

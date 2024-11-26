@@ -658,7 +658,12 @@ const PeninsulaRoutesBlock = () => {
 	return (
 		<div className={classNames(c.peninsula_routes_block, '_container')}>
 			<div className={classNames(c.titleAndButton, c.titleAndButtonStaritsky)}>
-				<h2>{store.peninsula_routes_block?.title?.val}</h2>
+				<div>
+					<h2>{store.peninsula_routes_block?.title?.val}</h2>
+					<div className={c.sub_title}>
+						<Text text={store.peninsula_routes_block?.sub_title?.val} />
+					</div>
+				</div>
 				<Button
 					to='mailto:tvoyakolyma@mail.ru'
 					small={true}
@@ -676,10 +681,6 @@ const PeninsulaRoutesBlock = () => {
 				>
 					Заказать тур
 				</Button>
-			</div>
-
-			<div className={c.sub_title}>
-				<Text text={store.peninsula_routes_block?.sub_title?.val} />
 			</div>
 
 			<div className={c.map}>
