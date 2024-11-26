@@ -231,7 +231,7 @@ const DescriptionBlock = () => {
 				</div>
 
 				<button onClick={() => setShow(prev => !prev)}>
-					{show ? 'Свернуть' : 'Подробнее'}
+					{show ? 'Свернуть' : 'Читать подробнее'}
 				</button>
 			</div>
 		</div>

@@ -1071,7 +1071,7 @@ const JackLondonLakeBlock = () => {
 							className={c.show_text_button}
 							onClick={() => setShow(prev => !prev)}
 						>
-							{show ? 'Свернуть' : 'Подробнее'}
+							{show ? 'Свернуть' : 'Читать подробнее'}
 						</button>
 
 						<Button
