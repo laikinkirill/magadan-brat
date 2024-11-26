@@ -1,0 +1,33 @@
+.program {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 64px 24px;
+	position: relative;
+	overflow: hidden;
+}
+
+.programCard {
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		background-color: #373742;
+		z-index: 1;
+		inline-size: 100vw;
+		block-size: 2px;
+		inset-inline-start: 0;
+		inset-block-start: calc(calc(2rem / 2) * -2);
+		border-radius: 40px;
+	}
+}
+
+.programCardTitle {
+	color: #a6a6a6;
+	margin-bottom: 8px;
+}
+
+.programCardText {
+	font-size: 18px;
+	line-height: 24px;
+}

@@ -1,6 +1,7 @@
 import { Fragment, useCallback, useRef, useState } from 'react'
 import { Header, ReviewsBlock } from '../../components'
 import { Footer } from '../../components/Footer/Footer'
+import { Program } from '../../components/Program/Program'
 import { Accordion, Button, Input, Text } from '../../UI'
 import { arrayFromTo, getDate } from '../../utils'
 import classNames from 'classnames'
@@ -347,7 +348,8 @@ const RoutesBlock = () => {
 		<div className={classNames(c.routes_block, '_container')}>
 			<h2>{store.routes_block?.title?.val}</h2>
 
-			<Accordion accordion={store?.accordion} />
+			<Program program={store?.accordion} />
+			{/* <Accordion accordion={store?.accordion} /> */}
 
 			<div className={c.btns}>
 				<Button
