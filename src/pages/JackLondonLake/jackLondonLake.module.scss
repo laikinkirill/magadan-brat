@@ -792,7 +792,7 @@
 .List {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 56px 100px;
+	gap: 0 100px;
 
 	@media (max-width: 767px) {
 		display: flex;
@@ -803,7 +803,12 @@
 }
 
 .ListBlock {
-	height: fit-content;
+	padding: 0;
+	margin: 0;
+
+	& li {
+		list-style: none;
+	}
 
 	@media (max-width: 767px) {
 		margin-bottom: 32px;
@@ -821,7 +826,8 @@
 	font-size: 30px;
 	line-height: 36px;
 	font-weight: 500;
-	margin-bottom: 16px;
+	padding: 8px 0;
+	border-bottom: 4px solid #7291ff;
 }
 
 .ListItem {
