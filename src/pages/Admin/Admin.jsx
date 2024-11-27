@@ -436,15 +436,19 @@ const TouristDestinationsPage = () => {
 const JackLondonLakePage = () => {
   const s = useJackLondonLakeStore;
 
-  const store = useJackLondonLakeStore(
-    (state) => state.important_to_know_block
-  );
+  const important_to_know_block = useJackLondonLakeStore((state) => state.important_to_know_block);
+  const routes_block_accordion = useJackLondonLakeStore((state) => state.accordion);
 
   const [questionsNumber, setQuestionsNumber] = useState([]);
+  const [daysNumber, setDaysNumber] = useState([]);
 
   useEffect(() => {
-    setQuestionsNumber(arrayFromTo(1, store.accordion?.length - 1 || 0));
-  }, [store]);
+    setQuestionsNumber(arrayFromTo(1, important_to_know_block.accordion?.length - 1 || 0));
+  }, [important_to_know_block]);
+
+  useEffect(() => {
+    setDaysNumber(arrayFromTo(1, routes_block_accordion?.length - 1 || 0));
+  }, [routes_block_accordion]);
 
   return (
     <div className={c.page}>
@@ -521,17 +525,32 @@ const JackLondonLakePage = () => {
       {/* RoutesBlock */}
       <Text name="Подзаголовок" path="routes_block/title" store={s} />
 
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((id) => (
-        <TextsSet
-          key={id}
-          name={`Вкладка ${id}`}
-          path={`accordion/${id}`}
-          keys={[
-            { key: "title", name: "заголовок" },
-            { key: "text", name: "текст" },
-          ]}
-          store={s}
-        />
+      <button
+        className={c.persone_button}
+        onClick={() => s.getState().addDay()}
+      >
+        Добавить день
+      </button>
+
+      {daysNumber.map((id) => (
+        <Fragment key={id}>
+          <TextsSet
+            name={`Вкладка ${id}`}
+            path={`accordion/${id}`}
+            keys={[
+              { key: "title", name: "заголовок" },
+              { key: "text", name: "текст" },
+            ]}
+            store={s}
+          />
+
+          <button
+            onClick={() => s.getState().deleteDay(id)}
+            className={classNames(c.persone_button, c.delete_persone_button)}
+          >
+            Удалить
+          </button>
+        </Fragment>
       ))}
       {/* RoutesBlock */}
 

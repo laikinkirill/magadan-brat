@@ -35,6 +35,7 @@ const initialState = {
 
   routes_block: {
     title: { val: "" },
+    days: {}
   },
 
   important_to_know_block: {
@@ -189,6 +190,31 @@ export const useJackLondonLakeStore = create((set, get) => ({
     const reviews = get().reviews;
     delete reviews[id];
     set({ reviews: { ...reviews } });
+  },
+
+  addDay: async () => {
+    try {
+      const accordion = get().accordion;
+      accordion.push({
+        val: {
+          text: '',
+          title: ''
+        }
+      })
+      set({ accordion: structuredClone(accordion) });
+    } catch (error) {
+      console.error(error);
+    }
+   },
+
+  deleteDay: async (id) => {
+    try {
+        await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `accordion/${id}`);
+        let accordion = get().accordion
+        set({ accordion: [null, ...accordion.filter(el => el.val.id !== ""+id)] });
+    } catch (error) {
+        console.error(error);
+    }
   },
 
    addQuestion: async () => {
