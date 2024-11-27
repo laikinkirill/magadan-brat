@@ -1,15 +1,13 @@
-import { Fragment, useCallback, useRef, useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Header, ReviewsBlock } from '../../components'
 import { Footer } from '../../components/Footer/Footer'
 import { Program } from '../../components/Program/Program'
-import { Accordion, Button, Input, Text } from '../../UI'
-import { arrayFromTo, getDate } from '../../utils'
+import { Button, Text } from '../../UI'
 import classNames from 'classnames'
 import {
 	JACK_LONDON_MAP_POINTS,
 	useJackLondonLakeStore,
 } from '../../store/jackLondonLake'
-import { useTouristDestinationsPageStore } from '../../store/touristDestinationsPage'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react'
 // Import Swiper styles
@@ -18,12 +16,11 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 // import required modules
-import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules'
+import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
 
 import c from './jackLondonLake.module.scss'
 
 import routesMap from '../../assets/img/jackLondonLake/routes_map.jpg'
-import reviewDefault from '../../assets/img/jackLondonLake/review_default.jpg'
 
 function JackLondonLake() {
 	return (
@@ -387,35 +384,31 @@ const PriceBlock = () => {
 	return (
 		<div className={c.PriceBlock}>
 			<div className={'_container'}>
-				<h1 className={c.PriceBlockH1}>140 000 ₽</h1>
-				<div className={c.PriceBlockWrapper}>
-					<div className={c.PriceBlockCol}>
-						<div className={c.PriceBlockTitle}>
-							В стоимость путешествия входит:
-						</div>
-						<div className={c.PriceBlockItem}>Работа проводников</div>
-						<div className={c.PriceBlockItem}>Все трансферы и заброски</div>
-						<div className={c.PriceBlockItem}>
+				<h1 className={c.PriceBlockTitle}>140 000 ₽</h1>
+				<div className={c.List}>
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>В стоимость путешествия входит:</div>
+						<div className={c.ListItem}>Работа проводников</div>
+						<div className={c.ListItem}>Все трансферы и заброски</div>
+						<div className={c.ListItem}>
 							Пропуск в национальный парк «Черский»
 						</div>
-						<div className={c.PriceBlockItem}>
+						<div className={c.ListItem}>
 							Проживание в Магадане и пос. Ягодное
 						</div>
-						<div className={c.PriceBlockItem}>
+						<div className={c.ListItem}>
 							​Питание на протяжении всего похода
 						</div>
-						<div className={c.PriceBlockItem}>Аренда походного снаряжения</div>
+						<div className={c.ListItem}>Аренда походного снаряжения</div>
 					</div>
 
-					<div className={c.PriceBlockCol}>
-						<div className={c.PriceBlockTitle}>В стоимость не входит:</div>
-						<div className={c.PriceBlockItem}>
-							Авиабилеты в Магадан и обратно
-						</div>
-						<div className={c.PriceBlockItem}>
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>В стоимость не входит:</div>
+						<div className={c.ListItem}>Авиабилеты в Магадан и обратно</div>
+						<div className={c.ListItem}>
 							Личные расходы на сувениры и прочее
 						</div>
-						<div className={c.PriceBlockItem}>Индивидуальная страховка</div>
+						<div className={c.ListItem}>Индивидуальная страховка</div>
 					</div>
 				</div>
 			</div>
@@ -424,39 +417,153 @@ const PriceBlock = () => {
 }
 
 const EquipmentBlock = () => {
-	// const store = useJackLondonLakeStore()
-
+	const [toggleSwitcher, setToggleSwitcher] = useState(1)
 	return (
-		// <div className={c.PriceBlock}>
 		<div className={'_container'}>
-			<div className={c.PriceBlockWrapper}>
-				<div className={c.PriceBlockCol}>
-					<div className={c.PriceBlockTitle}>Личное снаряжение</div>
-					<div className={c.PriceBlockItem}>Палатка 2-х, 3-х местная</div>
-					<div className={c.PriceBlockItem}>Рюкзак объемом от 80 литров</div>
-					<div className={c.PriceBlockItem}>
-						Накидка влагозащитная на рюкзак
-					</div>
-					<div className={c.PriceBlockItem}>
-						Спальный мешок с температурой комфорта ~ 0 -10 С°
-					</div>
-					<div className={c.PriceBlockItem}>
-						Набор посуды: кружка, миска, ложка-вилка
-					</div>
-					<div className={c.PriceBlockItem}>Аренда походного снаряжения</div>
+			<div className={c.Switcher}>
+				<div
+					className={classNames({
+						[c.SwitcherItem]: true,
+						[c.SwitcherItemActive]: toggleSwitcher === 1,
+					})}
+					onClick={() => {
+						setToggleSwitcher(1)
+					}}
+				>
+					Мы выдаем
 				</div>
-
-				<div className={c.PriceBlockCol}>
-					<div className={c.PriceBlockTitle}>В стоимость не входит:</div>
-					<div className={c.PriceBlockItem}>Авиабилеты в Магадан и обратно</div>
-					<div className={c.PriceBlockItem}>
-						Личные расходы на сувениры и прочее
-					</div>
-					<div className={c.PriceBlockItem}>Индивидуальная страховка</div>
+				<div
+					className={classNames({
+						[c.SwitcherItem]: true,
+						[c.SwitcherItemActive]: toggleSwitcher === 2,
+					})}
+					onClick={() => {
+						setToggleSwitcher(2)
+					}}
+				>
+					Нужно свое
 				</div>
 			</div>
+
+			{toggleSwitcher === 1 ? (
+				<div className={c.List}>
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Личное снаряжение</div>
+						<div className={c.ListItem}>Палатка 2-х, 3-х местная</div>
+						<div className={c.ListItem}>Рюкзак объемом от 80 литров</div>
+						<div className={c.ListItem}>Накидка влагозащитная на рюкзак</div>
+						<div className={c.ListItem}>
+							Спальный мешок с температурой комфорта ~ 0 -10 С°
+						</div>
+						<div className={c.ListItem}>
+							Набор посуды: кружка, миска, ложка-вилка
+						</div>
+						<div className={c.ListItem}>Аренда походного снаряжения</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>В стоимость не входит:</div>
+						<div className={c.ListItem}>Авиабилеты в Магадан и обратно</div>
+						<div className={c.ListItem}>
+							Личные расходы на сувениры и прочее
+						</div>
+						<div className={c.ListItem}>Индивидуальная страховка</div>
+					</div>
+				</div>
+			) : (
+				<div className={c.List}>
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Одежда</div>
+						<div className={c.ListItem}>
+							Мембранная куртка-штормовка, защищающая от дождя и ветра
+						</div>
+						<div className={c.ListItem}>Мембранные штаны</div>
+						<div className={c.ListItem}>
+							Теплая куртка ходовая: флисовая, пуховая
+						</div>
+						<div className={c.ListItem}>Теплые флисовые штаны</div>
+						<div className={c.ListItem}>
+							Ходовые треккинговые штаны, легкие и быстросохнущие
+						</div>
+						<div className={c.ListItem}>Термобелье для сна: верх-низ</div>
+						<div className={c.ListItem}>
+							Нижнее белье синтетическое ~1 шт. на 3 дня
+						</div>
+						<div className={c.ListItem}>
+							Синтетическая футболка с длинным рукавом ~1 шт. на 3 дня
+						</div>
+						<div className={c.ListItem}>Головной убор для защиты от солнца</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Обувь</div>
+						<div className={c.ListItem}>Высокие треккинговые ботинки</div>
+						<div className={c.ListItem}>
+							Сандалии или кроксы для лагеря и бродов
+						</div>
+						<div className={c.ListItem}>Болотные сапоги из ЭВА или ПВХ</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Другая экипировка</div>
+						<div className={c.ListItem}>
+							Солнцезащитные очки. Категория фильтра S3+
+						</div>
+						<div className={c.ListItem}>Бутылка для воды</div>
+						<div className={c.ListItem}>Накомарник</div>
+						<div className={c.ListItem}>Беруши</div>
+						<div className={c.ListItem}>Свисток на экстренный случай</div>
+						<div className={c.ListItem}>Мешок для грязных вещей</div>
+						<div className={c.ListItem}>Пакет для мусора</div>
+						<div className={c.ListItem}>Гермомешок для документов</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Гигиена и здоровье</div>
+						<div className={c.ListItem}>Полотенце синтетическое</div>
+						<div className={c.ListItem}>
+							Шампунь, мыло, зубная паста — всё ~ по 50мл и с пометкой эко/био,
+							зубная щётка и нить
+						</div>
+						<div className={c.ListItem}>Влажная туалетная бумага смываемая</div>
+						<div className={c.ListItem}>Бумажные платки</div>
+						<div className={c.ListItem}>Солнцезащитный крем SPF 30+ и выше</div>
+						<div className={c.ListItem}>Гигиеническая помада</div>
+						<div className={c.ListItem}>
+							Пенообразующие губки CV Medica или аналоги
+						</div>
+						<div className={c.ListItem}>
+							Индивидуальная аптечка: лекарства от хронических заболеваний,
+							подходящие вам обезболивающие, антигистаминные и желудочные
+							средства, препараты от простуды, бинт, пластырь мозольный compeed,
+							средство от солнечных ожогов. Если есть проблемы с коленями, то
+							наколенники
+						</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Документы</div>
+						<div className={c.ListItem}>Паспорт</div>
+						<div className={c.ListItem}>Спортивная медицинская страховка</div>
+						<div className={c.ListItem}>
+							Деньги наличными и/или банковская карта
+						</div>
+					</div>
+
+					<div className={c.ListBlock}>
+						<div className={c.ListTitle}>Необязательные вещи</div>
+						<div className={c.ListItem}>Зарядка для телефона</div>
+						<div className={c.ListItem}>Портативный аккумулятор</div>
+						<div className={c.ListItem}>Стул туристический</div>
+						<div className={c.ListItem}>Подушка надувная</div>
+						<div className={c.ListItem}>Гамаши</div>
+						<div className={c.ListItem}>Мембранные носки</div>
+						<div className={c.ListItem}>Термос</div>
+						<div className={c.ListItem}>Удочка или спиннинг</div>
+					</div>
+				</div>
+			)}
 		</div>
-		// </div>
 	)
 }
 
