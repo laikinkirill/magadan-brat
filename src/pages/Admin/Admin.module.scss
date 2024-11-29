@@ -343,3 +343,13 @@
     grid-template-columns: 1fr!important;
   }
 }
+
+.equipment_block_btns {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+
+  button {
+    margin: 0;
+  }
+}

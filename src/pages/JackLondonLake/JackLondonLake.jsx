@@ -408,7 +408,12 @@ const PriceBlock = () => {
 }
 
 const EquipmentBlock = () => {
+
+  const equipment_block = useJackLondonLakeStore(state => state.equipment_block)
+
 	const [toggleSwitcher, setToggleSwitcher] = useState(1)
+
+  console.log(equipment_block.our);
 	return (
 		<div className={'_container'}>
 			<div className={c.Switcher}>
@@ -438,7 +443,16 @@ const EquipmentBlock = () => {
 
 			{toggleSwitcher === 1 ? (
 				<div className={c.List}>
-					<ul className={c.ListBlock}>
+
+          {equipment_block.our.map(el => (
+            <ul className={c.ListBlock} key={el.title} >
+              <li className={c.ListTitle}>{el.title.val}</li>
+              {el.values?.map((item, i) => (
+                <li key={i} className={c.ListItem}>{item.val.text}</li>
+              ))}
+            </ul>
+          ))}
+					{/* <ul className={c.ListBlock}>
 						<li className={c.ListTitle}>Личное снаряжение</li>
 						<li className={c.ListItem}>Палатка 2-х, 3-х местная</li>
 						<li className={c.ListItem}>Рюкзак объемом от 80 литров</li>
@@ -457,11 +471,19 @@ const EquipmentBlock = () => {
 						<li className={c.ListItem}>Авиабилеты в Магадан и обратно</li>
 						<li className={c.ListItem}>Личные расходы на сувениры и прочее</li>
 						<li className={c.ListItem}>Индивидуальная страховка</li>
-					</ul>
+					</ul> */}
 				</div>
 			) : (
 				<div className={c.List}>
-					<ul className={c.ListBlock}>
+          {equipment_block.their.map(el => (
+            <ul className={c.ListBlock} key={el.title} >
+              <li className={c.ListTitle}>{el.title.val}</li>
+              {el.values?.map((item, i) => (
+                <li key={i} className={c.ListItem}>{item.val.text}</li>
+              ))}
+            </ul>
+          ))}
+					{/* <ul className={c.ListBlock}>
 						<li className={c.ListTitle}>Обувь</li>
 						<li className={c.ListItem}>Высокие треккинговые ботинки</li>
 						<li className={c.ListItem}>
@@ -517,7 +539,7 @@ const EquipmentBlock = () => {
 						<li className={c.ListItem}>Мембранные носки</li>
 						<li className={c.ListItem}>Термос</li>
 						<li className={c.ListItem}>Удочка или спиннинг</li>
-					</ul>
+					</ul> */}
 				</div>
 			)}
 		</div>

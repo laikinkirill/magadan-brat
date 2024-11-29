@@ -44,6 +44,11 @@ const initialState = {
     not_included: [],
   },
 
+  equipment_block: {
+    our: [],
+    their: [],
+  },
+
   important_to_know_block: {
     title: { val: "" },
     accordion: {},
@@ -78,35 +83,24 @@ export const useJackLondonLakeStore = create((set, get) => ({
   changeText: async (path, value, type) => {
     try {
       console.log(path, value);
-      await setData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, path, {
+      const res = await setData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, path, {
         val: value,
       });
+      if (!res) return;
       const pathArr = path.split("/");
-      const obj = get()[pathArr.shift()];
+      const obj = get()[pathArr[0]];
       pathArr.reduce((acc, key) => {
-         console.log(acc, key);
-         if (acc.val) {
-            obj.val = value;
-            // eslint-disable-next-line array-callback-return
-            return;
-         }
-         if ( type === 'array' ) {
-            const el = acc[+key]
-            if ( el ) {
-               acc[+key].val = value
-            }
-            else {
-               acc[+key] = {
-                  val: value
-               }
-            }
-         }
-         if (acc[key]) return acc[key];
-         return acc;
-      }, obj);
+        if (acc.val) {
+          obj.val = res.val;
+          return;
+        }
+        if (acc[key]) return acc[key];
+        return acc;
+      }, get());
       set({
-         [pathArr[0]]: obj,
+        [pathArr[0]]: obj,
       });
+      console.log(res);
     } catch (error) {
       console.error(error);
     }
@@ -240,22 +234,20 @@ export const useJackLondonLakeStore = create((set, get) => ({
 
   addValueInPrice: async ( col ) => {
     try {
-      const price_block = get().price_block;
+      const price_block = structuredClone(get().price_block);
       if ( !price_block[col] ) price_block[col] = []
       price_block[col]?.push({
-        val: {
-          text: ''
-        }
+        val: { text: '' }
       })
-      set({ price_block: structuredClone(price_block) });
+      set({ price_block });
     } catch (error) {
       console.error(error);
     }
    },
   deleteValueInPrice: async ( id, col ) => {
     try {
-        await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `price_block/included/${id}`);
-        const price_block = { ...get().price_block }
+        await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `price_block/${col}/${id}`);
+        const price_block = structuredClone(get().price_block)
         price_block[col] = [undefined, ...price_block[col].filter((el, i) => i !== id)]
         set({ price_block });
     } catch (error) {
@@ -263,6 +255,53 @@ export const useJackLondonLakeStore = create((set, get) => ({
     }
   },
 
+  saveEquipment: async ( col, i, j, path, values ) => {
+    try {
+      await setData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, path, {
+        val: values,
+      });
+      const equipment_block = structuredClone(get().equipment_block)
+      equipment_block[col][i].values[j] = { val: values }
+      set({ equipment_block });
+    } catch (error) {
+      console.error(error);
+    }
+   },
+  addEquipment: async ( col ) => {
+    try {
+      const equipment_block = structuredClone(get().equipment_block);
+      if ( !equipment_block[col] ) equipment_block[col] = [undefined]
+      equipment_block[col]?.push({
+        title: { val: '' },
+        values: []
+      })
+      set({ equipment_block });
+    } catch (error) {
+      console.error(error);
+    }
+   },
+   deleteEquipment: async ( id, col ) => {
+     try {
+       await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `equipment_block/${col}/${id}`);
+       const equipment_block = structuredClone(get().equipment_block)
+       equipment_block[col] = equipment_block[col].filter((el, i) => i !== id)
+       set({ equipment_block });
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    addEquipmentText: async ( col, id ) => {
+      try {
+        const equipment_block = structuredClone(get().equipment_block)
+        if ( equipment_block[col][id].values?.length === 0 || !equipment_block[col][id]?.values ) equipment_block[col][id].values = []
+        equipment_block[col][id].values?.push({ val: { text: '' } })
+        console.log(id, equipment_block[col][id]);
+        set({ equipment_block });
+      } catch (error) {
+        console.error(error);
+      }
+     },
+    
    addQuestion: async () => {
       try {
          const important_to_know_block = get().important_to_know_block;

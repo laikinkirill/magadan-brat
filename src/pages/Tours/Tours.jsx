@@ -1111,7 +1111,7 @@ const TeamBlock = () => {
 					autoplay={{
 						delay: 2500,
 						disableOnInteraction: true,
-					}}
+					}}  
 					breakpoints={{
 						1100: {
 							slidesPerView: 3,
@@ -1126,21 +1126,23 @@ const TeamBlock = () => {
 					className={c.team_swiper}
 				>
 					{Object.values(store.team_block?.team || {}).map((person, i) => (
-						<SwiperSlide key={i}>
-							<div key={person.val.id} className={c.teamWrapper}>
-								<img src={person.img?.val} className={c.teamImage} alt='#' />
-								<div className={c.teamName}>{person.val.fio}</div>
-								<div className={c.job}>{person.val.post}</div>
-							</div>
-						</SwiperSlide>
-					))}
+              <SwiperSlide key={i}>
+                <div key={person.val.id} className={c.teamWrapper}>
+                  <img src={person.img?.val} className={c.teamImage} alt='#' />
+                  <div className={c.teamName}>{person.val.fio}</div>
+                  <div className={c.job}>{person.val.post}</div>
+                </div>
+              </SwiperSlide>
+            ))}
 				</Swiper>
 				<div
 					className='swiper-button-prev'
+          data-team={store.team_block?.team.length-1}
 					onClick={() => swiperRef.current?.swiper?.slidePrev()}
 				></div>
 				<div
 					className='swiper-button-next'
+          data-team={store.team_block?.team.length-1}
 					onClick={() => swiperRef.current?.swiper?.slideNext()}
 				></div>
 			</div>

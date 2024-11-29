@@ -23,6 +23,7 @@ import { ImportantToKnowBlock } from "./blocks/jack-london-lake-page/ImportantTo
 import c from "./Admin.module.scss";
 
 import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
+import { EquipmentBlock } from "./blocks/jack-london-lake-page/EquipmentBlock"
 
 function Admin() {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -466,6 +467,9 @@ const JackLondonLakePage = () => {
       <hr />
 
       <PriceBlock />
+      <hr />
+
+      <EquipmentBlock />
       <hr />
 
       <ImportantToKnowBlock />

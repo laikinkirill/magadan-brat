@@ -25,7 +25,7 @@ export const TextsSet = ({ name, path, keys, store, className, changeText }) => 
 
   const confirmHandler = () => {
     if ( changeText ) {
-      changeText()
+      changeText(path, values)
       return
     }
     store.getState().changeText(path, values, "array");
