@@ -379,31 +379,28 @@ const RoutesBlock = () => {
 }
 
 const PriceBlock = () => {
-	// const store = useJackLondonLakeStore()
+	const price_block = useJackLondonLakeStore(state => state.price_block)
 
 	return (
 		<div className={c.PriceBlock}>
 			<div className={'_container'}>
-				<h1 className={c.PriceBlockTitle}>140 000 ₽</h1>
+				<h1 className={c.PriceBlockTitle}>{price_block.price.val} ₽</h1>
 				<div className={c.List}>
+
 					<ul className={c.ListBlock}>
 						<li className={c.ListTitle}>В стоимость путешествия входит:</li>
-						<li className={c.ListItem}>Работа проводников</li>
-						<li className={c.ListItem}>Все трансферы и заброски</li>
-						<li className={c.ListItem}>
-							Пропуск в национальный парк «Черский»
-						</li>
-						<li className={c.ListItem}>Проживание в Магадане и пос. Ягодное</li>
-						<li className={c.ListItem}>​Питание на протяжении всего похода</li>
-						<li className={c.ListItem}>Аренда походного снаряжения</li>
+            {price_block.included.map(el => (
+              <li key={el.val.text} className={c.ListItem}>{el.val.text}</li>
+            ))}
 					</ul>
 
 					<ul className={c.ListBlock}>
 						<li className={c.ListTitle}>В стоимость не входит:</li>
-						<li className={c.ListItem}>Авиабилеты в Магадан и обратно</li>
-						<li className={c.ListItem}>Личные расходы на сувениры и прочее</li>
-						<li className={c.ListItem}>Индивидуальная страховка</li>
+						{price_block.not_included.map(el => (
+              <li key={el.val.text} className={c.ListItem}>{el.val.text}</li>
+            ))}
 					</ul>
+          
 				</div>
 			</div>
 		</div>

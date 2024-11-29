@@ -337,3 +337,9 @@
 .buttonBack {
 	background-color: #333;
 }
+
+.price_block_texts_set {
+  & > div {
+    grid-template-columns: 1fr!important;
+  }
+}

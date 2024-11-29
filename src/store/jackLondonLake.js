@@ -38,6 +38,12 @@ const initialState = {
     days: {}
   },
 
+  price_block: {
+    price: { val: "" },
+    included: [],
+    not_included: [],
+  },
+
   important_to_know_block: {
     title: { val: "" },
     accordion: {},
@@ -60,35 +66,50 @@ export const useJackLondonLakeStore = create((set, get) => ({
     const data = await getData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME);
     if (!data) return;
     console.log(data);
-    set(data);
+    set({ ...data });
   },
 
   queryAdminData: async () => {
     const data = await getData(ADMIN_COLLECTION_NAME);
     if (!data) return;
-    set(data);
+    set({ ...data });
   },
 
-  changeText: async (path, value) => {
-    console.log(path, value);
-    const res = await setData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, path, {
-      val: value,
-    });
-    if (!res) return;
-    const pathArr = path.split("/");
-    const obj = get()[pathArr[0]];
-    pathArr.reduce((acc, key) => {
-      if (acc.val) {
-        obj.val = res.val;
-        return;
-      }
-      if (acc[key]) return acc[key];
-      return acc;
-    }, get());
-    set({
-      [pathArr[0]]: obj,
-    });
-    console.log(res);
+  changeText: async (path, value, type) => {
+    try {
+      console.log(path, value);
+      await setData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, path, {
+        val: value,
+      });
+      const pathArr = path.split("/");
+      const obj = get()[pathArr.shift()];
+      pathArr.reduce((acc, key) => {
+         console.log(acc, key);
+         if (acc.val) {
+            obj.val = value;
+            // eslint-disable-next-line array-callback-return
+            return;
+         }
+         if ( type === 'array' ) {
+            const el = acc[+key]
+            if ( el ) {
+               acc[+key].val = value
+            }
+            else {
+               acc[+key] = {
+                  val: value
+               }
+            }
+         }
+         if (acc[key]) return acc[key];
+         return acc;
+      }, obj);
+      set({
+         [pathArr[0]]: obj,
+      });
+    } catch (error) {
+      console.error(error);
+    }
   },
 
   changeFile: async (path, value) => {
@@ -212,6 +233,31 @@ export const useJackLondonLakeStore = create((set, get) => ({
         await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `accordion/${id}`);
         let accordion = get().accordion
         set({ accordion: [null, ...accordion.filter(el => el.val.id !== ""+id)] });
+    } catch (error) {
+        console.error(error);
+    }
+  },
+
+  addValueInPrice: async ( col ) => {
+    try {
+      const price_block = get().price_block;
+      if ( !price_block[col] ) price_block[col] = []
+      price_block[col]?.push({
+        val: {
+          text: ''
+        }
+      })
+      set({ price_block: structuredClone(price_block) });
+    } catch (error) {
+      console.error(error);
+    }
+   },
+  deleteValueInPrice: async ( id, col ) => {
+    try {
+        await deleteData(JACK_LONDON_LAKE_PAGE_COLLECTION_NAME, `price_block/included/${id}`);
+        const price_block = { ...get().price_block }
+        price_block[col] = [undefined, ...price_block[col].filter((el, i) => i !== id)]
+        set({ price_block });
     } catch (error) {
         console.error(error);
     }

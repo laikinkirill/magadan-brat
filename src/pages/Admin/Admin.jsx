@@ -7,11 +7,22 @@ import classNames from "classnames";
 import { useMainPageStore } from "../../store/mainPage";
 import { useJackLondonLakeStore } from "../../store/jackLondonLake";
 import { sha256 } from "crypto-hash";
+import { arrayFromTo } from "../../utils/arrayFromTo";
+import { Text } from "./components/text/Text"
+import { TextsSet } from "./components/texts-set/TextsSet"
+import { Image } from "./components/image/Image"
+
+import { FirstBlock } from "./blocks/jack-london-lake-page/FirstBlock"
+import { DescriptionBlock } from "./blocks/jack-london-lake-page/DescriptionBlock"
+import { HikingRoutesMapBlock } from "./blocks/jack-london-lake-page/HikingRoutesMapBlock"
+import { PhotosBlock } from "./blocks/jack-london-lake-page/PhotosBlock"
+import { RoutesBlock } from "./blocks/jack-london-lake-page/RoutesBlock"
+import { PriceBlock } from "./blocks/jack-london-lake-page/PriceBlock"
+import { ImportantToKnowBlock } from "./blocks/jack-london-lake-page/ImportantToKnowBlock"
 
 import c from "./Admin.module.scss";
 
 import reviewDefault from "../../assets/img/jackLondonLake/review_default.jpg";
-import { arrayFromTo } from "../../utils/arrayFromTo";
 
 function Admin() {
   const [isAdmin, setIsAdmin] = useState(true);
@@ -434,168 +445,31 @@ const TouristDestinationsPage = () => {
 };
 
 const JackLondonLakePage = () => {
-  const s = useJackLondonLakeStore;
-
-  const important_to_know_block = useJackLondonLakeStore((state) => state.important_to_know_block);
-  const routes_block_accordion = useJackLondonLakeStore((state) => state.accordion);
-
-  const [questionsNumber, setQuestionsNumber] = useState([]);
-  const [daysNumber, setDaysNumber] = useState([]);
-
-  useEffect(() => {
-    setQuestionsNumber(arrayFromTo(1, important_to_know_block.accordion?.length - 1 || 0));
-  }, [important_to_know_block]);
-
-  useEffect(() => {
-    setDaysNumber(arrayFromTo(1, routes_block_accordion?.length - 1 || 0));
-  }, [routes_block_accordion]);
-
   return (
     <div className={c.page}>
+
       <h3>Озеро Джека Лондона</h3>
 
-      {/* FirstBlock */}
-      <Text name="Заголовок" path="first_block/title" store={s} />
-
-
-      <Image name="Картинка" path="first_block/img" store={s} />
-
-      <Text name="Дата 1" path="first_block/dates/1" store={s} />
-      <Text name="Дата 2" path="first_block/dates/2" store={s} />
-      <Text name="Дата 3" path="first_block/dates/3" store={s} />
-      <Text name="Дата 4" path="first_block/dates/4" store={s} />
-
-      <Text name="Текст" path="first_block/text" store={s} />
-      {/* FirstBlock */}
-
+      <FirstBlock />
       <hr />
 
-      {/* DescriptionBlock */}
-      <Text name="Подзаголовок" path="description_block/title" store={s} />
-
-      <Text name="Текст" path="description_block/text" store={s} />
-      {/* DescriptionBlock */}
-
+      <DescriptionBlock />
       <hr />
 
-      {/* HikingRoutesMapBlock */}
-      <Text
-        name="Подзаголовок"
-        path="hiking_routes_map_block/title"
-        store={s}
-      />
-
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((id) => (
-        <Fragment key={id}>
-          <Image name="Картинка" path={`map_points/${id}/img`} store={s} />
-
-          <TextsSet
-            name={`Точка ${id}`}
-            path={`map_points/${id}`}
-            keys={[
-              { key: "id", name: "id" },
-              { key: "text", name: "текст" },
-            ]}
-            store={s}
-          />
-
-          <hr />
-        </Fragment>
-      ))}
-      {/* HikingRoutesMapBlock */}
-
+      <HikingRoutesMapBlock />
       <hr />
 
-      {/* PhotosBlock */}
-      <Text name="Подзаголовок" path="photos_block/title" store={s} />
-
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((num) => (
-        <Image
-          key={num}
-          name={`Картинка ${num}`}
-          path={`photos_block/images/${num}`}
-          store={s}
-          deleteBtn
-        />
-      ))}
-      {/* PhotosBlock */}
-
+      <PhotosBlock />
       <hr />
 
-      {/* RoutesBlock */}
-      <Text name="Подзаголовок" path="routes_block/title" store={s} />
-
-      <button
-        className={c.persone_button}
-        onClick={() => s.getState().addDay()}
-      >
-        Добавить день
-      </button>
-
-      {daysNumber.map((id) => (
-        <Fragment key={id}>
-          <TextsSet
-            name={`Вкладка ${id}`}
-            path={`accordion/${id}`}
-            keys={[
-              { key: "title", name: "заголовок" },
-              { key: "text", name: "текст" },
-            ]}
-            store={s}
-          />
-
-          <button
-            onClick={() => s.getState().deleteDay(id)}
-            className={classNames(c.persone_button, c.delete_persone_button)}
-          >
-            Удалить
-          </button>
-        </Fragment>
-      ))}
-      {/* RoutesBlock */}
-
+      <RoutesBlock />
       <hr />
 
-      {/* ImportantToKnowBlock */}
-      <Text
-        name="Подзаголовок"
-        path="important_to_know_block/title"
-        store={s}
-      />
+      <PriceBlock />
+      <hr />
 
-      <button
-        className={c.persone_button}
-        onClick={() => s.getState().addQuestion()}
-      >
-        Добавить вопрос
-      </button>
-
-      {questionsNumber.map((id) => (
-        <Fragment key={id}>
-          <TextsSet
-            key={id}
-            name={`Вкладка ${id}`}
-            path={`important_to_know_block/accordion/${id}`}
-            keys={[
-              { key: "id", name: "Id" },
-              { key: "title", name: "заголовок" },
-              { key: "text", name: "текст" },
-            ]}
-            store={s}
-          />
-
-          <button
-            onClick={() => s.getState().deleteQuestion(id)}
-            className={classNames(c.persone_button, c.delete_persone_button)}
-          >
-            Удалить
-          </button>
-
-          <hr />
-        </Fragment>
-      ))}
-
-      {/* ImportantToKnowBlock */}
+      <ImportantToKnowBlock />
+      
     </div>
   );
 };
@@ -730,226 +604,6 @@ const Review = ({ s, review }) => {
   );
 };
 
-const Text = ({ name, path, store, onConfirm }) => {
-  const data = store((state) => {
-    const a = path.split("/");
-    a.push("val");
-    return a.reduce((acc, key) => {
-      if (!acc[key]) return acc;
-      return acc[key];
-    }, state);
-  });
-
-  const [value, setValue] = useState(data || "");
-
-  useEffect(() => {
-    setValue(data);
-  }, [data]);
-
-  const confirmHandler = () => {
-    store.getState().changeText(path, value);
-    onConfirm?.(value);
-  };
-
-  return (
-    <div className={classNames(c.field, c.text_field)}>
-      <p> {name} </p>
-      <textarea
-        type="text"
-        rows={1}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-      />
-      <button onClick={confirmHandler}>Сохранить</button>
-    </div>
-  );
-};
-
-const TextsSet = ({ name, path, keys, store }) => {
-  const data = store((state) => state[path.split("/")[0]]);
-
-  const [values, setValues] = useState(data);
-
-  useEffect(() => {
-    const a = path.split("/");
-    a.shift();
-    a.push("val");
-    setValues(
-      a.reduce((acc, key) => {
-        if (!acc[key]) {
-          return {};
-        }
-        return acc[key];
-      }, structuredClone(data))
-    );
-  }, [data]);
-
-  const confirmHandler = () => {
-    store.getState().changeText(path, values, "array");
-  };
-
-  return (
-    <div className={classNames(c.field, c.texts_set_field)}>
-      <p>{name}</p>
-      <div>
-        {keys?.map((obj) => (
-          <div key={obj.key}>
-            <span>{obj?.name}</span>
-            <textarea
-              type="text"
-              rows={1}
-              value={values[obj.key]}
-              onChange={(e) =>
-                setValues((prev) => {
-                  prev[obj.key] = e.target.value;
-                  return { ...prev };
-                })
-              }
-            />
-          </div>
-        ))}
-      </div>
-      <button onClick={confirmHandler}>Сохранить</button>
-    </div>
-  );
-};
-
-const Image = ({ name, path, store, deleteBtn }) => {
-  const data = store((state) => {
-    const a = path.split("/");
-    a.push("val");
-    return a.reduce((acc, key) => {
-      if (!acc[key]) return acc;
-      return acc[key];
-    }, state);
-  });
-
-  const [loadedImg, setLoadedImg] = useState("");
-  const [loadedFile, setLoadedFile] = useState(null);
-
-  const inputRef = useRef(null);
-
-  const loadImg = async (e) => {
-    if (!e.target.files) return;
-
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    setLoadedImg(URL.createObjectURL(file));
-    setLoadedFile(file);
-  };
-
-  const confirmHandler = async () => {
-    store.getState().changeFile(path, loadedFile);
-  };
-
-  const deleteHandler = async () => {
-    store.getState().deleteFile(path);
-    cancelUpload()
-  };
-
-  const cancelUpload = () => {
-    inputRef.current.value = "";
-    setLoadedFile(null);
-    setLoadedImg("");
-  };
-
-  return (
-    <div className={classNames(c.field, c.image_field)}>
-      <p>{name}</p>
-      <img
-        width={200}
-        src={loadedImg || data}
-        alt=""
-        onClick={() => {
-          inputRef.current?.click();
-        }}
-      />
-      <input
-        ref={inputRef}
-        accept="image/*"
-        type="file"
-        name="file"
-        onChange={loadImg}
-      />
-      <button onClick={confirmHandler} disabled={!loadedImg}>
-        Сохранить
-      </button>
-      {loadedImg && <button onClick={cancelUpload}>Отмена</button>}
-      {deleteBtn &&
-        <button onClick={deleteHandler} >
-          Удалить
-        </button>
-      }
-    </div>
-  );
-};
-
-const Video = ({ name, path, store }) => {
-  const data = store((state) => {
-    const a = path.split("/");
-    a.push("val");
-    return a.reduce((acc, key) => {
-      if (!acc[key]) return acc;
-      return acc[key];
-    }, state);
-  });
-
-  const [loadedFile, setLoadedFile] = useState(null);
-
-  const inputRef = useRef(null);
-  const videoRef = useRef(null);
-
-  const loadImg = async (e) => {
-    if (!e.target.files) return;
-
-    const file = e.target.files[0];
-
-    if (!file) return;
-
-    const oUrl = URL.createObjectURL(file);
-
-    videoRef.current.src = oUrl;
-
-    setLoadedFile(file);
-  };
-
-  const confirmHandler = async () => {
-    store.getState().changeFile(path, loadedFile);
-  };
-
-  const cancelUpload = () => {
-    inputRef.current.value = "";
-    setLoadedFile(null);
-  };
-
-  return (
-    <div className={classNames(c.field, c.video_field)}>
-      <p>{name}</p>
-      <video
-        ref={videoRef}
-        src={data}
-        width={200}
-        onClick={() => {
-          inputRef.current?.click();
-        }}
-        loop
-        muted
-        controls
-      ></video>
-      <input
-        ref={inputRef}
-        accept=".mp4"
-        type="file"
-        name="file"
-        onChange={loadImg}
-      />
-      <button onClick={confirmHandler}>Сохранить</button>
-      {loadedFile && <button onClick={cancelUpload}>Отмена</button>}
-    </div>
-  );
-};
 
 const PASSWORD_HASH =
   "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918";
